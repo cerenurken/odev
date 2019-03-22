@@ -1,0 +1,311 @@
+.aa-cartbox{
+	float: right;
+	text-decoration:none;
+
+}
+.aa-logo{
+	float: left;
+	padding: auto;
+}
+.logo{
+	height: 100px;
+	width: 250px;
+}
+
+.navbar-nav{
+	margin-left: 6%;
+
+}
+.form-inline{
+	margin-right: 3%;
+}
+.d-block{
+	max-height: 585px;
+	max-width: 1550px;
+}
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+}
+.indirim{
+	margin-top: 5%;
+}
+.resimler{
+	height: 250px;
+	width: 350px;
+	padding-top: 1px;
+	opacity: 0.95;
+	
+}
+.ürünü{
+	font-family: monotype corsiva;
+	font-weight: bold;
+	font-size: 35px;
+}
+.resimler:hover{
+	opacity: 0.3;
+}
+
+.no-padding {
+	position:relative;
+}
+/*
+.resimYazisi {
+	position:absolute;
+	left:100px;
+	top:190px;
+	color:#4d4c4c;
+	font-size: 30px;
+	font-weight: bold;
+	font-family: monotype corsiva;
+
+}
+.resimYazi{
+	position: absolute;
+	left:140px;
+	top:215px;
+	color:#2a2929;
+	font-weight: bold;
+	font-size: 25px;
+	font-family: monotype corsiva;
+
+}
+*/
+.resimIndirim{
+	position: absolute;
+	left: 40px;
+	top: 120px;
+	font-size: 45px;
+	color:#e31811;
+	font-weight: bold;
+	font-family: monotype corsiva;
+}
+
+.kategori{
+	margin-top: 8%;
+}
+.k-sınıfı{
+	font-weight: bold;
+	font-family: monotype corsiva;
+	padding-left: 3px;
+	text-decoration: none;
+	font-size: 27px;
+	padding-right: 15px;
+	color: black; 
+}
+.k-sınıfı:hover{
+	font-weight: bold;
+	font-size: 25px;
+	text-decoration: none;
+	border-bottom: 1px solid;
+	border-color: green;
+	color: #4d4c4c;
+}
+.k-link:hover{
+	text-decoration: none;
+}
+.sebzeler{
+	height: 250px;
+	width: 230px;
+	
+}
+.k-sebze{
+	margin-top: 1.5%;
+}
+.sebze-buton{
+	margin-top: 25px;
+	background-color: green;
+	color:white;
+	font-size: 20px;
+	width: 575px;
+	margin-left: 250px;
+	height: 35px;
+}
+.sepete_ekle{
+	height: 35px;
+	width: 230px;
+	padding-right: 20px;
+	margin-top: -4px;
+	margin-bottom: 15px;
+}
+.sebze_ad{
+	color:#4d4c4c;
+	padding-left: 70px;
+	font-size: 23px;
+	padding-top: 2px;
+}
+.sebze_fiyat{
+	color: grey;
+	padding-left: 90px;
+	margin-top: -6px;
+
+}
+.sepet{
+	padding-left: 5px;
+	height: 30px;
+}
+.haber{
+	margin-top: 100px;
+	margin-bottom: 17px;
+	font-weight: bold;
+	font-family: monotype corsiva;
+	font-size: 50px;
+}
+
+.haber_card{
+	background-color:#fbfcf9;
+}
+.haber_buton{
+	float: right;
+	width: 150px;
+	margin-right: 5px;
+}
+.haber_butonn{
+	float: right;
+	width: 80px;
+	font-size: 11px;
+}
+.yon_tusu{
+	margin-top: 220px;
+}
+.iletisim_logo{
+	padding-left: 240px;
+	padding-top: 50px;
+	padding-bottom: 15px;
+
+}
+.iletisim_baslik{
+	font-weight: bold;
+	font-family: monotype corsiva;
+	font-size: 25px;
+	padding-left: 180px;
+	color: green;
+}
+.iletisim_card{
+	font-weight: bold;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+.iletisim{
+	margin-top: 100px;
+	background-color: #cbcbcb;
+	height: 210px;
+}
+.footer_menu{
+	margin-top: 5px;
+	background-color:#cbcbcb;
+	padding-top: 5px;
+	padding-left: 30px;
+	text-decoration: none;
+
+}
+.footer_baslik{
+	font-weight: bold;
+	font-family: monotype corsiva;
+	font-size: 25px;
+	padding-left: 20px;
+	color: green;
+}
+.footer_link{
+	text-decoration: none;
+	color:black;
+	font-weight: bold;
+	font-size: 10px;
+}
+.menu_footer{
+	text-decoration: none;
+}
+.sos_logo{
+	float: right;
+	padding-right: 15px;
+}
+.ode_logo{
+	float: left;
+	padding-right: 20px;
+}
+
+.so_card{
+	background-color: #f7f7f7;
+	height: 400px;
+}
+
+.so_ic{
+	height: 270px;
+	width:180px;
+	margin-top: 25px;
+	margin-left: 15px;
+}
+.so_resim{
+	height: 120px;
+	width: 160px;
+	padding-left: 15px;
+	padding-top: 14px;
+}
+.size_ozel_i{
+	margin-top: 80px;
+	font-weight: bold;
+	font-family: monotype corsiva;
+	font-size: 50px;
+}
+.giris_login{
+	height: 30px;
+	 width: 25px;
+	 margin-top: 3px;
+	 float: right;
+	 margin-right: 15px;
+}
+.card_indirim{
+	background-color: #f7f7f7;
+	padding-top: 30px;
+	padding-bottom: 10px;
+	padding-right: 50px;
+	padding-left: 50px;
+	padding-bottom: 30px;
+}
+.kategori_card{
+	background-color: #f7f7f7;
+	padding-left: 45px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	margin-left: 30px;
+	margin-right: 30px;
+	padding-right: 55px;
+}
+.haber_cardi{
+	background-color: #f7f7f7;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin-left: 90px;
+	margin-right: 90px;
+}
+.sepet_konum{
+	margin-right: 90px;
+	margin-top: 30px;
+}
+.buton_konum{
+	margin-top: 20px;
+	width: 90px;
+}
+.sebze_adi{
+	padding-top: 15px;
+}
+.sebze_fiyati{
+	color: green;
+}
+.sepete_eklee{
+	padding-top: 5px;
+	margin-top: 17px;
+	width: 150px;
+	margin-left: 20px;
+}
+.kullanıcı_cards{
+	background-color: #f7f7f7;
+	margin-left: 300px;
+	margin-right: 30px;
+	margin-top: 30px;
+}
+.musteri_button{
+	margin-top: 30px;
+	width: 700px
+}
