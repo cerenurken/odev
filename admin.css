@@ -214,3 +214,35 @@ a.article:hover {
     font-weight: bold;
 
 }
+/*admin anasayfa*/
+.gosterge-icon{
+    color: green;
+}
+.admin-card{
+    background-color:#F7F7F7;
+    margin-right: 20px;
+}
+.d-flex{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: 20px;
+    margin-left: 20px;
+
+}
+.ust-baslik{
+    font-family: calibra;
+    font-size: 18px;
+    font-weight: bold;
+}
+.orta-baslik{
+    font-size: 18px;
+    color: #6d6d6d;
+}
+.count-number{
+    color: green;
+    font-size: 16px;
+}
+#chartdiv {
+  width: 600px;
+  height: 350px;
+}
