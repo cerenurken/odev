@@ -319,3 +319,11 @@ a.article:hover {
     font-weight: bold;
 
 }
+/*siparişler sayfası*/
+.siparis-baslik{
+    padding-top: 15px;
+    font-size: 25px;
+    color: #5d5d5d;
+    font-weight: bold;
+    margin-top: 25px;
+}
