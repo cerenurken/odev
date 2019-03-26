@@ -19,6 +19,6 @@
 	}
 	else{
 			echo "Bağlantı Yapılamadı :(";
-		}
+	}
 	
 ?>
