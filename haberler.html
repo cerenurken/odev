@@ -11,8 +11,9 @@
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="admin.css">
+   <!-- <link rel="stylesheet" href="admin.css">-->
     <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="admin-panel.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -78,18 +79,17 @@
 
             <ul class="list-unstyled components">
                 <li>
-                        <div class="row">
-                            <img class="fas fa-user rounded-circle mx-auto" style="border: 2px solid;width: 100px;  height: 100px;padding: 15px; margin-bottom: 10px;"/>
-                        </div>
-                </li>
                     <div class="row">
-                        <p class="mx-auto">Organik Amca</p>
+                        <img class="fas fa-user rounded-circle mx-auto" style="border: 2px solid;width: 100px;  height: 100px;padding: 15px; margin-bottom: 10px;"/>
                     </div>
-                    <div class="row">
-                        <b class="row mx-auto">İşletme:</b>organicK A.Ş
-                    </div>
-                    <br />
                 </li>
+                <div class="row">
+                    <p class="mx-auto">Organik Amca</p>
+                </div>
+                <div class="row">
+                    <b class="row mx-auto">İşletme:</b>organicK A.Ş
+                </div>
+                <br />
                 <li >
                     <a href="admin.html">AnaSayfa</a>
                 </li>
@@ -150,42 +150,57 @@
 
         <div class="row">
                 
-                <div class="col-sm-12 col-md-6">
-                    <div class="card text-left">
-                        <div class="card-header">Ağaç Budama</div>
-                        <div class="card-body">
-                            <h5 class="card-title">İl müdürü ağaç budamayı uygulamalı gösterdi</h5>
-                            <p class="card-text">Diyarbakır Tarım ve Orman İl Müdürü Mustafa Ertan Atalar, İl Müdür Yardımcısı Mehmet Hüseyinoğlu, Dicle İlçe Müdür Vekili Rıfat Arık İle Teknik personellerce Dicle İlçesi Bademli Mahallesi çiftçilerine budamaya yönelik ziyaret gerçekleştirdi. Diyarbakır Tarım ve Orman İl Müdürü Mustafa Ertan Atalar buradaki çiftçilerle bir süre sohbet ettikten sonra meyve ağaçlarında budamanın nasıl ve hangi dönemlerde yapılacağını anlattı. Budamaya yönelik anlatımı sonrası örnek teşkil etmesi amacıyla Çiftçilere badem ağacının nasıl budanacağını uygulamalı olarak gösterdi.</p>
-                            <a href="https://www.tarimdanhaber.com/haber/egitim/il-muduru-agac-budamayi-uygulamali-gosterdi/haber_id=11779" class="btn btn-success">Devamı</a>
+                <div class="col-sm-12 col-md-6 haber-cards">
+                    <div class="card text-left ">
+                        <div class="card-header haber-baslik">İl Müdürü Ağaç Budamayı Uygulamalı Gösterdi</div>
+                        <div class="card">
+                          <div class="card-block haber-admin">
+                            <img src="resimler/haberler/haber1.png" alt="haber" class="img-fluid haber-resim" />
+                            <div class="card-text haber-detay">
+                                Diyarbakır Tarım ve Orman İl Müdürü Mustafa Ertan Atalar, İl Müdür Yardımcısı Mehmet Hüseyinoğlu, Dicle İlçe Müdür Vekili Rıfat Arık İle Teknik personellerce Dicle İlçesi Bademli Mahallesi çiftçilerine budamaya yönelik ziyaret gerçekleştirdi. Diyarbakır Tarım ve Orman İl Müdürü Mustafa Ertan Atalar buradaki çiftçilerle bir süre sohbet ettikten sonra meyve ağaçlarında budamanın nasıl ve hangi dönemlerde yapılacağını anlattı.
+                            </div>
+                          </div>
                         </div>
-                        <div class="card-footer text-muted">2 days ago</div>
+                        <div class="card-footer text-muted">
+                            <a href="https://www.tarimdanhaber.com/haber/egitim/il-muduru-agac-budamayi-uygulamali-gosterdi/haber_id=11779" class="btn btn-success haber_buton">Devamı <i class="fas fa-forward"></i></a>
+                        </div>
                     </div>
                 </div>
-
-                <div class="col-sm-12 col-md-6">
-                    <div class="card text-left">
-                        <div class="card-header">En Çok Ziyaret Edilen Saatler</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div class="col-sm-12 col-md-6 haber-cards">
+                    <div class="card text-left ">
+                        <div class="card-header haber-baslik">Konya Tarım Fuarı ihracata %20 Katkı Sağladı</div>
+                        <div class="card">
+                          <div class="card-block haber-admin">
+                            <img src="resimler/haberler/haber2.png" alt="haber" class="img-fluid haber-resim" />
+                            <div class="card-text haber-detay">
+                                19 - 23 Mart 2019 tarihleri arasında Konya Ticaret Odası – Tüyap Konya Uluslararası Fuar Merkezi'nde gerçekleştirilen Konya Tarım 2019 17. Tarım, Tarımsal Mekanizasyon ve Tarla Teknolojileri Fuarı bir kez daha yabancı ziyaretçi rekoru kırdı.
+                                20 ülkeden 441 katılımcı firma ve firma temsilciliğinin tarımsal mekanizasyon alanında en yeni ürünlerini sergiledikleri Konya Tarım Fuarı'nda 101 ülkeden ve Türkiye'nin 72 şehrinden 304.855 profesyonel ziyaretçi ağırlandı.
+                            </div>
+                          </div>
                         </div>
-                        <div class="card-footer text-muted">2 days ago</div>
+                        <div class="card-footer text-muted">
+                            <a href="https://www.tarimdanhaber.com/haber/egitim/il-muduru-agac-budamayi-uygulamali-gosterdi/haber_id=11779" class="btn btn-success haber_buton">Devamı <i class="fas fa-forward"></i></a>
+                        </div>
                     </div>
                 </div>
-
-                <div class="col-sm-12 col-md-6">
-                    <div class="card text-left">
-                        <div class="card-header">En Çok Ziyaret Edilen Saatler</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div class="col-sm-12 col-md-6 haber-cards">
+                    <div class="card text-left ">
+                        <div class="card-header haber-baslik">Tarım Makinaları İhracatında Rekor Kırıldı</div>
+                        <div class="card">
+                          <div class="card-block haber-admin">
+                            <img src="resimler/haberler/haber3.png" alt="haber" class="img-fluid haber-resim" />
+                            <div class="card-text haber-detay">
+                                Türk Tarım Alet ve Makinaları İmalatçıları Birliği (TARMAKBİR) Genel Sekreteri M. Selami İleri, yaptığı açıklamada tarım makinaları sektöründe 2019 yılı ihracatının, 2018 yılı seviyesine göre yüzde 37 artarak 137 milyon dolar seviyesine ulaştığını kaydetti.
+                                Makina Sektöründe 2019 yılı Ocak-Şubat dönemi dış ticaret verileri açıklandı.
+                            </div>
+                          </div>
                         </div>
-                        <div class="card-footer text-muted">2 days ago</div>
+                        <div class="card-footer text-muted">
+                            <a href="https://www.tarimdanhaber.com/haber/egitim/il-muduru-agac-budamayi-uygulamali-gosterdi/haber_id=11779" class="btn btn-success haber_buton">Devamı <i class="fas fa-forward"></i></a>
+                        </div>
                     </div>
                 </div>
-        </div>
+            </div>
 
 
         

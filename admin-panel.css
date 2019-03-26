@@ -62,7 +62,7 @@ a:focus {
     padding-bottom: 0px;
     overflow-y: scroll; 
     z-index: 999;
-    background: #868686;
+    background: #5d5d5d;
     color: #fff;
     transition: all 0.3s;
    
@@ -242,7 +242,53 @@ a.article:hover {
     color: green;
     font-size: 16px;
 }
-#chartdiv {
-  width: 600px;
-  height: 350px;
+
+.haber-admin{
+	margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 15px;
+}
+.haber-resim{
+    padding-bottom: 17px;
+}
+.haber-detay{
+    padding-bottom: 15px;
+}
+.haber_buton{
+    float: right;
+    width: 200px;
+    margin-right: 30px;
+}
+.haber-cards{
+    margin-bottom: 55px;
+    margin-top: 10px;
+}
+.haber-baslik{
+    font-size: 20px;
+    color: #5d5d5d;
+    font-weight: bold;
+}
+/*profil card*/
+.profil-duzen{
+    margin-top: 20px;
+    margin-left: 50px;
+}
+.foto-yükle{
+    margin-top: 25px;
+}
+.foto-sec{
+    margin-top: -44px;
+    margin-left: 50px;
+}
+.foto-konum{
+    width: 200px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    
+}
+.foto-acıklama{
+    padding-left: 20px;
+    margin-top: 15px;
+    color: #5d5d5d;
+    font-weight: bold;
 }
