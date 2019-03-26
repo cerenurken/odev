@@ -303,3 +303,19 @@ a.article:hover {
 .kisisel-icon{
     color: #99a39b;
 }
+
+/*İLETİSİM SAYFASI*/
+.tablo-adı{
+    color: #078121;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 10px;
+    width: 200px;
+}
+.iletisim-baslik{
+    margin-top: 3%;
+    font-size: 25px;
+    color: #5d5d5d;
+    font-weight: bold;
+
+}
