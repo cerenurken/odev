@@ -21,7 +21,7 @@
 }
 .d-block{
 	max-height: 585px;
-	max-width: 1550px;
+	max-width: 100%;
 }
 .no-gutters {
   margin-right: 0;
