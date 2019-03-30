@@ -366,3 +366,27 @@ a.article:hover {
 .urun_fotosu{
     margin-top: 120px;
 }
+.tablo-acıklama{
+    color: #5D5D5D;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 50px;
+}
+.ürün-giris-buton{
+    width: 100%;
+    margin-top: 1%;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    font-style: italic;
+}
+.stok-kontrol{
+    padding-top: 20px;
+}
+.stok-kontrol {
+    padding-top: 30px;
+    padding-bottom: 10px;
+    background-color: #8E8D8D;
+    padding-left: 30px;
+    border:0.50px solid #00000010;
+}
