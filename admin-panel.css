@@ -346,3 +346,23 @@ a.article:hover {
 .kg{
    margin-bottom: 20px;
 }
+.urun-tab{
+    font-weight: bold;
+    height: 55px;
+    padding-top: 15px;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+    color: #358540;
+}
+.nav-tabs .nav-link{
+    border:1px solid #00000029;
+}
+.col-12{
+    height: 70px;
+}
+.urun_foto{
+    margin-top: 75px;
+}
+.urun_fotosu{
+    margin-top: 120px;
+}
