@@ -21,13 +21,13 @@
                             <input type="email" class="form-control" placeholder="Eposta *" value="" />
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Parola *" value="" />
+                            <input type="password"  class="form-control" placeholder="Parola *" value="" />
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btnSubmit" value="Giriş Yap" />
                         </div>
                         <div class="form-group">
-                            <a href="#" class="ForgetPwd">Şifreni Mi Unuttun?</a>
+                            <a href="#" id="btn-login" class="ForgetPwd">Şifreni Mi Unuttun?</a>
                         </div>
                     </form>
 
@@ -37,7 +37,7 @@
 
                 <div class="col-md-6 login-form-2">
                     <h3>YENİ HESAP</h3>
-                    <form action="php/giris.php" method="POST">
+                    <form action="php/kayit.php" method="POST">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Ad / Soyad *" value="" />
                         </div>
@@ -45,30 +45,30 @@
                             <input type="text" class="form-control" placeholder="Telefon *" value="" />
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="E-posta *" value="" />
+                            <input type="email"  name="email" class="form-control" placeholder="E-posta *" value="" />
                         </div>
                         <div class="form-group">
                               <input type="date" class="form-control" placeholder="Doğum Tarihi *" value="" />
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Parola *" value="" />
+                            <input type="password" name="pass" class="form-control" placeholder="Parola *" value="" />
                         </div>
                         <div class="form-group">
                             <li id="li-gender" class="gender">
                               <span class="dogum">Cinsiyet</span></br>
                                 <label for="register-male" class="radio control-inline cinsiyet">
-                                  <input type="radio" name="signup_form[gender]" required="required" class="gender cinsiyet" data-msg-required="Lütfen cinsiyetinizi belirtiniz." value="male">Erkek</label>
+                                  <input type="radio" name="signup_form[gender]" required="required" class="gender cinsiyet" data-msg-required="Lütfen cinsiyetinizi belirtiniz." value="erkek">Erkek</label>
                                 <label for="register-female" class="radio control-inline cinsiyet">
-                                  <input type="radio"  name="signup_form[gender]" required="required" class="gender cinsiyet" data-msg-required="Lütfen cinsiyetinizi belirtiniz." value="female"> Kadın</label>
+                                  <input type="radio"  name="signup_form[gender]" required="required" class="gender cinsiyet" data-msg-required="Lütfen cinsiyetinizi belirtiniz." value="kadın"> Kadın</label>
                                 <label for="register-neutral" class="radio control-inline cinsiyet">
-                                  <input type="radio" id="register-neutral" name="signup_form[gender]" class="gender cinsiyet" required="required" value="neutral">Diğer</label>
+                                  <input type="radio" id="register-neutral" name="signup_form[gender]" class="gender cinsiyet" required="required" value="diger">Diğer</label>
                             </li>
                         </div>
                         <div class="form-group">
                             <span class="dogum" >Kullanıcı Türü</span></br>
                             <select class="form-control" >
-                                <option class="kayit">Müşteri</option>
-                                <option class="kayit">İşletme</option>
+                                <option class="kayit" value="3">Müşteri</option>
+                                <option class="kayit" value="2">İşletme</option>
                             </select>
                         </div>
                         
