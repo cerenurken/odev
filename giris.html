@@ -39,43 +39,43 @@
                     <h3>YENİ HESAP</h3>
                     <form action="php/kayit.php" method="POST">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Ad / Soyad *" value="" />
+                            <input type="text" class="form-control" name="ad" placeholder="Ad / Soyad *" value=""  required="required" />
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Telefon *" value="" />
+                            <input type="text" class="form-control" name="no" placeholder="Telefon *" value=""   required="required"/>
                         </div>
                         <div class="form-group">
-                            <input type="email"  name="email" class="form-control" placeholder="E-posta *" value="" />
+                            <input type="email"  name="email" class="form-control" placeholder="E-posta *" value=""   required="required" />
                         </div>
                         <div class="form-group">
-                              <input type="date" class="form-control" placeholder="Doğum Tarihi *" value="" />
+                              <input type="date" class="form-control" name="date" placeholder="Doğum Tarihi *" value=""  required="required"  />
                         </div>
                         <div class="form-group">
-                            <input type="password" name="pass" class="form-control" placeholder="Parola *" value="" />
+                            <input type="password" name="pass" class="form-control" placeholder="Parola *" value=""  required="required" />
                         </div>
                         <div class="form-group">
                             <li id="li-gender" class="gender">
                               <span class="dogum">Cinsiyet</span></br>
                                 <label for="register-male" class="radio control-inline cinsiyet">
-                                  <input type="radio" name="signup_form[gender]" required="required" class="gender cinsiyet" data-msg-required="Lütfen cinsiyetinizi belirtiniz." value="erkek">Erkek</label>
+                                  <input type="radio" name="signup_form" required="required" class="gender cinsiyet" data-msg-required="Lütfen cinsiyetinizi belirtiniz." value="Erkek">Erkek</label>
                                 <label for="register-female" class="radio control-inline cinsiyet">
-                                  <input type="radio"  name="signup_form[gender]" required="required" class="gender cinsiyet" data-msg-required="Lütfen cinsiyetinizi belirtiniz." value="kadın"> Kadın</label>
+                                  <input type="radio"  name="signup_form" required="required" class="gender cinsiyet" data-msg-required="Lütfen cinsiyetinizi belirtiniz." value="Kadın"> Kadın</label>
                                 <label for="register-neutral" class="radio control-inline cinsiyet">
-                                  <input type="radio" id="register-neutral" name="signup_form[gender]" class="gender cinsiyet" required="required" value="diger">Diğer</label>
+                                  <input type="radio" id="register-neutral" name="signup_form" class="gender cinsiyet" required="required" value="Diğer">Diğer</label>
                             </li>
                         </div>
                         <div class="form-group">
                             <span class="dogum" >Kullanıcı Türü</span></br>
-                            <select class="form-control" >
-                                <option class="kayit" value="3">Müşteri</option>
-                                <option class="kayit" value="2">İşletme</option>
+                            <select class="form-control" name="secenek"  required="required" >
+                                <option class="kayit" value="3"  required="required">Müşteri</option>
+                                <option class="kayit" value="2"  required="required">İşletme</option>
                             </select>
                         </div>
                         
                         
                         <div class="form-group">
                            <label for="register-thirdparty" class="checkbox sozlesme">
-                              <input type="checkbox" id="register-thirdparty" name="signup_form[thirdpartyemail]" class="thirdparty" value="true">
+                              <input type="checkbox" id="register-thirdparty" name="sozlesme" class="thirdparty" value="Seçildi"  required="required">
                               Pazarlama amaçları doğrultusunda kayıt verilerimi organicK'in içerik sağlayıcıları ile paylaş. Gizlilik politikamızda açıklandığı şekilde, verilerinin Avrupa Ekonomik Alanı dışındaki ülkelerden birine aktarılabileceğini aklında bulundur.
                             </label>
                         </div>

@@ -1,29 +1,21 @@
 <?php
 
 require 'baglan.php';
-if ($_POST) {
-	if(isset($_POST["email"])){
-		$email=strip_tags(trim($_POST["email"]));
+$ad= $_POST["ad"] ;
+$no = $_POST["no"];
+$email = $_POST ["email"];
+$date = $_POST["date"];
+$pass =$_POST["pass"];
+$cins= $_POST["signup_form"];
+$sec= $_POST["secenek"];
+$ekle ="insert into kullanici_kayit(ad_soyad,telefon,e_posta,dogum_tarihi,parola,cinsiyet,role_id) values('$ad','$no','$email','$date','$pass','$cins','$sec')";
+	if ($baglan->query($ekle)){
+		echo "kayıt yapıldı";
 	}
 	else{
-		echo "lütfen epostanızı giriniz";
+		echo "kayıt yapılamadı";
 	}
-	if  (isset($_POST["pass"])){
-		$pass=strip_tags(trim($_POST["pass"]));
-	}
-	else{
-		echo "lütfen sirenizi girin";
-	}
-	if($baglan){
-		echo "veritabanı erişimi sağlandı";
-		$sorgu=mysqli_query($baglan,"select * from kullanici_kayit");
-	}
-	else{
-		die("veritabanı yok")
-	}
-}
-else{
-	echo "sayfa baglantısı yok";
-}
+
+
 
 ?>
