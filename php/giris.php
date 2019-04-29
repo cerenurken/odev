@@ -21,9 +21,11 @@ if ($_POST){
 	$sorgu=mysqli_query($baglan,"select * from kullanici_kayit where e_posta='$giris_mail' and parola='$giris_pass'");
 
 	if(mysqli_num_rows($sorgu)>0){
-		echo "Hoş Geldiniz";
+		
 	}else{
 		echo "Kullanıcı adı veya parola yanlış..!";
 	}
+
 }
+
 ?>

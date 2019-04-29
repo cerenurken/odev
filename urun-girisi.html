@@ -226,29 +226,36 @@
                                 <div class="row">
                                         <div class="col-sm-12 col-md-8 urun_düzen">
                                             <div class="card text-left">
+                                                <form action="php/urun_giris.php" method="POST">
                                                 <div class="form-group urun-konum">
                                                     <label for="ad" class="text-uppercase urun-form"><i class="far fa-edit kisisel-icon"></i>Ürün Adı</label>
-                                                    <input type="text" class="form-control urun-kisisel" placeholder="Domates , Biber,  . . .">
+                                                    <input type="text" class="form-control urun-kisisel" placeholder="Domates , Biber,  . . ." name="urun_ad">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-align-left kisisel-icon"></i>Kategorİ Seç</label>
                                                     <!--<input type="text" class="form-control form-kisisel" placeholder="Sebze,Meyve, ...">-->
-                                                    <select class="form-control urun-kisisel" id="sel1">
-                                                        <option >SEBZE</option>
-                                                        <option>YEŞİLLİK</option>
-                                                        <option>MEYVE</option>
-                                                        <option>SALÇA&SİRKE</option>
-                                                        <option>KURU BAKLİYAT</option>
+                                                    <select class="form-control urun-kisisel" id="sel1" name="kategori">
+                                                        <option value="1">SEBZE</option>
+                                                        <option value="2">YEŞİLLİK</option>
+                                                        <option value="3">MEYVE</option>
+                                                        <option value="4">SALÇA&SİRKE</option>
+                                                        <option value="5">KURU BAKLİYAT</option>
                                                       </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-lira-sign kisisel-icon"></i>Fİyatı</label>
-                                                    <input type="text" class="form-control urun-kisisel" placeholder="5TL , 12TL ,  . . .">
+                                                    <input type="text" class="form-control urun-kisisel" placeholder="5TL , 12TL ,  . . ." name="urun_fiyat">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="soyad" class="text-uppercase urun-form"><i class="far fa-window-restore kisisel-icon"></i>Stok Mİktarı</label>
-                                                    <input type="text" class="form-control urun-kisisel kg" placeholder="100KG , 30KG ,  . . .">
+                                                    <input type="text" class="form-control urun-kisisel kg" placeholder="100KG , 30KG ,  . . ." name="urun_mik">
                                                 </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <i class="fas fa-plus-circle"></i>
+                                                    <input type="submit" class="btnSubmit btn-success ürün-giris-buton" value="KAYDET"> 
+                                                </div>
+                                                </form>
                                             </div>
                                         </div>
                                         <div class="col-sm-12 col-md-3 urun_foto">
@@ -269,50 +276,7 @@
 
 
 
-                                <div class="row">
-                                        <div class="col-sm-12 col-md-8 urun_düzen">
-                                            <div class="card text-left">
-                                                <div class="form-group urun-konum">
-                                                    <label for="ad" class="text-uppercase urun-form" ><i class="far fa-edit kisisel-icon"></i>Ürün Adı</label>
-                                                    <input type="text" class="form-control urun-kisisel" placeholder="Domates , Biber,  . . .">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-align-left kisisel-icon"></i>Kategorİ Seç</label>
-                                                    <!--<input type="text" class="form-control form-kisisel" placeholder="Sebze,Meyve, ...">-->
-                                                    <select class="form-control urun-kisisel" id="sel1">
-                                                        <option >SEBZE</option>
-                                                        <option>YEŞİLLİK</option>
-                                                        <option>MEYVE</option>
-                                                        <option>SALÇA&SİRKE</option>
-                                                        <option>KURU BAKLİYAT</option>
-                                                      </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-lira-sign kisisel-icon"></i>Fİyatı</label>
-                                                    <input type="text" class="form-control urun-kisisel" placeholder="5TL , 12TL ,  . . .">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="soyad" class="text-uppercase urun-form"><i class="far fa-window-restore kisisel-icon"></i>Stok Mİktarı</label>
-                                                    <input type="text" class="form-control urun-kisisel kg" placeholder="100KG , 30KG ,  . . .">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12 col-md-3 urun_foto">
-                                        <div class="card-header haber-baslik"><center>Ürün Fotoğrafı</center></div>
-                                            <div class="card text-left">
-                                                <div class="col-lg-4 order-lg-1 text-center foto-yükle">
-                                                    <img src="//placehold.it/150" class="foto-konum" alt="avatar">
-                                                    
-                                                    <label class="custom-file">
-                                                        <input type="file" id="file" class="custom-file-input">
-                                                        <span class="custom-file-control btn btn-success foto-sec">Fotoğraf Seç</span>
-                                                     </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                </div><br>
-                                <i class="fas fa-plus-circle"></i>
-                                <button type="button" class="btn btn-success ürün-giris-buton">KAYDET</button>
+                                   
                             </div>
                             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                                 <div class="row ">
