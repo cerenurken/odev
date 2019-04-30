@@ -226,7 +226,7 @@
                                 <div class="row">
                                         <div class="col-sm-12 col-md-8 urun_düzen">
                                             <div class="card text-left">
-                                                <form action="php/urun_giris.php" method="POST">
+                                                <form action="php/urun_giris.php" method="GET">
                                                 <div class="form-group urun-konum">
                                                     <label for="ad" class="text-uppercase urun-form"><i class="far fa-edit kisisel-icon"></i>Ürün Adı</label>
                                                     <input type="text" class="form-control urun-kisisel" placeholder="Domates , Biber,  . . ." name="urun_ad">
@@ -244,11 +244,11 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-lira-sign kisisel-icon"></i>Fİyatı</label>
-                                                    <input type="text" class="form-control urun-kisisel" placeholder="5TL , 12TL ,  . . ." name="urun_fiyat">
+                                                    <input type="text" class="form-control urun-kisisel" placeholder="TL  . . ." name="urun_fiyat">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="soyad" class="text-uppercase urun-form"><i class="far fa-window-restore kisisel-icon"></i>Stok Mİktarı</label>
-                                                    <input type="text" class="form-control urun-kisisel kg" placeholder="100KG , 30KG ,  . . ." name="urun_mik">
+                                                    <input type="text" class="form-control urun-kisisel kg" placeholder="KG / ADET . . ." name="urun_mik">
                                                 </div>
                                                 <br>
                                                 <div class="form-group">
@@ -282,41 +282,30 @@
                                 <div class="row ">
                                         <div class="col-sm-12 col-md-8 urun_düzen">
                                             <div class="card text-left ">
+                                                <form action="php/indirim.php" method="GET">
                                                 <div class="form-group urun-konum">
                                                     <label for="ad" class="text-uppercase urun-form" ><i class="far fa-edit kisisel-icon"></i>Ürün Adı</label>
-                                                    <input type="text" class="form-control urun-kisisel" placeholder="Domates , Biber,  . . .">
+                                                    <input type="text" class="form-control urun-kisisel" placeholder="Domates , Biber,  . . ."  name="urun_ad">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-align-left kisisel-icon"></i>Kategorİ Seç</label>
-                                                    <!--<input type="text" class="form-control form-kisisel" placeholder="Sebze,Meyve, ...">-->
-                                                    <select class="form-control" id="sel1">
-                                                        <option class="form-kisisel">SEBZE</option>
-                                                        <option>YEŞİLLİK</option>
-                                                        <option>MEYVE</option>
-                                                        <option>SALÇA&SİRKE</option>
-                                                        <option>KURU BAKLİYAT</option>
-                                                      </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-lira-sign kisisel-icon"></i>Fİyatı</label>
-                                                    <input type="text" class="form-control urun-kisisel" placeholder="5TL , 12TL ,  . . .">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="soyad" class="text-uppercase urun-form"><i class="far fa-window-restore kisisel-icon"></i>Stok Miktarı</label>
-                                                    <input type="text" class="form-control urun-kisisel" placeholder="100KG , 30KG ,  . . .">
+                                                    <label for="soyad" class="text-uppercase urun-form"><i class="far fa-window-restore kisisel-icon"></i>İndİrİm Stok Mİktarı</label>
+                                                    <input type="text" class="form-control urun-kisisel" placeholder="KG / ADET  . . ."name="indirim_mik">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-percent kisisel-icon"></i>İndİrİm Oranı</label>
-                                                    <input type="text" class="form-control urun-kisisel" placeholder="%5 , %10 , . . .">
+                                                    <input type="text" class="form-control urun-kisisel" placeholder="% . . ." name="indrm_orani">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-hourglass-half kisisel-icon"></i>İndİrİm Süresİ</label>
-                                                    <input type="text" class="form-control urun-kisisel" placeholder="1 Gün , 3 Gün ,  . . .">
+                                                    <input type="date" class="form-control urun-kisisel" placeholder="GÜN  . . ." name="indrm_süre">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-lira-sign kisisel-icon"></i>Yenİ Fİyat</label>
-                                                    <input type="text" class="form-control urun-kisisel kg" placeholder="4.75TL , 10.80TL ,  . . .">
+                                                    <input type="text" class="form-control urun-kisisel kg" placeholder="TL  . . ." name="guncel_fiyt">
                                                 </div>
+                                                 <i class="fas fa-plus-circle"></i>
+                                                 <input type="submit" class="btnSubmit btn-success ürün-giris-buton" value="KAYDET" />
+                                                </form>
                                             </div>
                                         </div>
                                         <div class="col-sm-12 col-md-3 urun_fotosu">
@@ -334,64 +323,8 @@
                                         </div>
 
                                 </div>
-
-                                <div class="row ">
-                                        <div class="col-sm-12 col-md-8 urun_düzen">
-                                            <div class="card text-left ">
-                                                <div class="form-group urun-konum">
-                                                    <label for="ad" class="text-uppercase urun-form" ><i class="far fa-edit kisisel-icon"></i>Ürün Adı</label>
-                                                    <input type="text" class="form-control urun-kisisel" placeholder="Domates , Biber,  . . .">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-align-left kisisel-icon"></i>Kategorİ Seç</label>
-                                                    <!--<input type="text" class="form-control form-kisisel" placeholder="Sebze,Meyve, ...">-->
-                                                    <select class="form-control" id="sel1">
-                                                        <option class="form-kisisel">SEBZE</option>
-                                                        <option>YEŞİLLİK</option>
-                                                        <option>MEYVE</option>
-                                                        <option>SALÇA&SİRKE</option>
-                                                        <option>KURU BAKLİYAT</option>
-                                                      </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-lira-sign kisisel-icon"></i>Fİyatı</label>
-                                                    <input type="text" class="form-control urun-kisisel" placeholder="5TL , 12TL ,  . . .">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="soyad" class="text-uppercase urun-form"><i class="far fa-window-restore kisisel-icon"></i>Stok Mİktarı</label>
-                                                    <input type="text" class="form-control urun-kisisel" placeholder="100KG , 30KG ,  . . .">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-percent kisisel-icon"></i>İndİrİm Oranı</label>
-                                                    <input type="text" class="form-control urun-kisisel" placeholder="%5 , %10 , . . .">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-hourglass-half kisisel-icon"></i>İndİrİm Süresİ</label>
-                                                    <input type="text" class="form-control urun-kisisel" placeholder="1 Gün , 3 Gün ,  . . .">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-lira-sign kisisel-icon"></i>Yenİ Fİyat</label>
-                                                    <input type="text" class="form-control urun-kisisel kg" placeholder="4.75TL , 10.80TL ,  . . .">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12 col-md-3 urun_fotosu">
-                                        <div class="card-header haber-baslik"><center>Ürün Fotoğrafı</center></div>
-                                            <div class="card text-left">
-                                                <div class="col-lg-4 order-lg-1 text-center foto-yükle">
-                                                    <img src="//placehold.it/150" class="foto-konum" alt="avatar">
-                                                    
-                                                    <label class="custom-file">
-                                                        <input type="file" id="file" class="custom-file-input">
-                                                        <span class="custom-file-control btn btn-success foto-sec">Fotoğraf Seç</span>
-                                                     </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                </div>
-                                <br>
-                                <i class="fas fa-plus-circle"></i>
-                                <button type="button" class="btn btn-success ürün-giris-buton">KAYDET</button>
+                               
+                               
 
                             </div>
                             <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
@@ -457,31 +390,31 @@
                                   <div class="card-body">
                                     <div class="form-group">
                                         <label for="soyad" class="text-uppercase urun-form"><i class="far fa-file-alt kisisel-icon"></i>Fatura Ödemelerİ</label>
-                                        <input type="text" class="form-control urun-kisisel" placeholder="980TL , 700TL ,  . . .">
+                                        <input type="text" class="form-control urun-kisisel" placeholder="TL  . . .">
                                     </div>
                                     <div class="form-group">
                                         <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-male kisisel-icon"></i>Çalışan Ödemelerİ</label>
-                                        <input type="text" class="form-control urun-kisisel" placeholder="1250TL , 1220TL ,  . . .">
+                                        <input type="text" class="form-control urun-kisisel" placeholder="TL  . . .">
                                     </div>
                                     <div class="form-group">
                                         <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-truck-moving kisisel-icon"></i>Ücretsİz Kargo Ödemelerİ</label>
-                                        <input type="text" class="form-control urun-kisisel" placeholder="60TL , 120TL ,  . . .">
+                                        <input type="text" class="form-control urun-kisisel" placeholder="TL  . . .">
                                     </div>
                                     <div class="form-group">
                                         <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-car kisisel-icon"></i>Araç Gİderlerİ</label>
-                                        <input type="text" class="form-control urun-kisisel" placeholder="155TL , 192TL ,  . . .">
+                                        <input type="text" class="form-control urun-kisisel" placeholder="TL  . . .">
                                     </div>
                                     <div class="form-group">
                                         <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-gas-pump kisisel-icon"></i>Yakıt Gİderlerİ</label>
-                                        <input type="text" class="form-control urun-kisisel" placeholder="530TL , 1200TL ,  . . .">
+                                        <input type="text" class="form-control urun-kisisel" placeholder="TL . . .">
                                     </div>
                                     <div class="form-group">
                                         <label for="soyad" class="text-uppercase urun-form"><i class="far fa-building kisisel-icon"></i>Ofİs Gİderlerİ</label>
-                                        <input type="text" class="form-control urun-kisisel" placeholder="200TL , 1120TL ,  . . .">
+                                        <input type="text" class="form-control urun-kisisel" placeholder="TL  . . .">
                                     </div>
                                     <div class="form-group">
                                         <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-seedling kisisel-icon"></i>İlaçlama Gİderlerİ</label>
-                                        <input type="text" class="form-control urun-kisisel" placeholder="500TL , 150TL ,  . . .">
+                                        <input type="text" class="form-control urun-kisisel" placeholder="TL  . . .">
                                     </div>
                                                 
                                   </div>

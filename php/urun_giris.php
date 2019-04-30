@@ -1,31 +1,31 @@
 <?php
 
 require 'baglan.php';
-if ($_POST){
+if ($_GET){
 	
-	if (isset( $_POST["urun_ad"])){
-		$urun=strip_tags(trim($_POST["urun_ad"]));
+	if (isset( $_GET["urun_ad"])){
+		$urun=strip_tags(trim($_GET["urun_ad"]));
 	}
 	else{
 		echo "Ürün adı requesti olmadı.";
 	}
 
-	if (isset($_POST["kategori"])){
-		$kategori = strip_tags(trim($_POST["kategori"]));
+	if (isset($_GET["kategori"])){
+		$kategori = strip_tags(trim($_GET["kategori"]));
 	}
 	else{
 		echo "Kategori türü requesti olmadı";
 	}
 
-	if (isset($_POST["urun_fiyat"])){
-		$urun_fiyat = strip_tags(trim($_POST["urun_fiyat"]));
+	if (isset($_GET["urun_fiyat"])){
+		$urun_fiyat = strip_tags(trim($_GET["urun_fiyat"]));
 	}
 	else{
 		echo "Ürün fiyatı requesti olmadı";
 	}
 
-	if (isset($_POST["urun_mik"])){
-		$urun_mik = strip_tags(trim($_POST["urun_mik"]));
+	if (isset($_GET["urun_mik"])){
+		$urun_mik = strip_tags(trim($_GET["urun_mik"]));
 	}
 	else{
 		echo "Ürün miktarı requesti olmadı";
@@ -37,6 +37,7 @@ if ($_POST){
 		else{
 			echo "kayıt yapılamadı";
 		}
+
 }
 else{
 	die("vt baglantısı yok");
