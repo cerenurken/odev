@@ -4,28 +4,28 @@ require 'baglan.php';
 if ($_GET){
 	
 	if (isset( $_GET["urun_ad"])){
-		$urun=strip_tags(trim($_GET["urun_ad"]));
+		$urun = $_GET["urun_ad"];
 	}
 	else{
 		echo "Ürün adı requesti olmadı.";
 	}
 
 	if (isset($_GET["kategori"])){
-		$kategori = strip_tags(trim($_GET["kategori"]));
+		$kategori = $_GET["kategori"];
 	}
 	else{
 		echo "Kategori türü requesti olmadı";
 	}
 
 	if (isset($_GET["urun_fiyat"])){
-		$urun_fiyat = strip_tags(trim($_GET["urun_fiyat"]));
+		$urun_fiyat = $_GET["urun_fiyat"];
 	}
 	else{
 		echo "Ürün fiyatı requesti olmadı";
 	}
 
 	if (isset($_GET["urun_mik"])){
-		$urun_mik = strip_tags(trim($_GET["urun_mik"]));
+		$urun_mik = $_GET["urun_mik"];
 	}
 	else{
 		echo "Ürün miktarı requesti olmadı";

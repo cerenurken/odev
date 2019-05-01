@@ -4,35 +4,35 @@ require 'baglan.php';
 if ($_GET){
 
 	if(isset($_GET["urun_ad"])){
-		$urun = strip_tags(trim($_GET["urun_ad"]));
+		$urun = $_GET["urun_ad"];
 	}
 	else{
 		echo "ürün adı requesti olmadı";
 	}
 
 	if(isset($_GET["indirim_mik"])){
-		$miktar = strip_tags(trim($_GET["indirim_mik"]));
+		$miktar = $_GET["indirim_mik"];
 	}
 	else{
 		echo "indirim miktarı requesti olmadı";
 	}
 
 	if(isset($_GET["indrm_orani"])){
-		$oran = strip_tags(trim($_GET["indrm_orani"]));
+		$oran = $_GET["indrm_orani"];
 	}
 	else{
 		echo " indirim oaranı requesti olmadı";
 	}
 
 	if(isset($_GET["indrm_süre"])){
-		$süre = strip_tags(trim($_GET["indrm_süre"]));
+		$süre = $_GET["indrm_süre"];
 	}
 	else{
 		echo "indirim süresi requesti olmadı";
 	}
 
 	if(isset($_GET["guncel_fiyt"])){
-		$fiyat = strip_tags(trim($_GET["guncel_fiyt"]));
+		$fiyat = $_GET["guncel_fiyt"];
 	}
 	else{
 		echo "gücel fiyat requesti olmadı";
