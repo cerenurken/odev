@@ -3,36 +3,36 @@
 require 'baglan.php';
 if ($_POST){
 	
-	if (isset( $_POST["ad"])){
-		$ad=strip_tags(trim($_POST["ad"]));
+	if (isset( $_POST["adi"])){
+		$ad=strip_tags(trim($_POST["adi"]));
 	}
 	else{
 		echo "Ad / Soyad requesti olmadı.";
 	}
 
-	if (isset($_POST["no"])){
-		$no = strip_tags(trim($_POST["no"]));
+	if (isset($_POST["tel"])){
+		$no = strip_tags(trim($_POST["tel"]));
 	}
 	else{
 		echo "Telefon numarası requesti olmadı";
 	}
 
-	if (isset($_POST["email"])){
-		$email =strip_tags(trim($_POST ["email"]));
+	if (isset($_POST["mail"])){
+		$email =strip_tags(trim($_POST ["mail"]));
 	}
 	else{
 		echo "E-Posta requesti olmadı";
 	}
 
-	if (isset($_POST["date"])){
-		$date = strip_tags(trim($_POST["date"]));
+	if (isset($_POST["tarih"])){
+		$date = strip_tags(trim($_POST["tarih"]));
 	}
 	else{
 		echo "Tarih requesti olmadı";
 	}
 
-	if (isset($_POST["pass"])){
-		$pass  = strip_tags(trim($_POST["pass"]));
+	if (isset($_POST["sifre"])){
+		$pass  = strip_tags(trim($_POST["sifre"]));
 	}
 	else{
 		echo "Şifre requesti olmadı";
