@@ -388,38 +388,33 @@
                             <div class="tab-pane fade" id="nav-gider" role="tabpanel" aria-labelledby="nav-gider-tab">
                                 <div class="card">
                                   <div class="card-body">
-                                    <div class="form-group">
-                                        <label for="soyad" class="text-uppercase urun-form"><i class="far fa-file-alt kisisel-icon"></i>Fatura Ödemelerİ</label>
-                                        <input type="text" class="form-control urun-kisisel" placeholder="TL  . . .">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-male kisisel-icon"></i>Çalışan Ödemelerİ</label>
-                                        <input type="text" class="form-control urun-kisisel" placeholder="TL  . . .">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-truck-moving kisisel-icon"></i>Ücretsİz Kargo Ödemelerİ</label>
-                                        <input type="text" class="form-control urun-kisisel" placeholder="TL  . . .">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-car kisisel-icon"></i>Araç Gİderlerİ</label>
-                                        <input type="text" class="form-control urun-kisisel" placeholder="TL  . . .">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-gas-pump kisisel-icon"></i>Yakıt Gİderlerİ</label>
-                                        <input type="text" class="form-control urun-kisisel" placeholder="TL . . .">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="soyad" class="text-uppercase urun-form"><i class="far fa-building kisisel-icon"></i>Ofİs Gİderlerİ</label>
-                                        <input type="text" class="form-control urun-kisisel" placeholder="TL  . . .">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-seedling kisisel-icon"></i>İlaçlama Gİderlerİ</label>
-                                        <input type="text" class="form-control urun-kisisel" placeholder="TL  . . .">
-                                    </div>
+                                    <form action="php/giderler.php" method="GET">
+                                        <div class="form-group">
+                                            <label for="soyad" class="text-uppercase urun-form"><i class="far fa-file-alt kisisel-icon"></i>Fatura Ödemelerİ</label>
+                                            <input type="text" class="form-control urun-kisisel" placeholder="TL  . . ." name="fatura">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-male kisisel-icon"></i>Çalışan Ödemelerİ</label>
+                                            <input type="text" class="form-control urun-kisisel" placeholder="TL  . . ." name="odeme">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-car kisisel-icon"></i>Araç Gİderlerİ</label>
+                                            <input type="text" class="form-control urun-kisisel" placeholder="TL  . . ." name="arac">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="soyad" class="text-uppercase urun-form"><i class="far fa-building kisisel-icon"></i>Ofİs Gİderlerİ</label>
+                                            <input type="text" class="form-control urun-kisisel" placeholder="TL  . . ." name="ofis">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-seedling kisisel-icon"></i>İlaçlama Gİderlerİ</label>
+                                            <input type="text" class="form-control urun-kisisel" placeholder="TL  . . ." name="ilac">
+                                        </div>
+                                        <input type="submit" class="btnSubmit btn-success ürün-giris-buton" value="KAYDET" />
+                                    </form>
                                                 
                                   </div>
                                 </div>
-                                <button type="button" class="btn btn-success ürün-giris-buton">KAYDET</button>
+                                
                             </div>
                             <div class="tab-pane fade" id="nav-gelir" role="tabpanel" aria-labelledby="nav-gelir-tab">
                                 <table class="table table-striped table-dark">
