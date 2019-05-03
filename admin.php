@@ -205,25 +205,53 @@
                 
                 <div class="col-sm-12 col-md-6">
                     <div class="card text-left">
-                        <div class="card-header">En Çok Ziyaret Edilen Saatler</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                        <div class="card-footer text-muted">2 days ago</div>
+                        <?php
+                            require 'php/baglan.php';
+                            $sorgu=mysqli_query($baglan,"SELECT ad_soyad,telefon,e_posta from kullanici_kayit");
+                            echo "<table class='table'>";
+                            echo "<thead class='thead-dark'>";
+                            echo "<tr>";
+                            echo "<th scope='col'>AD-SOYAD</th>";
+                            echo "<th scope='col'>TELEFON</th>";
+                            echo "<th scope='col'>E-POSTA</th>";
+                            echo "</tr>";
+                            echo "</thead>";
+                            echo "<tbody>";
+                            echo "<tr>";
+                            while ($row = mysqli_fetch_array($sorgu)){
+                                echo "<td style='text-transform: uppercase;'>".$row[0]."</td>";
+                                echo "<td>".$row[1]."</td>";
+                                echo "<td>".$row[2]."</td>";
+                                echo "</tr>";
+                            }
+                            echo "</table>";
+                                                ?>
                     </div>
                 </div>
 
                 <div class="col col-sm-12 col-md-6">
                     <div class="card text-left">
-                        <div class="card-header">En Çok Alınan Ürünler</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                        <div class="card-footer text-muted">2 days ago</div>
+                        <?php
+                            require 'php/baglan.php';
+                            $sorgu=mysqli_query($baglan,"SELECT urun_giris.urun_ad,siparisler.siparis_kilo,siparisler.toplam_fiyat from urun_giris,siparisler where siparisler.urun_id=urun_giris.urun_id");
+                            echo "<table class='table'>";
+                            echo "<thead class='thead-dark'>";
+                            echo "<tr>";
+                            echo "<th scope='col' >ÜRÜN ADI</th>";
+                            echo "<th scope='col'>SİPARİŞ KİLOSU</th>";
+                            echo "<th scope='col'>TOPLAM FİYAT</th>";
+                            echo "</tr>";
+                            echo "</thead>";
+                            echo "<tbody>";
+                            echo "<tr>";
+                            while ($row = mysqli_fetch_array($sorgu)){
+                                echo "<td style='text-transform: uppercase;'>".$row[0]."</td>";
+                                echo "<td>".$row[1]."</td>";
+                                echo "<td>".$row[2]."</td>";
+                                echo "</tr>";
+                            }
+                            echo "</table>";
+                                                ?>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6">
