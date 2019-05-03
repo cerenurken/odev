@@ -135,10 +135,9 @@
                     <!-- Count item widget-->
                     <div class="col-xl-2 col-md-4 col-6">
                       <div class="wrapper count-title d-flex">
-                        <div class="icon "><i class="far fa-id-card gosterge-icon "></i></div>
-                        <div class="name"><h5 class="text-uppercase ust-baslik">YENİ MÜŞTERİLER</h5>
-                             <h6 class="orta-baslik">Son 5 Gün</h6>
-                          <div class="count-number ">25 Yeni Kişi</div>
+                        <div class="icon "><i class="fas fa-chart-line gosterge-icon"></i></div>
+                        <div class="name"><h5 class="text-uppercase ust-baslik">BORSA HAREKETLERİ</h5>
+                             <h6 class="orta-baslik">Merkez Bankası</h6>
                         </div>
                       </div>
                     </div>
@@ -202,12 +201,85 @@
             <!--<h2>Anasayfa</h2>-->
 
             <div class="row">
+                <div class="col-sm-12 col-md-6" style="margin-bottom: 3%;">
+                    <div class="card" style="margin-bottom: 0.3%;">
+                        <h4 style="padding-top: 3%; padding-bottom: 0.8%; padding-left: 3%; color: #ff7838;">BORSA HAREKETLERİ</h4>
+                    </div>
+                    <div class="card text-left">
+                        <?php
+                            $connect_web = simplexml_load_file('http://www.tcmb.gov.tr/kurlar/today.xml');
+                            $usd_buying = $connect_web->Currency[0]->BanknoteBuying;
+                            $usd_selling = $connect_web->Currency[0]->BanknoteSelling;
+                            $euro_buying = $connect_web->Currency[3]->BanknoteBuying;
+                            $euro_selling = $connect_web->Currency[3]->BanknoteSelling;
+                            $dnr_buying = $connect_web->Currency[4]->BanknoteBuying;
+                            $dnr_selling = $connect_web->Currency[4]->BanknoteSelling;
+                            $str_buying = $connect_web->Currency[8]->BanknoteBuying;
+                            $str_selling = $connect_web->Currency[8]->BanknoteSelling;
+                            $jpn_buying = $connect_web->Currency[11]->BanknoteBuying;
+                            $jpn_selling = $connect_web->Currency[11]->BanknoteSelling;
+
+                            echo "<table class='table'>";
+                            echo "<thead class='thead-dark'>";
+                            echo "<tr>";
+                            echo "<th scope='col' style='padding-left:16%;'><i class='fas fa-lira-sign'></i>ALIŞ</th>";
+                            echo "<th scope='col'><i class='fas fa-lira-sign'></i>SATIŞ</th>";
+                             echo "</tr>";
+                            echo "</thead>";
+                            echo "<tbody>";
+                            echo "<tr>";
+                            echo "<td ><i class='fas fa-euro-sign' ></i><span style ='color:#c3c3c3; margin-right:17px;'> EURO :</span> <label> ".$euro_buying."</label></td>";
+                            echo "<td>"  .$euro_selling."</td>";
+                            echo "</tr>";
+                            echo "<tr>";
+                            echo "<td><i class='fas fa-dollar-sign'></i><span style ='color:#c3c3c3; margin-right:14px;'> DOLAR :</span> <label>".$usd_buying."</label></td>";
+                            echo "<td>".$usd_selling."</td>";
+                            echo "</tr>";
+                            echo "<tr>";
+                            echo "<td><i class='fas fa-pound-sign'></i><span style ='color:#c3c3c3; margin-right:14px;'> STERLİN :</span> <label>".$str_buying."</label></td>";
+                            echo "<td>".$str_selling."</td>";
+                            echo "</tr>";
+                            echo "<tr>";
+                            echo "<td><i class='fas fa-yen-sign'></i><span style ='color:#c3c3c3; margin-right:14px;'> JAPON :</span> <label>".$jpn_buying."</label></td>";
+                            echo "<td>".$jpn_selling."</td>";
+                            echo "</tr>";
+                            echo "<tr>";
+                            echo "<td>د.ك <span style ='color:#c3c3c3; margin-right:14px;'> DİNAR :</span> <label>".$dnr_buying."</label></td>";
+                            echo "<td>".$dnr_selling."</td>";
+                            echo "</tr>";
+                            echo "</table>";
+
+
+
+                        ?>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6" style="margin-bottom: 3%;">
+                    <div class="card" style="margin-bottom: 0.3%;">
+                        <h4 style="padding-top: 3%; padding-bottom: 0.8%; padding-left: 3%; color: #ff7838;">GÜNLÜK SATIŞ GELİRİ</h4>
+                    </div>
+                    <div class="card text-left">
+                        <div class="card-header">Müşterilerin Sık Ziyaret Ettiği Kısımlar</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                        <div class="card-footer text-muted">2 days ago</div>
+                    </div>
+                </div>
+
+
                 
-                <div class="col-sm-12 col-md-6">
+                <div class="col-sm-12 col-md-6" style="margin-bottom: 3%;">
+                    <div class="card" style="margin-bottom: 0.3%;">
+                        <h4 style="padding-top: 3%; padding-bottom: 0.8%; padding-left: 3%; color: #ff7838;">YENİ MÜŞTERİLER</h4>
+                    </div>
                     <div class="card text-left">
                         <?php
                             require 'php/baglan.php';
-                            $sorgu=mysqli_query($baglan,"SELECT ad_soyad,telefon,e_posta from kullanici_kayit");
+                            $sorgu=mysqli_query($baglan,"SELECT ad_soyad,telefon,e_posta from kullanici_kayit order by kullanici_id desc");
                             echo "<table class='table'>";
                             echo "<thead class='thead-dark'>";
                             echo "<tr>";
@@ -229,7 +301,10 @@
                     </div>
                 </div>
 
-                <div class="col col-sm-12 col-md-6">
+                <div class="col col-sm-12 col-md-6 " style="margin-bottom: 3%;">
+                    <div class="card" style="margin-bottom: 0.3%;">
+                        <h4 style="padding-top: 3%; padding-bottom: 0.8%; padding-left: 3%; color: #ff7838;">YENİ SİPARİŞLER</h4>
+                    </div>
                     <div class="card text-left">
                         <?php
                             require 'php/baglan.php';
