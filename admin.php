@@ -213,7 +213,7 @@
                             echo "<tr>";
                             echo "<th scope='col'>AD-SOYAD</th>";
                             echo "<th scope='col'>TELEFON</th>";
-                            echo "<th scope='col'>E-POSTA</th>";
+                            echo "<th scope='col'style='padding-left : 8%;'>E-POSTA</th>";
                             echo "</tr>";
                             echo "</thead>";
                             echo "<tbody>";
@@ -246,8 +246,8 @@
                             echo "<tr>";
                             while ($row = mysqli_fetch_array($sorgu)){
                                 echo "<td style='text-transform: uppercase;'>".$row[0]."</td>";
-                                echo "<td>".$row[1]."</td>";
-                                echo "<td>".$row[2]."</td>";
+                                echo "<td style='padding-left : 10%;'>".$row[1]."</td>";
+                                echo "<td style='padding-left : 10%;'>".$row[2]."</td>";
                                 echo "</tr>";
                             }
                             echo "</table>";
