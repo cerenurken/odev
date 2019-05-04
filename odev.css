@@ -108,6 +108,7 @@
 .sebzeler{
 	height: 250px;
 	width: 230px;
+	padding-top: 10%;
 	
 }
 .k-sebze{
@@ -228,14 +229,14 @@
 /*size özel kısmı*/
 .so_card{
 	background-color: #f7f7f7;
-	height: 400px;
+	height: 470px;
 }
 
 .so_ic{
-	height: 350px;
-	width:220px;
+	height: 420px;
+	width:237px;
 	margin-top: 25px;
-	margin-left: 15px;
+	margin-left: 5px;
 }
 .so_resim{
 	height: 190px;
@@ -291,8 +292,6 @@
 	color: green;
 }
 .sepete_eklee{
-	padding-top: 5px;
-	margin-top: 17px;
 	width: 180px;
 	margin-left: 20px;
 }
