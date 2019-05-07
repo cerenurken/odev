@@ -100,6 +100,9 @@
                 <li >
                     <a href="urun-girisi">Ürün Girişi</a>
                 </li>
+                 <li >
+                    <a href="urun_guncel.html">Ürün Güncelleme</a>
+                </li>
                 <li>
                     <a href="analizler.html">Analizler</a>
                 </li>
@@ -310,7 +313,7 @@ $tufe=getir('<td style="text-align: center;">',"</td>",$cekilen_veri);
                     <div class="card text-left">
                         <?php
                             require 'php/baglan.php';
-                            $sorgu=mysqli_query($baglan,"SELECT urun_giris.urun_ad,siparisler.siparis_kilo,siparisler.toplam_fiyat from urun_giris,siparisler where siparisler.urun_id=urun_giris.urun_id");
+                            $sorgu=mysqli_query($baglan,"SELECT urun_kayit.urun_ad,siparisler.siparis_kilo,siparisler.toplam_fiyat from urun_kayit,urun_siparis,siparisler where siparisler.siparis_id=urun_siparis.siparis_id and urun_siparis.urun_id=urun_kayit.urun_id");
                             echo "<table class='table'>";
                             echo "<thead class='thead-dark'>";
                             echo "<tr>";
