@@ -5,6 +5,7 @@ if ($_GET){
 
 	if(isset($_GET["urun_ad"])){
 		$urun = $_GET["urun_ad"];
+		$sorgu = mysqli_query($baglan,"SELECT indirim.urun_id FROM urun_indirim,urun_giris WHERE indirim.urun_id=urun_giris.urun_id");
 	}
 	else{
 		echo "ürün adı requesti olmadı";
@@ -25,6 +26,13 @@ if ($_GET){
 	}
 
 	if(isset($_GET["indrm_süre"])){
+		$süre_b = $_GET["indrm_bas_süre"];
+	}
+	else{
+		echo "indirim süresi requesti olmadı";
+	}
+
+	if(isset($_GET["indrm_süre"])){
 		$süre = $_GET["indrm_süre"];
 	}
 	else{
@@ -38,7 +46,7 @@ if ($_GET){
 		echo "gücel fiyat requesti olmadı";
 	}
 
-	$indirim_giris = "insert into urun_indirim (stok_mik,orani,indirim_son,guncel_fiyat) values('$miktar','$oran','$süre','$fiyat')";
+	$indirim_giris = "insert into indirim (stok_mik,orani,indirim_bas,indirim_son,guncel_fiyat) values('$miktar','$oran','$süre_b','$süre','$fiyat')";
 		if ($baglan->query($indirim_giris)){
 			echo "kayıt yapıldı";
 		}
