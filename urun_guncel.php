@@ -97,7 +97,7 @@
                     <a href="siparisler.html">Siparişler</a>
                 </li>
                 <li >
-                    <a href="urun-girisi.html">Ürün Girişi</a>
+                    <a href="urun-girisi.php">Ürün Girişi</a>
                 </li>
                 <li class="active">
                     <a href="#">Ürün Güncelleme</a>
@@ -187,11 +187,36 @@
             <h1>urun girişi</h1>--->
 
             <div class="row">
-                
-              
-               
 
-
+                <div class="col col-sm-12 col-md-6 " >
+                    <div class="card text-left">
+                        <?php
+                            require 'php/baglan.php';
+                            $sorgu=mysqli_query($baglan,"SELECT urun_kayit.urun_ad,urun_kayit.fiyat,urun_kayit.stok_miktari from urun_kayit ");
+                            echo "<table class='table'>";
+                            echo "<thead class='thead-dark'>";
+                            echo "<tr>";
+                            echo "<th scope='col' >ÜRÜN ADI</th>";
+                            echo "<th scope='col'>SİPARİŞ KİLOSU</th>";
+                            echo "<th scope='col'>TOPLAM FİYAT</th>";
+                            echo "<th scope='col'>SİL</th>";
+                            echo "<th scope='col'>GÜNCELLE</th>";
+                            echo "</tr>";
+                            echo "</thead>";
+                            echo "<tbody>";
+                            echo "<tr>";
+                            while ($row = mysqli_fetch_array($sorgu)){
+                                echo "<td style='text-transform: uppercase;'>".$row[0]."</td>";
+                                echo "<td style='padding-left : 10%;'>".$row[1]."</td>";
+                                echo "<td style='padding-left : 10%;'>".$row[2]."</td>";
+                                echo "<td><button type='button' class='btn btn-danger'>Sil</button></td>";
+                                echo "<td><button type='button' class='btn btn-success'>Güncelle</button></td>";
+                                echo "</tr>";
+                            }
+                            echo "</table>";
+                                                ?>
+                    </div>
+                </div>
 
 
 
