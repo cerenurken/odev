@@ -98,10 +98,10 @@
                     
                 </li>
                 <li >
-                    <a href="urun-girisi">Ürün Girişi</a>
+                    <a href="urun-girisi.php">Ürün Girişi</a>
                 </li>
                  <li >
-                    <a href="urun_guncel.html">Ürün Güncelleme</a>
+                    <a href="urun_guncel.php">Ürün Güncelleme</a>
                 </li>
                 <li>
                     <a href="analizler.html">Analizler</a>
