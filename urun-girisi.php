@@ -100,7 +100,7 @@
                     <a href="#">Ürün Girişi</a>
                 </li>
                 <li >
-                    <a href="urun_guncel.html">Ürün Güncelleme</a>
+                    <a href="urun_guncel.php">Ürün Güncelleme</a>
                 </li>
                 <li>
                     <a href="analizler.html">Analizler</a>
@@ -238,6 +238,7 @@
                                                     <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-align-left kisisel-icon"></i>Kategorİ Seç</label>
                                                     <!--<input type="text" class="form-control form-kisisel" placeholder="Sebze,Meyve, ...">-->
                                                     <select class="form-control urun-kisisel" id="sel1" name="kategori">
+                                                        <option value="0">Kategori Seçiniz</option>
                                                         <option value="1">SEBZE</option>
                                                         <option value="2">YEŞİLLİK</option>
                                                         <option value="3">MEYVE</option>
@@ -286,10 +287,28 @@
                                         <div class="col-sm-12 col-md-8 urun_düzen">
                                             <div class="card text-left ">
                                                 <form action="php/indirim.php" method="GET">
+                                                
                                                 <div class="form-group urun-konum">
                                                     <label for="ad" class="text-uppercase urun-form" ><i class="far fa-edit kisisel-icon"></i>Ürün Adı</label>
-                                                    <input type="text" class="form-control urun-kisisel" placeholder="Domates , Biber,  . . ."  name="urun_ad">
+                                                    <!--
+                                                    <input type="text" class="form-control urun-kisisel" placeholder="Domates , Biber,  . . ."  name="urun_ad"> -->
+                                                     <select class="form-control " name="urun_ad">
+                                                        <option value="">Ürün seçiniz</option>
+                                                    <?php 
+                                                        include('php/baglan.php');
+                                                        $urunCek = "SELECT * from urun_kayit";
+                                                        $urunler = mysqli_query($baglan,$urunCek);
+                                                        
+                                                        while( $row = mysqli_fetch_assoc($urunler) ){
+                                                            echo '<option value="'.$row["urun_id"].'">'.$row["urun_ad"].'</option>';
+                                                        }
+                                                    ?>
+                                                    </select>
                                                 </div>
+
+
+
+
                                                 <div class="form-group">
                                                     <label for="soyad" class="text-uppercase urun-form"><i class="far fa-window-restore kisisel-icon"></i>İndİrİm Stok Mİktarı</label>
                                                     <input type="text" class="form-control urun-kisisel" placeholder="KG / ADET  . . ."name="indirim_mik">
@@ -510,6 +529,8 @@
     <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
+    <script type="text/javascript" src="select2.min.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function () {
             $("#sidebar").mCustomScrollbar({
@@ -523,7 +544,15 @@
             });
 
            
-                $('[data-toggle="tooltip"]').tooltip()
+                $('[data-toggle="tooltip"]').tooltip();
+
+                 
+
+                 $('#urunsec').select2({
+                    theme: 'bootstrap4',
+                });
+
+                 $('#urunsec').select2();
            
 
         });
