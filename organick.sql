@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 02 May 2019, 05:04:22
+-- Üretim Zamanı: 08 May 2019, 09:04:45
 -- Sunucu sürümü: 5.7.19
 -- PHP Sürümü: 5.6.31
 
@@ -21,6 +21,32 @@ SET time_zone = "+00:00";
 --
 -- Veritabanı: `organick`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `indirim`
+--
+
+DROP TABLE IF EXISTS `indirim`;
+CREATE TABLE IF NOT EXISTS `indirim` (
+  `indirim_id` int(3) NOT NULL AUTO_INCREMENT,
+  `stok_mik` int(4) DEFAULT NULL,
+  `orani` int(2) DEFAULT NULL,
+  `indirim_bas` date DEFAULT NULL,
+  `indirim_son` date DEFAULT NULL,
+  `guncel_fiyat` float DEFAULT NULL,
+  PRIMARY KEY (`indirim_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+--
+-- Tablo döküm verisi `indirim`
+--
+
+INSERT INTO `indirim` (`indirim_id`, `stok_mik`, `orani`, `indirim_bas`, `indirim_son`, `guncel_fiyat`) VALUES
+(1, 20, 10, '2019-04-30', '2019-04-03', 11),
+(2, 30, 5, '2019-04-30', '2019-05-05', 5),
+(3, 5, 2, '2019-04-30', '2015-05-01', 7);
 
 -- --------------------------------------------------------
 
@@ -64,18 +90,40 @@ CREATE TABLE IF NOT EXISTS `kullanici_kayit` (
   `role_id` int(1) DEFAULT NULL,
   PRIMARY KEY (`kullanici_id`),
   KEY `kayit_tur` (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 --
 -- Tablo döküm verisi `kullanici_kayit`
 --
 
 INSERT INTO `kullanici_kayit` (`kullanici_id`, `ad_soyad`, `telefon`, `e_posta`, `dogum_tarihi`, `parola`, `cinsiyet`, `role_id`) VALUES
-(10, 'aaaa', '22222', 'demo@randevumhazir.com', '2012-07-27', '', 'Diğer', 3),
 (12, 'ceren', '2356778', 'crnurkn@gmail.com', '2019-04-30', '11', 'Kadın', 3),
-(16, 'semih yarar', '54634', 'kuzu@gmail.com', '1245-01-12', '44er', 'Erkek', 2),
 (25, 'darya ataalp', '5374327865', 'dry@gmail.com', '1998-02-23', 'dartya', 'Kadın', 3),
-(26, 'esra börek', '4567865432', 'borek@gmail.com', '1998-08-30', 'esra', 'Kadın', 2);
+(26, 'esra börek', '4567865432', 'borek@gmail.com', '1998-08-30', 'esra', 'Kadın', 2),
+(27, 'can aydın', '5394508754', 'canaydinn@gmail.com', '1988-11-28', 'canaydın', 'Erkek', 3),
+(28, 'yusra senem', '2334532', 'senem@gmail.com', '1992-04-30', '12wqqe', 'Kadın', 3),
+(29, 'semih yarar', '5463231234', 'kuzu@gmail.com', '1997-07-30', 'kuzu', 'Erkek', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `kullanici_siparis`
+--
+
+DROP TABLE IF EXISTS `kullanici_siparis`;
+CREATE TABLE IF NOT EXISTS `kullanici_siparis` (
+  `kullanici_id` int(3) NOT NULL,
+  `siparis_id` int(11) NOT NULL,
+  KEY `kullanici_id` (`kullanici_id`),
+  KEY `siparis_id` (`siparis_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+--
+-- Tablo döküm verisi `kullanici_siparis`
+--
+
+INSERT INTO `kullanici_siparis` (`kullanici_id`, `siparis_id`) VALUES
+(12, 6);
 
 -- --------------------------------------------------------
 
@@ -115,7 +163,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `gorev` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
   `tarih` date NOT NULL,
   PRIMARY KEY (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 --
 -- Tablo döküm verisi `roles`
@@ -135,42 +183,19 @@ INSERT INTO `roles` (`role_id`, `kullanici`, `gorev`, `tarih`) VALUES
 DROP TABLE IF EXISTS `siparisler`;
 CREATE TABLE IF NOT EXISTS `siparisler` (
   `siparis_id` int(11) NOT NULL AUTO_INCREMENT,
-  `urun_id` int(255) DEFAULT NULL,
   `siparis_kilo` int(3) DEFAULT NULL,
   `toplam_fiyat` int(4) DEFAULT NULL,
   `siparis_tarihi` date DEFAULT NULL,
-  `tedarik_durumu` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`siparis_id`),
-  KEY `urun_id` (`urun_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
--- --------------------------------------------------------
+  `tedarik_durumu` varchar(5) COLLATE utf8_turkish_ci DEFAULT NULL,
+  PRIMARY KEY (`siparis_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 --
--- Tablo için tablo yapısı `urun_giris`
+-- Tablo döküm verisi `siparisler`
 --
 
-DROP TABLE IF EXISTS `urun_giris`;
-CREATE TABLE IF NOT EXISTS `urun_giris` (
-  `urun_id` int(225) NOT NULL AUTO_INCREMENT,
-  `urun_ad` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
-  `kategori_id` int(11) DEFAULT NULL,
-  `fiyat` int(11) DEFAULT NULL,
-  `stok_miktari` int(11) DEFAULT NULL,
-  PRIMARY KEY (`urun_id`),
-  KEY `kategori_id` (`kategori_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
---
--- Tablo döküm verisi `urun_giris`
---
-
-INSERT INTO `urun_giris` (`urun_id`, `urun_ad`, `kategori_id`, `fiyat`, `stok_miktari`) VALUES
-(1, 'domates', 1, 12, 100),
-(2, 'çilek', 3, 20, 20),
-(3, 'marul', 2, 2, 100),
-(4, 'soğan', 1, 7, 10),
-(8, 'nohut', 5, 23, 54);
+INSERT INTO `siparisler` (`siparis_id`, `siparis_kilo`, `toplam_fiyat`, `siparis_tarihi`, `tedarik_durumu`) VALUES
+(6, 3, 24, '2019-05-06', 'onay');
 
 -- --------------------------------------------------------
 
@@ -180,27 +205,64 @@ INSERT INTO `urun_giris` (`urun_id`, `urun_ad`, `kategori_id`, `fiyat`, `stok_mi
 
 DROP TABLE IF EXISTS `urun_indirim`;
 CREATE TABLE IF NOT EXISTS `urun_indirim` (
-  `indirim_id` int(3) NOT NULL AUTO_INCREMENT,
   `urun_id` int(255) DEFAULT NULL,
-  `stok_mik` int(4) DEFAULT NULL,
-  `orani` int(2) DEFAULT NULL,
-  `indirim_bas` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `indirim_son` date DEFAULT NULL,
-  `guncel_fiyat` float DEFAULT NULL,
-  PRIMARY KEY (`indirim_id`),
-  KEY `urun_id` (`urun_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+  `indirim_id` int(3) DEFAULT NULL,
+  KEY `urun_id` (`urun_id`),
+  KEY `indirim_id` (`indirim_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 --
 -- Tablo döküm verisi `urun_indirim`
 --
 
-INSERT INTO `urun_indirim` (`indirim_id`, `urun_id`, `stok_mik`, `orani`, `indirim_bas`, `indirim_son`, `guncel_fiyat`) VALUES
-(1, 4, 20, 10, '2019-04-30 17:37:30', '2019-04-03', 11),
-(2, NULL, 30, 5, '2019-04-30 17:39:02', '2019-05-05', 5),
-(3, NULL, 5, 2, '2019-04-30 17:52:56', '2015-05-01', 7),
-(4, NULL, 5, 5, '2019-04-30 18:00:53', '2019-05-02', 0.3),
-(5, NULL, 28, 25, '2019-04-30 18:13:35', '2019-05-07', 10);
+INSERT INTO `urun_indirim` (`urun_id`, `indirim_id`) VALUES
+(1, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `urun_kayit`
+--
+
+DROP TABLE IF EXISTS `urun_kayit`;
+CREATE TABLE IF NOT EXISTS `urun_kayit` (
+  `urun_id` int(225) NOT NULL AUTO_INCREMENT,
+  `urun_ad` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `kategori_id` int(11) DEFAULT NULL,
+  `fiyat` int(11) DEFAULT NULL,
+  `stok_miktari` int(11) DEFAULT NULL,
+  PRIMARY KEY (`urun_id`),
+  KEY `kategori_id` (`kategori_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+--
+-- Tablo döküm verisi `urun_kayit`
+--
+
+INSERT INTO `urun_kayit` (`urun_id`, `urun_ad`, `kategori_id`, `fiyat`, `stok_miktari`) VALUES
+(1, 'domates', 1, 12, 100),
+(2, 'çilek', 3, 20, 20);
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `urun_siparis`
+--
+
+DROP TABLE IF EXISTS `urun_siparis`;
+CREATE TABLE IF NOT EXISTS `urun_siparis` (
+  `urun_id` int(255) DEFAULT NULL,
+  `siparis_id` int(11) DEFAULT NULL,
+  KEY `siparis_id` (`siparis_id`),
+  KEY `urun_id` (`urun_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+--
+-- Tablo döküm verisi `urun_siparis`
+--
+
+INSERT INTO `urun_siparis` (`urun_id`, `siparis_id`) VALUES
+(1, 6);
 
 --
 -- Dökümü yapılmış tablolar için kısıtlamalar
@@ -213,22 +275,31 @@ ALTER TABLE `kullanici_kayit`
   ADD CONSTRAINT `sss` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Tablo kısıtlamaları `siparisler`
+-- Tablo kısıtlamaları `kullanici_siparis`
 --
-ALTER TABLE `siparisler`
-  ADD CONSTRAINT `fdf` FOREIGN KEY (`urun_id`) REFERENCES `urun_giris` (`urun_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Tablo kısıtlamaları `urun_giris`
---
-ALTER TABLE `urun_giris`
-  ADD CONSTRAINT `xzv` FOREIGN KEY (`kategori_id`) REFERENCES `kategori` (`kategori_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `kullanici_siparis`
+  ADD CONSTRAINT `swd` FOREIGN KEY (`kullanici_id`) REFERENCES `kullanici_kayit` (`kullanici_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `wrw` FOREIGN KEY (`siparis_id`) REFERENCES `siparisler` (`siparis_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Tablo kısıtlamaları `urun_indirim`
 --
 ALTER TABLE `urun_indirim`
-  ADD CONSTRAINT `sdfg` FOREIGN KEY (`urun_id`) REFERENCES `urun_giris` (`urun_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `sdgfh` FOREIGN KEY (`urun_id`) REFERENCES `urun_kayit` (`urun_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `srh` FOREIGN KEY (`indirim_id`) REFERENCES `indirim` (`indirim_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Tablo kısıtlamaları `urun_kayit`
+--
+ALTER TABLE `urun_kayit`
+  ADD CONSTRAINT `xzv` FOREIGN KEY (`kategori_id`) REFERENCES `kategori` (`kategori_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Tablo kısıtlamaları `urun_siparis`
+--
+ALTER TABLE `urun_siparis`
+  ADD CONSTRAINT `adöd` FOREIGN KEY (`urun_id`) REFERENCES `urun_kayit` (`urun_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `adödfef` FOREIGN KEY (`siparis_id`) REFERENCES `siparisler` (`siparis_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
