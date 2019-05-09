@@ -1,28 +1,6 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>organicK | Admin</title>
-
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <!-- Our Custom CSS -->
-   <!-- <link rel="stylesheet" href="admin.css">-->
-    <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="admin-panel.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
-    <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
-
-</head>
+<?php 
+    include 'menubar/head.php';
+?>
 
 <body>
 
@@ -47,31 +25,9 @@
         <!-- normal header nav  -->
         <div id="main">
 
-            <nav class="navbar navbar-expand-lg navs-shadow sticky-top d-none d-lg-block">
-                <div class="container-fluid"><h4 class="text-white">organicK | Admin</h4>
-                        <ul class="nav navbar-nav ml-auto text-white">
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Hatırlatıcı Ekle"><i class="far fa-calendar-plus"></i></a>
-                            </li>
-                            <li class="nav-item">
-
-                                <div class="dropdown">
-                                    <a class="nav-link " id="nofication_popup" data-toggle="dropdown" data-placement="bottom" role="button" title="4 Bildirim" aria-haspopup="true" aria-expanded="false"><i class="far fa-bell"></i><span class="badge">1</span></a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="nofication_popup">
-                                        <ul>
-                                            <li  class="dropdown-header">Alınmış Notlarınız</li>
-                                            <a class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Hatırlatıcı Ekle">Yeni ürün gir!.</a>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link"data-toggle="tooltip" data-placement="bottom" title="Çıkış Yap" href="index.html"><i class="fas fa-sign-out-alt"></i></a>
-                            </li>
-                        </ul>
-                </div>
-            </nav>
+            <?php
+                include 'menubar/nav.php';
+            ?>
 
             <!-- Sidebar  -->
         <nav id="sidebar">
@@ -80,21 +36,18 @@
             <ul class="list-unstyled components">
                 <li>
                     <div class="row">
-                        <img class="fas fa-user rounded-circle mx-auto" style="border: 2px solid;width: 100px;  height: 100px;padding: 15px; margin-bottom: 10px;"/>
-                    </div>
+                            <img class="fas fa-user rounded-circle mx-auto" style="border: 2px solid;width: 100px; margin-top: 45px; height: 100px;padding: 15px; margin-bottom: 30px;"/>
+                        </div>
                 </li>
                 <div class="row">
                     <p class="mx-auto">Organik Amca</p>
-                </div>
-                <div class="row">
-                    <b class="row mx-auto">İşletme:</b>organicK A.Ş
                 </div>
                 <br />
                 <li >
                     <a href="admin.php">AnaSayfa</a>
                 </li>
                  <li  >
-                    <a href="siparisler.html">Siparişler</a>
+                    <a href="siparisler.php">Siparişler</a>
                 </li>
                 <li >
                     <a href="urun-girisi.php">Ürün Girişi</a>
@@ -103,7 +56,7 @@
                     <a href="urun_guncel.php">Ürün Güncelleme</a>
                 </li>
                 <li>
-                    <a href="analizler.html">Analizler</a>
+                    <a href="analizler.php">Analizler</a>
                 </li>
                 <li class="active">
                     <a href="#">Haberler</a>
@@ -117,9 +70,6 @@
             </ul>
 
             <ul class="list-unstyled CTAs">
-                <li >
-                    <a href="profil.html" class="btn btn-ayarlar">Ayarlar</a>
-                </li>
                 <li>
                     <a href="index.html" class="download">Çıkış</a>
                 </li>
@@ -130,22 +80,8 @@
         <!-- icerik -->
          <div id="content">
             <br/>
-            <div class="card admin-card">
-            <section class="dashboard-counts section-padding">
-                <div class="container-fluid">
-                  <div class="row">
-                    <!-- Count item widget-->
-                    <div class="col-12">
-                      <div class="wrapper count-title d-flex">
-                        <div class="icon "><i class="far fa-id-card gosterge-icon "></i></div>
-                        <div class="name"><h5 class="text-uppercase ust-baslik">Güncel Haberler</h5>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-          </div>
+            
+          
 
                 <hr >
 
@@ -205,7 +141,7 @@
                 </div>
             </div>
 
-
+</div>
         
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->

@@ -1,5 +1,5 @@
 <?php 
-include 'menubar/head.php';
+    include 'menubar/head.php';
 ?>
 
 <body>
@@ -25,12 +25,9 @@ include 'menubar/head.php';
         <!-- normal header nav  -->
         <div id="main">
 
-            <div id="main">
-
-           <?php 
+            <?php
                 include 'menubar/nav.php';
-           ?>
-
+            ?>
 
             <!-- Sidebar  -->
         <nav id="sidebar">
@@ -56,11 +53,11 @@ include 'menubar/head.php';
                 <li >
                     <a href="urun-girisi.php">Ürün Girişi</a>
                 </li>
-                <li class="active">
-                    <a href="#">Ürün Güncelleme</a>
+                 <li >
+                    <a href="urun_guncel.php">Ürün Güncelleme</a>
                 </li>
-                <li>
-                    <a href="analizler.php">Analizler</a>
+                <li class="active">
+                    <a href="#">Analizler</a>
                 </li>
                 <li>
                     <a href="haberler.php">Haberler</a>
@@ -86,50 +83,63 @@ include 'menubar/head.php';
             <br/>
             
           
+
                 <hr >
 
-            <!--
-            <h1>urun girişi</h1>--->
+            <!--<h2>Anasayfa</h2>-->
+            <h1>analizler</h1>
 
-            <div class="row">
-
-                <div class="col col-sm-12 col-md-6 " >
+              <div class="row">
+                
+                <div class="col-sm-12 col-md-6">
                     <div class="card text-left">
-                        <?php
-                            require 'php/baglan.php';
-                            $sorgu=mysqli_query($baglan,"SELECT urun_kayit.urun_ad,urun_kayit.fiyat,urun_kayit.stok_miktari from urun_kayit ");
-                            echo "<table class='table'>";
-                            echo "<thead class='thead-dark'>";
-                            echo "<tr>";
-                            echo "<th scope='col' >ÜRÜN ADI</th>";
-                            echo "<th scope='col'>SİPARİŞ KİLOSU</th>";
-                            echo "<th scope='col'>TOPLAM FİYAT</th>";
-                            echo "<th scope='col'>SİL</th>";
-                            echo "<th scope='col'>GÜNCELLE</th>";
-                            echo "</tr>";
-                            echo "</thead>";
-                            echo "<tbody>";
-                            echo "<tr>";
-                            while ($row = mysqli_fetch_array($sorgu)){
-                                echo "<td style='text-transform: uppercase;'>".$row[0]."</td>";
-                                echo "<td style='padding-left : 10%;'>".$row[1]."</td>";
-                                echo "<td style='padding-left : 10%;'>".$row[2]."</td>";
-                                echo "<td><button type='button' class='btn btn-danger'>Sil</button></td>";
-                                echo "<td><button type='button' class='btn btn-success'>Güncelle</button></td>";
-                                echo "</tr>";
-                            }
-                            echo "</table>";
-                                                ?>
+                        <div class="card-header">En Çok Ziyaret Edilen Saatler</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                        <div class="card-footer text-muted">2 days ago</div>
                     </div>
                 </div>
 
+                <div class="col col-sm-12 col-md-6">
+                    <div class="card text-left">
+                        <div class="card-header">En Çok Alınan Ürünler</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                        <div class="card-footer text-muted">2 days ago</div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="card text-left">
+                        <div class="card-header">Müşterilerin Sık Ziyaret Ettiği Kısımlar</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                        <div class="card-footer text-muted">2 days ago</div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="card text-left">
+                        <div class="card-header"></div>
+                        <div class="card-body">
+                            <h5 class="card-title">Haftalık Rapor</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                        <div class="card-footer text-muted">2 days ago</div>
+                    </div>
+                </div>
 
-
-
-
+            </div>
         </div>
-</div>
-
+    </div>
 
         
 
@@ -163,3 +173,4 @@ include 'menubar/head.php';
 </body>
 
 </html>
+
