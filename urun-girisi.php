@@ -93,7 +93,7 @@ include 'menubar/head.php';
                 <section id="tabs" class="project-tab">
             <div class="container">
                 <div class="row ">
-                    <div class="col-md-12">
+                    <div class="col-md-12 col-sm-12">
                         <nav>
                             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                                 <a class="nav-item nav-link active urun-tab" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Ürün Bilgileri</a>

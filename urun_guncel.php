@@ -115,11 +115,46 @@ include 'menubar/head.php';
                                 echo "<td style='padding-left : 10%;'>".$row[1]."</td>";
                                 echo "<td style='padding-left : 10%;'>".$row[2]."</td>";
                                 echo "<td><button type='button' class='btn btn-danger'>Sil</button></td>";
-                                echo "<td><button type='button' class='btn btn-success'>Güncelle</button></td>";
+                                echo "<td><button type='button' class='btn btn-success btn-lg' data-toggle='modal' data-target='#myModal'>Güncelle</button></td>";
                                 echo "</tr>";
-                            }
+                                                ?>
+
+                                <div id="myModal" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h5 class="modal-title">Ürün Güncelleme</h5>         
+                                            </div>
+                                            <div class="modal-body">
+                                                <select class="form-control " name="urun_ad">
+                                                <option value="">Ürün seçiniz</option>
+                                    
+                                            <?php 
+                                                include('php/baglan.php');                                                 
+                                                $urunCek = "SELECT * from urun_kayit";
+                                                $urunler = mysqli_query($baglan,$urunCek);
+                                                while( $row = mysqli_fetch_assoc($urunler) ){
+                                                    echo '<option value="'.$row["urun_id"].'">'.$row["urun_ad"].'</option>';
+                                                                                                        }
+                                            ?>
+                                                </select>                                        
+                                            </div>                                     
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>                      
+                                                <button type="button" class="btn btn-info" data-dismiss="modal">Kaydet</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <?php
+                                echo "</tr>";
+                       
+                                     }
                             echo "</table>";
                                                 ?>
+ 
                     </div>
                 </div>
 
