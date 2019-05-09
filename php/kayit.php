@@ -45,16 +45,11 @@ if ($_POST){
 		echo "Cinsiyet requesti olmadı";
 	}
 
-	if (isset($_POST["secenek"])){
-		$sec = strip_tags(trim($_POST["secenek"]));
-	}
-	else{
-		echo "Kayıt türü requesti olmadı";
-	}
 	
-	$ekle ="insert into kullanici_kayit(ad_soyad,telefon,e_posta,dogum_tarihi,parola,cinsiyet,role_id) values('$ad','$no','$email','$date','$pass','$cins','$sec')";
+	$ekle ="insert into kullanici_kayit(ad_soyad,telefon,e_posta,dogum_tarihi,parola,cinsiyet) values('$ad','$no','$email','$date','$pass','$cins')";
 		if ($baglan->query($ekle)){
-			echo "kayıt yapıldı";
+			
+			header("Location:../kullanıcı.html");
 		}
 		else{
 			echo "kayıt yapılamadı";
