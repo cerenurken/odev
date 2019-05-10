@@ -3,13 +3,7 @@
 require 'baglan.php';
 if ($_GET){
 
-	if(isset($_GET["urun_ad"])){
-		$urun = $_GET["urun_ad"];
-		$sorgu = mysqli_query($baglan,"SELECT indirim.urun_id FROM urun_indirim,urun_giris WHERE indirim.urun_id=urun_giris.urun_id");
-	}
-	else{
-		echo "ürün adı requesti olmadı";
-	}
+	
 
 	if(isset($_GET["indirim_mik"])){
 		$miktar = $_GET["indirim_mik"];
