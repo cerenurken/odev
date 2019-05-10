@@ -94,28 +94,28 @@ include 'menubar/head.php';
             <div class="row">
 
                 <div class="col col-sm-12 col-md-6 " >
-                    <div class="card text-left">
+                    <div class="card text-left" style="width: 200%;">
                         <?php
                             require 'php/baglan.php';
                             $sorgu=mysqli_query($baglan,"SELECT * from urun_kayit ");
-                            echo "<table class='table'>";
+                            echo "<table class='table' >";
                             echo "<thead class='thead-dark'>";
-                            echo "<tr>";
-                            echo "<th scope='col' >ÜRÜN ADI</th>";
-                            echo "<th scope='col'>SİPARİŞ KİLOSU</th>";
-                            echo "<th scope='col'>TOPLAM FİYAT</th>";
-                            echo "<th scope='col'>SİL</th>";
-                            echo "<th scope='col'>GÜNCELLE</th>";
+                            echo "<tr >";
+                            echo "<th scope='col' style='padding-left:7%;'>ÜRÜN ADI</th>";
+                            echo "<th scope='col' style='padding-left:7%;'>FİYATI</th>";
+                            echo "<th scope='col' style='padding-left:7%;'>STOK MİKTARI</th>";
+                            echo "<th scope='col' style='padding-left:10%;'>SİL</th>";
+                            echo "<th scope='col'style='padding-left:9%;'>GÜNCELLE</th>";
                             echo "</tr>";
                             echo "</thead>";
                             echo "<tbody>";
                             echo "<tr>";
                             while ($row = mysqli_fetch_array($sorgu)){
-                                echo "<td style='text-transform: uppercase;'>".$row[1]."</td>";
-                                echo "<td >".$row[3]."</td>";
-                                echo "<td >".$row[4]."</td>";
-                                echo '<td><a href = "php/urun_sil.php?id='.$row["urun_id"].'"onclick="return uyari();"><button type="button" class="btn btn-danger btn-lg">Sil</button></a></td>';
-                                echo "<td><a href='#'><button type='button' class='btn btn-success btn-lg'>Güncelle</button></a></td>";
+                                echo "<td style='text-transform: uppercase;padding-left:8%;'>".$row[1]."</td>";
+                                echo "<td style='padding-left:8%;' >".$row[3]."</td>";
+                                echo "<td style='padding-left:11%;'>".$row[4]."</td>";
+                                echo '<td style="padding-left:9%;"><a href = "php/urun_sil.php?id='.$row["urun_id"].'"onclick="return uyari();"><button type="button" class="btn btn-danger btn-lg">Sil</button></a></td>';
+                                echo '<td style="padding-left:7%;"><a href="php/urun_guncelle.php?id='.$row["urun_id"].'" onclick="return uyari2();"><button type="button" class="btn btn-success btn-lg">Güncelle</button></a></td>';
                                 echo "</tr>";
                                 echo "</tr>";
                        
@@ -170,6 +170,16 @@ include 'menubar/head.php';
 function uyari() {
  
 if (confirm("Bu kaydı silmek istediğinize emin misiniz?"))
+   return true;
+else 
+   return false;
+}
+</script>
+
+<script language="JavaScript">
+function uyari2() {
+ 
+if (confirm("Bu kaydı güncellemek istediğinize emin misiniz?"))
    return true;
 else 
    return false;
