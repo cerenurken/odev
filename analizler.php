@@ -53,6 +53,9 @@
                 <li >
                     <a href="urun-girisi.php">Ürün / İndirim</a>
                 </li>
+                <li >
+                    <a href="gelir-gider.php">Gelir / Gider</a>
+                </li>
                  <li >
                     <a href="urun_guncel.php">Ürün Güncelleme</a>
                 </li>

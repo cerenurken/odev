@@ -56,12 +56,16 @@ include 'menubar/head.php';
                 <li >
                     <a href="urun-girisi.php">Ürün / İndirim</a>
                 </li>
+                <li >
+                    <a href="gelir-gider.php">Gelir / Gider</a>
+                </li>
                 <li class="active">
                     <a href="#">Ürün Güncelleme</a>
                 </li>
                 <li>
                     <a href="analizler.php">Analizler</a>
                 </li>
+
                 <li>
                     <a href="haberler.php">Haberler</a>
                 </li>
