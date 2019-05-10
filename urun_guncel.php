@@ -114,7 +114,7 @@ include 'menubar/head.php';
                                 echo "<td style='text-transform: uppercase;'>".$row[1]."</td>";
                                 echo "<td >".$row[3]."</td>";
                                 echo "<td >".$row[4]."</td>";
-                                echo '<td><a href = "php/urun_sil.php?id='.$row["urun_id"].'"><button type="button" class="btn btn-danger btn-lg">Sil</button></a></td>';
+                                echo '<td><a href = "php/urun_sil.php?id='.$row["urun_id"].'"onclick="return uyari();"><button type="button" class="btn btn-danger btn-lg">Sil</button></a></td>';
                                 echo "<td><a href='#'><button type='button' class='btn btn-success btn-lg'>Güncelle</button></a></td>";
                                 echo "</tr>";
                                 echo "</tr>";
@@ -166,3 +166,12 @@ include 'menubar/head.php';
 </body>
 
 </html>
+<script language="JavaScript">
+function uyari() {
+ 
+if (confirm("Bu kaydı silmek istediğinize emin misiniz?"))
+   return true;
+else 
+   return false;
+}
+</script>
