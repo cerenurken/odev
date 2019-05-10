@@ -54,7 +54,7 @@ include 'menubar/head.php';
                     <a href="siparisler.php">Siparişler</a>
                 </li>
                 <li >
-                    <a href="urun-girisi.php">Ürün Girişi</a>
+                    <a href="urun-girisi.php">Ürün / İndirim</a>
                 </li>
                 <li class="active">
                     <a href="#">Ürün Güncelleme</a>

@@ -49,7 +49,7 @@
                     <a href="siparisler.html">Siparişler</a>
                 </li>
                 <li >
-                    <a href="urun-girisi.php">Ürün Girişi</a>
+                    <a href="urun-girisi.php">Ürün / İndirim</a>
                 </li>
                  <li >
                     <a href="urun_guncel.php">Ürün Güncelleme</a>
