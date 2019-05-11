@@ -122,9 +122,14 @@
                     <div class="col-xl-2 col-md-4 col-6">
                       <div class="wrapper count-title d-flex">
                         <div class="icon"><i class="fas fa-lira-sign gosterge-icon"></i></div>
-                        <div class="name"><h5 class="text-uppercase ust-baslik">TOPLAM GELİR</h5>
-                           <center> <h6 class="orta-baslik">Son 2 gün</h6>
-                          <div class="count-number">123 tl</div></center>
+                        <div class="name"><h5 class="text-uppercase ust-baslik">TOPLAM GELİR</h5><center>
+                            <?php
+                            require 'php/baglan.php';
+                            $ekle = mysqli_query($baglan,"SELECT sum(siparisler.toplam_fiyat) from siparisler");
+                            while ($listele = mysqli_fetch_array($ekle)) {
+                                echo "<h6 class='orta-baslik'>".$listele[0].'TL'."</h6>";
+                            }
+                            ?>
                         </div>
                       </div>
                     </div>
