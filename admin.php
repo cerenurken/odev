@@ -316,8 +316,8 @@ $tufe=getir('<td style="text-align: center;">',"</td>",$cekilen_veri);
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6">
-                    <div class="card text-left">
-                        <div class="card" style="margin-bottom: 5%; margin-top: 1.7%;">
+                    <div class="card text-left "  style="margin-bottom: 7%; margin-top:10%;">
+                        <div class="card">
                         <h4 style="padding-top: 3%; padding-bottom: 0.8%; padding-left: 3%; color: #ff7838;">TÜKETİCİ FİYAT ENDEKSİ</h4>
                     </div>
                 <?php
@@ -326,13 +326,8 @@ $tufe=getir('<td style="text-align: center;">',"</td>",$cekilen_veri);
                             $usd_selling = $connect_web->Currency[0]->BanknoteSelling;
                             $euro_buying = $connect_web->Currency[3]->BanknoteBuying;
                             $euro_selling = $connect_web->Currency[3]->BanknoteSelling;
-                            $dnr_buying = $connect_web->Currency[4]->BanknoteBuying;
-                            $dnr_selling = $connect_web->Currency[4]->BanknoteSelling;
                             $str_buying = $connect_web->Currency[8]->BanknoteBuying;
                             $str_selling = $connect_web->Currency[8]->BanknoteSelling;
-                            $jpn_buying = $connect_web->Currency[11]->BanknoteBuying;
-                            $jpn_selling = $connect_web->Currency[11]->BanknoteSelling;
-
                             echo "<table class='table'>";
                             echo "<thead class='thead-dark'>";
                             echo "<tr>";
@@ -352,14 +347,6 @@ $tufe=getir('<td style="text-align: center;">',"</td>",$cekilen_veri);
                             echo "<tr>";
                             echo "<td><i class='fas fa-pound-sign'></i><span style ='color:#c3c3c3; margin-right:14px;'> STERLİN :</span> <label>".$str_buying."</label></td>";
                             echo "<td>".$str_selling."</td>";
-                            echo "</tr>";
-                            echo "<tr>";
-                            echo "<td><i class='fas fa-yen-sign'></i><span style ='color:#c3c3c3; margin-right:14px;'> JAPON :</span> <label>".$jpn_buying."</label></td>";
-                            echo "<td>".$jpn_selling."</td>";
-                            echo "</tr>";
-                            echo "<tr>";
-                            echo "<td>د.ك <span style ='color:#c3c3c3; margin-right:14px;'> DİNAR :</span> <label>".$dnr_buying."</label></td>";
-                            echo "<td>".$dnr_selling."</td>";
                             echo "</tr>";
                             echo "</table>";
 
