@@ -126,27 +126,28 @@ include 'menubar/head.php';
                                 <table class="table">
                                   <thead class="thead-dark">
                                     <tr>
-                                      <TH scope="col">Yenilenme Tarihi</TH>
                                       <th scope="col">Toplam Satılan Ürün Miktarı</th>
                                       <th scope="col">Satışlardan Elde Edilen Gelir</th>
                                       <th scope="col">Toplam Giderler</th>
-                                      <th scope="col">Kar Miktarı</th>
                                     </tr>
                                   </thead>
                                   <tbody>
                                     <tr>
-                                      <td>27.03.2019</td>
-                                      <td scope="row">100</td>
-                                      <td>300 TL</td>
-                                      <td>30 TL</td>
-                                      <td>270 TL</td>
-                                    </tr>
-                                    <tr>
-                                      <td>27.02.2019</td>
-                                      <td scope="row">25</td>
-                                      <td>100 TL</td>
-                                      <td>12 TL</td>
-                                      <td>88TL</td>
+                                        <?php
+                                        require 'php/baglan.php';
+                                        $ekle = mysqli_query($baglan,"SELECT sum(siparisler.siparis_kilo),sum(siparisler.toplam_fiyat) from siparisler");
+                                        while ($listele = mysqli_fetch_array($ekle)) {
+                                             echo "<td scope='row' >".$listele[0]." ".'Kilo / Adet'."</td>";
+                                             echo "<td>".$listele[1].'TL'."</td>";
+                                            }
+                                        ?>
+                                        <?php
+                                        require 'php/baglan.php';
+                                        $ekle = mysqli_query($baglan,"SELECT sum(odemeler.toplam) FROM odemeler");
+                                        while ($listele = mysqli_fetch_array($ekle)) {
+                                             echo "<td>".$listele[0].'TL'."</td>";
+                                            }
+                                        ?>
                                     </tr>
                                   </tbody>
                                 </table>
