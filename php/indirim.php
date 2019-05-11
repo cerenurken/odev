@@ -3,7 +3,9 @@
 require 'baglan.php';
 if ($_GET){
 
-	
+	if(isset($_GET["urun_ad"])){
+		$ad = $_GET["urun_ad"];
+	}
 
 	if(isset($_GET["indirim_mik"])){
 		$miktar = $_GET["indirim_mik"];
@@ -12,12 +14,6 @@ if ($_GET){
 		echo "indirim miktarı requesti olmadı";
 	}
 
-	if(isset($_GET["indrm_orani"])){
-		$oran = $_GET["indrm_orani"];
-	}
-	else{
-		echo " indirim oaranı requesti olmadı";
-	}
 
 	if(isset($_GET["indrm_süre"])){
 		$süre_b = $_GET["indrm_bas_süre"];
@@ -40,7 +36,7 @@ if ($_GET){
 		echo "gücel fiyat requesti olmadı";
 	}
 
-	$indirim_giris = "insert into indirim (stok_mik,orani,indirim_bas,indirim_son,guncel_fiyat) values('$miktar','$oran','$süre_b','$süre','$fiyat')";
+	$indirim_giris = "insert into indirim (stok_mik,urun_id,indirim_bas,indirim_son,guncel_fiyat) values('$miktar',$ad,'$süre_b','$süre','$fiyat')";
 		if ($baglan->query($indirim_giris)){
 			echo "kayıt yapıldı";
 		}
