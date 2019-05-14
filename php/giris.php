@@ -21,7 +21,7 @@ if ($_POST){
 	$sorgu=mysqli_query($baglan,"select * from kullanici_kayit where e_posta='$giris_mail' and parola='$giris_pass'");
 
 	if(mysqli_num_rows($sorgu)>0){
-		header("Location:../kullanıcı.html");
+		header("Location:../index.php");
 	}else{
 		echo "Kullanıcı adı veya parola yanlış..!";
 	}
