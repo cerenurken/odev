@@ -1,0 +1,30 @@
+
+.cart-icon{
+	font-size: 18px;
+}
+
+.cart-count{
+	position: relative;
+	background-color: #cd3333;
+	font-size: 8px;
+	top: -10px;
+	left: -5px;
+}
+.color-danger{
+	color: #cd3333;
+}
+.item-count-input{
+	width: 50px;
+	text-align: center;
+}
+td{
+	vertical-align: middle !important;
+}
+
+tfoot th{
+	padding: 20px !important;
+	background-color: #dfdfdf !important;
+}
+table{
+	box-shadow: 0 0 8px rgba(5,5,5,.3);
+}
