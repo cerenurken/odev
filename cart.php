@@ -183,16 +183,16 @@ if(isset($_POST["p"])){
 if(isset($_GET["p"])){
 	$islem = $_GET["p"];
 	if($islem == "incCount"){
-		$id = $_GET["product_id"];
+		$id = $_GET["urun_id"];
 
 		if(incCount($id)){
-			header("Location : shoping.php");
+			header("Location: shoping.php");
 		}
 
 	}elseif($islem == "decCount"){
-		$id =$_GET["product_id"];
+		$id =$_GET["urun_id"];
 		if(decCount($id)){
-			header("Location : shoping.php");
+			header("Location: shoping.php");
 		}
 	}
 }
