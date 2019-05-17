@@ -1,11 +1,32 @@
 <?php
 include 'header.php';
+
+?>
+
+
+<!---------------main content  *------------------->
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="resimler/18.png" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="resimler/19.png" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="resimler/11.PNG" alt="Third slide">
+    </div>
+  </div>
+</div>
+
+<?php
 require_once "db.php";
 $urun_kayit=$db->query("SELECT * from urun_kayit",PDO::FETCH_OBJ)->fetchAll();
 ?>
 <!---------------main content  *------------------->
 <div class="container">
-  <h2>ÜRÜN LİSTESİ</h2>
+  <h2 class="ürünü">ÜRÜN LİSTESİ</h2>
   <hr>
   <div class="row">
     <?php foreach ($urun_kayit as $urun) {
@@ -27,33 +48,11 @@ $urun_kayit=$db->query("SELECT * from urun_kayit",PDO::FETCH_OBJ)->fetchAll();
     </div>
     <?php }?>
   </div>
+  <hr>
 </div>
-
 
 
 <!------------------main ---------->
-
-
-
-
-
-
-
-<!---------------main content  *------------------->
-
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="resimler/18.png" alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="resimler/19.png" alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="resimler/11.PNG" alt="Third slide">
-    </div>
-  </div>
-</div>
 
 
 <!----------------------------------indirim------------------------->
@@ -95,12 +94,9 @@ $urun_kayit=$db->query("SELECT * from urun_kayit",PDO::FETCH_OBJ)->fetchAll();
         <img class="img-fluid resimler" src="resimler/sebze/kabak.png">
         <a href="giris.html"><h1 class="resimIndirim">%50 İndirim</h1></a>
       </div>
-
     </div>
   </div> 
 </div>
-
-
 
 
 
@@ -117,7 +113,7 @@ $urun_kayit=$db->query("SELECT * from urun_kayit",PDO::FETCH_OBJ)->fetchAll();
               <div class="footer_menu">
                 <h3 class="footer_baslik">Ana Menü</h3>
                 <ul class="menu_footer">
-                  <li><a class="footer_link" href="#">Ana Sayfa</a></li>
+                  <li><a class="footer_link" href="#">AnaSayfa</a></li>
                   <li><a class="footer_link" href="#">organicK</a></li>
                 </ul>
               </div>

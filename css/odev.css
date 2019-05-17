@@ -20,7 +20,7 @@
 	margin-right: 3%;
 }
 .d-block{
-	margin-top: 85px;
+	margin-bottom: 7%;
 	max-height: 585px;
 	max-width: 100%;
 }
@@ -264,6 +264,7 @@
 	padding-right: 50px;
 	padding-left: 50px;
 	padding-bottom: 30px;
+	margin-bottom: 7%;
 }
 .kategori_card{
 	background-color: #f7f7f7;
