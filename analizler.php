@@ -77,7 +77,7 @@
 
             <ul class="list-unstyled CTAs">
                 <li>
-                    <a href="index.html" class="download">Çıkış</a>
+                    <a href="index.php" class="download">Çıkış</a>
                 </li>
             </ul>
         </nav>

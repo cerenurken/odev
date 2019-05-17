@@ -18,7 +18,7 @@
 
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link"data-toggle="tooltip" data-placement="bottom" title="Çıkış Yap" href="index.html"><i class="fas fa-sign-out-alt"></i></a>
+                                <a class="nav-link"data-toggle="tooltip" data-placement="bottom" title="Çıkış Yap" href="index.php"><i class="fas fa-sign-out-alt"></i></a>
                             </li>
                         </ul>
                 </div>
