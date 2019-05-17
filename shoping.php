@@ -18,7 +18,7 @@ include 'header.php';
 	
 	<hr>
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-9 col-md-offset-1">
 			<table class="table tale-hover table-bordered table-striped">
 				<thead>
 					<td>Ürün Resmi</td>
@@ -58,11 +58,15 @@ include 'header.php';
 					<?php } ?>
 				</tbody>
 				<tfoot>
-					<th colspan="4" class="text-right">
+					<br>
+					<th colspan="3" class="text-right">
 						Toplam Ürün : <span class="color-danger"><?php echo $total_count ;?> Adet</span>
 					</th>
 					<th colspan="2" class="text-right">
 						Toplam Tutar : <span class="color-danger"><?php echo $total_price;?>TL</span>
+					</th>
+					<th colspan="1" class="text-right">
+						<button type="button" class="btn btn-success" style="width: 150px;margin-right: 40px;">Satın Al</button>
 					</th>
 				</tfoot>
 			</table>
