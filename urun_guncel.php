@@ -50,25 +50,27 @@ include 'menubar/head.php';
                 <li >
                     <a href="admin.php">AnaSayfa</a>
                 </li>
+                <li>
+                    <a href="kayit_musteri.php">Müşteriler</a>
+                </li>
                  <li  >
                     <a href="siparisler.php">Siparişler</a>
                 </li>
                 <li >
-                    <a href="urun-girisi.php">Ürün / İndirim</a>
-                </li>
-                <li >
-                    <a href="gelir-gider.php">Gelir / Gider</a>
+                    <a href="urun-girisi.php">Ürün Giriş</a>
                 </li>
                 <li class="active">
                     <a href="#">Ürün Güncelleme</a>
                 </li>
+                <li >
+                    <a href="gelir-gider.php">Gelir / Gider</a>
+                </li>
+                
                 <li>
                     <a href="analizler.php">Analizler</a>
                 </li>
 
-                <li>
-                    <a href="haberler.php">Haberler</a>
-                </li>
+                
                <!-- <li>
                     <a href="profil.html">Profil</a>
                 </li>
@@ -88,7 +90,7 @@ include 'menubar/head.php';
         <!-- icerik -->
          <div id="content">
             <br/>
-            
+            <BR>
           
                 <hr >
 
@@ -105,20 +107,20 @@ include 'menubar/head.php';
                             echo "<table class='table' >";
                             echo "<thead class='thead-dark'>";
                             echo "<tr >";
-                            echo "<th scope='col' style='padding-left:7%;'>ÜRÜN ADI</th>";
+                            echo "<th scope='col' style='padding-left:3%;'>ÜRÜN ADI</th>";
                             echo "<th scope='col' style='padding-left:7%;'>FİYATI</th>";
-                            echo "<th scope='col' style='padding-left:7%;'>STOK MİKTARI</th>";
-                            echo "<th scope='col' style='padding-left:10%;'>SİL</th>";
+                            echo "<th scope='col' style='padding-left:1%;'>STOK MİKTARI</th>";
+                            echo "<th scope='col' style='padding-left:8%;'>SİL</th>";
                             echo "<th scope='col'style='padding-left:9%;'>GÜNCELLE</th>";
                             echo "</tr>";
                             echo "</thead>";
                             echo "<tbody>";
                             echo "<tr>";
                             while ($row = mysqli_fetch_array($sorgu)){
-                                echo "<td style='text-transform: uppercase;padding-left:8%;'>".$row[1]."</td>";
-                                echo "<td style='padding-left:8%;' >".$row[3]."</td>";
-                                echo "<td style='padding-left:11%;'>".$row[4]."</td>";
-                                echo '<td style="padding-left:9%;"><a href = "php/urun_sil.php?id='.$row["urun_id"].'"onclick="return uyari();"><button type="button" class="btn btn-danger btn-lg">Sil</button></a></td>';
+                                echo "<td style='text-transform: uppercase;padding-left:4%;'>".$row[1]."</td>";
+                                echo "<td style='padding-left:8%;' >".$row[3]." <i class='fas fa-lira-sign'></i></td>";
+                                echo "<td style='padding-left:2%;'>".$row[4]. " adet</td>";
+                                echo '<td style="padding-left:7%;"><a href = "php/urun_sil.php?id='.$row["urun_id"].'"onclick="return uyari();"><button type="button" class="btn btn-danger btn-lg">Sil</button></a></td>';
                                 echo '<td style="padding-left:7%;"><a href="php/urun_guncelle.php?id='.$row["urun_id"].'" onclick="return uyari2();"><button type="button" class="btn btn-success btn-lg">Güncelle</button></a></td>';
                                 echo "</tr>";
                                 echo "</tr>";

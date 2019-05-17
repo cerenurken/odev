@@ -47,25 +47,27 @@
                 <li class="active">
                     <a href="#">AnaSayfa</a>
                 </li>
+                <li>
+                    <a href="kayit_musteri.php">Müşteriler</a>
+                </li>
                  <li >
                     <a href="siparisler.php">Siparişler</a>
                     
                 </li>
                 <li >
-                    <a href="urun-girisi.php">Ürün / İndirim</a>
+                    <a href="urun-girisi.php">Ürün Giriş</a>
+                </li>
+                <li >
+                    <a href="urun_guncel.php">Ürün Güncelleme</a>
                 </li>
                 <li >
                     <a href="gelir-gider.php">Gelir / Gider</a>
                 </li>
-                 <li >
-                    <a href="urun_guncel.php">Ürün Güncelleme</a>
-                </li>
+                 
                 <li>
                     <a href="analizler.php">Analizler</a>
                 </li>
-                <li>
-                    <a href="haberler.php">Haberler</a>
-                </li>
+                
                <!-- <li>
                     <a href="profil.html">Profil</a>
                 </li>
@@ -85,6 +87,7 @@
         <!-- icerik -->
          <div id="content">
             <br/>
+            <BR>
             <div class="card admin-card">
             <section class="dashboard-counts section-padding">
                 <div class="container-fluid">

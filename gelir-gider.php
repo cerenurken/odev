@@ -35,23 +35,25 @@ include 'menubar/head.php';
                 <a href="admin.php">AnaSayfa</a>
             </li>
             <li>
+                <a href="kayit_musteri.php">Müşteriler</a>
+            </li>
+            <li>
                 <a href="siparisler.php">Siparişler</a>
             </li>
             <li >
-                <a href="urun-girisi">Ürün / İndirim </a>
-            </li>
-            <li class="active">
-                <a href="gelir-gider.php">Gelir / Gider</a>
+                <a href="urun-girisi">Ürün Giriş </a>
             </li>
             <li >
                 <a href="urun_guncel.php">Ürün Güncelleme</a>
             </li>
+            <li class="active">
+                <a href="gelir-gider.php">Gelir / Gider</a>
+            </li>
+            
             <li>
                 <a href="analizler.php">Analizler</a>
             </li>
-            <li>
-                <a href="haberler.php">Haberler</a>
-            </li>
+            
                <!-- <li>
                     <a href="profil.html">Profil</a>
                 </li>
@@ -69,7 +71,7 @@ include 'menubar/head.php';
   
         <!-- icerik -->
     <div id="content">
-        <br/>
+        <br/><BR>
         <hr >
 		<!-- ürün Girisi baslangıcı -->
         <div class="row">

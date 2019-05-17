@@ -47,24 +47,26 @@ include 'menubar/head.php';
                 <li >
                     <a href="admin.php">AnaSayfa</a>
                 </li>
+                <li>
+                    <a href="kayit_musteri.php">Müşteriler</a>
+                </li>
                  <li class="active" >
                     <a href="#">Siparişler</a>
                 </li>
                 <li >
-                    <a href="urun-girisi.php">Ürün / İndirim</a>
+                    <a href="urun-girisi.php">Ürün Giriş</a>
+                </li>
+                
+                 <li >
+                    <a href="urun_guncel.php">Ürün Güncelleme</a>
                 </li>
                 <li >
                     <a href="gelir-gider.php">Gelir / Gider</a>
                 </li>
-                 <li >
-                    <a href="urun_guncel.php">Ürün Güncelleme</a>
-                </li>
                 <li>
                     <a href="analizler.php">Analizler</a>
                 </li>
-                <li>
-                    <a href="haberler.php">Haberler</a>
-                </li>
+                
                 <!--<li>
                     <a href="profil.html">Profil</a>
                 </li>
@@ -85,7 +87,7 @@ include 'menubar/head.php';
          <div id="content">
             <br/>
             
-          
+          <BR>
 
                 <hr >
 
