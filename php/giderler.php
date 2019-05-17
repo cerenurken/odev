@@ -38,9 +38,7 @@
 			echo "İlaç gideri requesti olmadı";
 		}
 
-		$toplam = $fatura_g + $odeme_g + $arac_g + $ofis_g + $ilac_g ;
-
-		$giderler = "insert into odemeler (fatura,calisan,arac,ofis,ilaclama,toplam_odeme) values ('$fatura_g','$odeme_g','$arac_g','$ofis_g','$ilac_g','$toplam')";
+		$giderler = "insert into odemeler (fatura,calisan,arac,ofis,ilaclama) values ('$fatura_g','$odeme_g','$arac_g','$ofis_g','$ilac_g')";
 
 		if ($baglan->query($giderler)){
 			echo "kayıt yapıldı";

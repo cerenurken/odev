@@ -173,7 +173,7 @@ include 'menubar/head.php';
     <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-    <script type="text/javascript" src="select2.min.js"></script>
+   
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -194,19 +194,9 @@ include 'menubar/head.php';
            
 
         });
+
     </script>
-    <script type="text/javascript">
-    	$(function() {
-    $('a[data-toggle="tab"]').on('click', function(e) {
-        window.localStorage.setItem('activeTab', $(e.target).attr('href'));
-    });
-    var activeTab = window.localStorage.getItem('activeTab');
-    if (activeTab) {
-        $('#myTab a[href="' + activeTab + '"]').tab('show');
-        window.localStorage.removeItem("activeTab");
-    }
-});
-    </script>
+
 </body>
 
 </html>
