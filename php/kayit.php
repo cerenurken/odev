@@ -24,6 +24,13 @@ if ($_POST){
 		echo "E-Posta requesti olmadı";
 	}
 
+	if (isset($_POST["adres"])){
+		$adres =strip_tags(trim($_POST ["adres"]));
+	}
+	else{
+		echo "E-Posta requesti olmadı";
+	}
+
 	if (isset($_POST["tarih"])){
 		$date = strip_tags(trim($_POST["tarih"]));
 	}
@@ -46,7 +53,7 @@ if ($_POST){
 	}
 
 	
-	$ekle ="insert into kullanici_kayit(ad_soyad,telefon,e_posta,dogum_tarihi,parola,cinsiyet) values('$ad','$no','$email','$date','$pass','$cins')";
+	$ekle ="insert into kullanici_kayit(ad_soyad,telefon,e_posta,adres,dogum_tarihi,parola,cinsiyet) values('$ad','$no','$email','$adres','$date','$pass','$cins')";
 		if ($baglan->query($ekle)){
 			
 			header("Location:../index.php");
