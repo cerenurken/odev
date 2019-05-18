@@ -71,7 +71,8 @@ include 'menubar/head.php';
   
         <!-- icerik -->
     <div id="content">
-        <br/><BR>
+        <br/>
+        <h6 class="alert alert-danger">*Giderlerinizi aylık olarak giriniz.</h6>
         <hr >
 		<!-- ürün Girisi baslangıcı -->
         <div class="row">
@@ -115,6 +116,11 @@ include 'menubar/head.php';
                                         <div class="form-group">
                                             <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-seedling kisisel-icon"></i>İlaçlama Gİderlerİ</label>
                                             <input type="text" class="form-control urun-kisisel" placeholder="TL  . . ." name="ilac">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-seedling kisisel-icon"></i>Gİder Tarİhİ</label>
+                                            <input type="date" class="form-control urun-kisisel" placeholder="TL  . . ." name="gider_t">
+                                            
                                         </div>
                                         <input type="submit" class="btnSubmit btn-success ürün-giris-buton" value="KAYDET" />
                                     </form>

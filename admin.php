@@ -102,12 +102,12 @@
                       </div>
                     </div>
                     <!-- Count item widget-->
+                    
                     <div class="col-xl-2 col-md-4 col-6">
                       <div class="wrapper count-title d-flex">
-                        <div class="icon"><i class="far fa-list-alt gosterge-icon"></i></div>
-                        <div class="name"><h5 class="text-uppercase ust-baslik">SİPARİŞLER</h5>
-                             <center><h6 class="orta-baslik">Son 2 Saat</h6>
-                            <div class="count-number"> - </div></center>
+                        <div class="icon"><i class="fas fa-chart-line gosterge-icon"></i></div>
+                        <div class="name"><h5 class="text-uppercase ust-baslik">BORSA HAREKETLERİ</h5>
+                           <center> <h6 class="orta-baslik">Merkez Bankası</h6>
                         </div>
                       </div>
                     </div>
@@ -125,10 +125,10 @@
                     <div class="col-xl-2 col-md-4 col-6">
                       <div class="wrapper count-title d-flex">
                         <div class="icon"><i class="fas fa-lira-sign gosterge-icon"></i></div>
-                        <div class="name"><h5 class="text-uppercase ust-baslik">TOPLAM GELİR</h5><center>
+                        <div class="name"><h5 class="text-uppercase ust-baslik">TOPLAM GİDER</h5><center>
                             <?php
                             require 'php/baglan.php';
-                            $ekle = mysqli_query($baglan,"SELECT sum(siparisler.toplam_fiyat) from siparisler");
+                            $ekle = mysqli_query($baglan,"SELECT sum(odemeler.toplam) from odemeler");
                             while ($listele = mysqli_fetch_array($ekle)) {
                                 echo "<h6 class='orta-baslik'>".$listele[0].'TL'."</h6>";
                             }
@@ -149,9 +149,10 @@
                      <!-- Count item widget-->
                     <div class="col-xl-2 col-md-4 col-6">
                       <div class="wrapper count-title d-flex">
-                        <div class="icon"><i class="fas fa-chart-line gosterge-icon"></i></div>
-                        <div class="name"><h5 class="text-uppercase ust-baslik">BORSA HAREKETLERİ</h5>
-                           <center> <h6 class="orta-baslik">Merkez Bankası</h6>
+                        <div class="icon"><i class="far fa-list-alt gosterge-icon"></i></div>
+                        <div class="name"><h5 class="text-uppercase ust-baslik">SİPARİŞLER</h5>
+                             <center><h6 class="orta-baslik">Son 2 Saat</h6>
+                            <div class="count-number"> - </div></center>
                         </div>
                       </div>
                     </div>
@@ -226,103 +227,13 @@ $tufe=getir('<td style="text-align: center;">',"</td>",$cekilen_veri);
                     </div>
                 </div>
 
-                <div class="col-sm-12 col-md-6" style="margin-bottom: 5%; margin-top: 1.7%;">
-                    <div class="card" style="margin-bottom: 0.3%;">
-                        <h4 style="padding-top: 3%; padding-bottom: 0.8%; padding-left: 3%; color: #ff7838;">GÜNLÜK SATIŞ GELİRİ</h4>
-                    </div>
-                    <div class="card" style="width: 600px; height: 310px;">
-                        <video style="width: 570px; height: 280px; padding-top: 4%;" controls>
-                            <source src="resimler/organik.mp4"type="video/mp4">
-                        </video>
-                    </div>
-                </div>
-
 
                 
                 <div class="col-sm-12 col-md-6" style="margin-bottom: 5%; margin-top: 1.7%;">
                     <div class="card" style="margin-bottom: 0.3%;">
-                        <h4 style="padding-top: 3%; padding-bottom: 0.8%; padding-left: 3%; color: #ff7838;">YENİ MÜŞTERİLER</h4>
+                        <h4 style="padding-top: 3%; padding-bottom: 0.8%; padding-left: 3%; color: #ff7838;">DÖVİZ KURLARI</h4>
                     </div>
                     <div class="card text-left">
-                        <?php
-                            require 'php/baglan.php';
-                            $sorgu=mysqli_query($baglan,"SELECT ad_soyad,telefon,e_posta from kullanici_kayit order by kullanici_id desc");
-                            echo "<table class='table'>";
-                            echo "<thead class='thead-dark'>";
-                            echo "<tr>";
-                            echo "<th scope='col'>AD-SOYAD</th>";
-                            echo "<th scope='col'>TELEFON</th>";
-                            echo "<th scope='col'style='padding-left : 8%;'>E-POSTA</th>";
-                            echo "</tr>";
-                            echo "</thead>";
-                            echo "<tbody>";
-                            echo "<tr>";
-                            while ($row = mysqli_fetch_array($sorgu)){
-                                echo "<td style='text-transform: uppercase;'>".$row[0]."</td>";
-                                echo "<td>".$row[1]."</td>";
-                                echo "<td>".$row[2]."</td>";
-                                echo "</tr>";
-                            }
-                            echo "</table>";
-                                                ?>
-                    </div>
-                </div>
-
-                <div class="col col-sm-12 col-md-6 " style="margin-bottom: 5%; margin-top: 1.7%;">
-                    <div class="card" style="margin-bottom: 0.3%;">
-                        <h4 style="padding-top: 3%; padding-bottom: 0.8%; padding-left: 3%; color: #ff7838;">YENİ SİPARİŞLER</h4>
-                    </div>
-                    <div class="card text-left">
-                        <?php
-                            require 'php/baglan.php';
-                            $sorgu=mysqli_query($baglan,"SELECT urun_kayit.urun_ad,siparisler.siparis_kilo,siparisler.toplam_fiyat from urun_kayit,urun_siparis,siparisler where siparisler.siparis_id=urun_siparis.siparis_id and urun_siparis.urun_id=urun_kayit.urun_id");
-                            echo "<table class='table'>";
-                            echo "<thead class='thead-dark'>";
-                            echo "<tr>";
-                            echo "<th scope='col' >ÜRÜN ADI</th>";
-                            echo "<th scope='col'>SİPARİŞ KİLOSU</th>";
-                            echo "<th scope='col'>TOPLAM FİYAT</th>";
-                            echo "</tr>";
-                            echo "</thead>";
-                            echo "<tbody>";
-                            echo "<tr>";
-                            while ($row = mysqli_fetch_array($sorgu)){
-                                echo "<td style='text-transform: uppercase;'>".$row[0]."</td>";
-                                echo "<td style='padding-left : 10%;'>".$row[1]."</td>";
-                                echo "<td style='padding-left : 10%;'>".$row[2]."</td>";
-                                echo "</tr>";
-                            }
-                            echo "</table>";
-                                                ?>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6">
-                    <div class="card text-left">
-                        <div class="card-header">Müşterilerin Sık Ziyaret Ettiği Kısımlar</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                        <div class="card-footer text-muted">2 days ago</div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6">
-                    <div class="card text-left">
-                        <div class="card-header"></div>
-                        <div class="card-body">
-                            <h5 class="card-title">Haftalık Rapor</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                        <div class="card-footer text-muted">2 days ago</div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6">
-                    <div class="card text-left "  style="margin-bottom: 7%; margin-top:10%;">
-                        <div class="card">
-                        <h4 style="padding-top: 3%; padding-bottom: 0.8%; padding-left: 3%; color: #ff7838;">TÜKETİCİ FİYAT ENDEKSİ</h4>
-                    </div>
                 <?php
                              $connect_web = simplexml_load_file('http://www.tcmb.gov.tr/kurlar/today.xml');
                             $usd_buying = $connect_web->Currency[0]->BanknoteBuying;
@@ -356,6 +267,46 @@ $tufe=getir('<td style="text-align: center;">',"</td>",$cekilen_veri);
                             ?>
                             </div>
                 </div>
+
+                <div class="col-sm-12 col-md-6" style="margin-bottom: 5%; margin-top: 1.7%;">
+                    <div class="card" style="margin-bottom: 0.3%;">
+                        <h4 style="padding-top: 3%; padding-bottom: 0.8%; padding-left: 3%; color: #ff7838;">GÜNLÜK SATIŞ GELİRİ</h4>
+                    </div>
+                    <div class="card" style="width: 600px; height: 310px;">
+                        <video style="width: 570px; height: 280px; padding-top: 4%;" controls>
+                            <source src="resimler/organik.mp4"type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+
+                
+                
+
+                
+                <div class="col-sm-12 col-md-6">
+                    <div class="card text-left">
+                        <div class="card-header">Müşterilerin Sık Ziyaret Ettiği Kısımlar</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                        <div class="card-footer text-muted">2 days ago</div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="card text-left">
+                        <div class="card-header"></div>
+                        <div class="card-body">
+                            <h5 class="card-title">Haftalık Rapor</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                        <div class="card-footer text-muted">2 days ago</div>
+                    </div>
+                </div>
+                
 
             </div>
         </div>
