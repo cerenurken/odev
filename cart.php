@@ -92,8 +92,13 @@ function incCount($urun_id){
 
 //Sepetteki Ürünün Adet Kontrolü 
 		if(array_key_exists($urun_id,$urun_kayit)){
-			$urun_kayit[$urun_id]->count++;
 
+			if($urun_kayit[$urun_id]->birim == 'kg' ||$urun_kayit[$urun_id]->birim == 'gr'){
+				$urun_kayit[$urun_id]->count = $urun_kayit[$urun_id]->count+0.5;	
+			}else{
+				$urun_kayit[$urun_id]->count++;
+			}
+			
 		}
 //Sepet İçin Fiyat Hesaplaması
 
@@ -130,7 +135,12 @@ function decCount($urun_id){
 		
 //Sepetteki Ürünün Adet Kontrolü 
 		if(array_key_exists($urun_id,$urun_kayit)){
-			$urun_kayit[$urun_id]->count--;
+
+			if($urun_kayit[$urun_id]->birim == 'kg' ||$urun_kayit[$urun_id]->birim == 'gr'){
+				$urun_kayit[$urun_id]->count = $urun_kayit[$urun_id]->count-0.5;	
+			}else{
+				$urun_kayit[$urun_id]->count--;
+			}
 
 		}
 //Sepet İçin Fiyat Hesaplaması

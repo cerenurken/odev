@@ -9,7 +9,7 @@ include 'header.php';
 		
 		<?php
 			if($total_count > 0){?>
-				<h2 class="text-center">Sepetinizde <strong class="color-danger"> <?php echo $total_count; ?></strong> adet ürün bulunmaktadır.</h2>
+				<h2 class="text-center">Sepetinizdeki Ürünler</h2>
 				<?php } else{?>
 					<div class="alert alert-danger">
 						<strong>Sepetinizde Henüz Bir Ürün Bulunmamaktadır.Ürün Eklemek İçin <a href="index.php">TIKLAYINIZ</a></strong>
@@ -24,7 +24,8 @@ include 'header.php';
 					<td>Ürün Resmi</td>
 					<th class="text-center">Ürün Adı</th>
 					<th class="text-center">Fiyatı</th>
-					<th class="text-center">Adedi</th>
+					<th class="text-center">Miktar</th>
+					<th class="text-center">Birim</th>
 					<th class="text-center">Toplam</th>
 					<th class="text-center">Sepetten Çıkar</th>
 				</thead>
@@ -48,6 +49,9 @@ include 'header.php';
 								<span class="glyphicon glyphicon-minus"></span>
 							</a>
 						</td>
+						
+						<td class="text-center"><?php echo $urun->birim;?></td>
+
 						<td class="text-center"><?php echo $urun->total_price;?></td>
 						<td class="text-center">
 							<button product-id="<?php echo $urun->urun_id;?>" class="btn btn-danger btn-sm removeFromCartBtn">
@@ -60,13 +64,24 @@ include 'header.php';
 				<tfoot>
 					<br>
 					<th colspan="3" class="text-right">
-						Toplam Ürün : <span class="color-danger"><?php echo $total_count ;?> Adet</span>
+						<!--Toplam Ürün : <span class="color-danger"><?php// echo $total_count ;?> Adet</span> -->
 					</th>
 					<th colspan="2" class="text-right">
 						Toplam Tutar : <span class="color-danger"><?php echo $total_price;?>TL</span>
 					</th>
-					<th colspan="1" class="text-right">
-						<button type="button" class="btn btn-success" style="width: 150px;margin-right: 40px;">Satın Al</button>
+					<th colspan="2" class="text-right">
+
+						<form method="post" action="php/satinal.php">
+							<?php foreach ($urun_kayit as $urun):  ?>
+
+								 <input type="hidden" value="<?php echo $urun->urun_id;?>" name="urun_id[]" >
+								 <input type="hidden" value="<?php echo $urun->count;?>" name="urun_miktar[]" >
+
+							<?php endforeach ?>
+
+							<button  type="submit" class="btn btn-success" style="width: 130px;">Satın Al</button>
+						</form>
+
 					</th>
 				</tfoot>
 			</table>
