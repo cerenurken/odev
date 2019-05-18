@@ -49,7 +49,7 @@ if ($_POST){
 	$ekle ="insert into kullanici_kayit(ad_soyad,telefon,e_posta,dogum_tarihi,parola,cinsiyet) values('$ad','$no','$email','$date','$pass','$cins')";
 		if ($baglan->query($ekle)){
 			
-			header("Location:../kullanıcı.html");
+			header("Location:../index.php");
 		}
 		else{
 			echo "kayıt yapılamadı";

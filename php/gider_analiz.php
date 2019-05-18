@@ -8,4 +8,6 @@ $data[]=$row;
 }
 mysqli_close($baglan);
 echo json_encode($data);
+
+
 ?>

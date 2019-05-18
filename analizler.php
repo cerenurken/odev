@@ -29,7 +29,9 @@ $(document).ready(function(){
 showGraph();
 });
 function showGraph(){
-$.post("php/analiz.php",
+
+
+$.post("php/gider_analiz.php",
 function(data){
 console.log(data);
 var odeme_tarihi=[];
@@ -54,6 +56,44 @@ type:'bar',
 data:chartdata
 });
 });
+
+
+$.post("php/cinsiyet_analiz.php",
+function(data){
+console.log(data);
+var cinsiyet=[];
+var sayi=[];
+for (var i in data){
+cinsiyet.push(data[i].cinsiyet);
+sayi.push(data[i].sayi);
+};
+var chartdata={
+labels:cinsiyet,
+datasets:[
+{
+
+    backgroundColor: '#49e2ff',
+    borderColor: '#0e0e0e',
+    hoverBackgroundColor: '#98969b',
+    hoverBorderColor: '#49e2ff',
+    data: sayi
+
+
+}
+
+]
+
+
+};
+var cnv=$("#Chart");
+var barGraph=new Chart(cnv,{
+type:'pie',
+data:chartdata
+});
+});
+
+
+
 };
 </script>
 
@@ -148,28 +188,26 @@ data:chartdata
           
 
                 <hr >
+                <br>
 
-            <!--<h2>Anasayfa</h2>-->
-            <h1>analizler</h1>
+            <!--<h2>Anasayfa</h2>
+            <h1>analizler</h1>-->
 
               <div class="row">
                 
                 <div class="col-sm-12 col-md-6">
                     <div class="card text-left">
-                        <div class="card-header">En Çok Ziyaret Edilen Saatler</div>
+                        <div class="card-header">AYLIK TOPLAM GİDERLER</div>
                         <canvas id="myChart"></canvas>
                     </div>
                 </div>
 
                 <div class="col col-sm-12 col-md-6">
                     <div class="card text-left">
-                        <div class="card-header">En Çok Alınan Ürünler</div>
+                        <div class="card-header">CİNSİYETE GÖRE DAĞILIM</div>
                         <div class="card-body">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <canvas id="Chart"></canvas>
                         </div>
-                        <div class="card-footer text-muted">2 days ago</div>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6">
