@@ -48,7 +48,7 @@ include 'menubar/head.php';
                 <a href="urun_guncel.php">Ürün Güncelleme</a>
             </li>
             <li >
-                <a href="gelir-gider.php">Gelir / Gider</a>
+                <a href="giderler.php">Giderler</a>
             </li>
             <li>
                 <a href="analizler.php">Analizler</a>
@@ -102,7 +102,7 @@ include 'menubar/head.php';
                                             <input type="text" class="form-control urun-kisisel" placeholder="Domates , Biber,  . . ." name="urun_ad">
                                     </div>
                                     <div class="form-group">
-                                        <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-align-left kisisel-icon"></i>Kategorİ Seç</label>
+                                        <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-align-left kisisel-icon"></i>Kategorİ</label>
                                                     <!--<input type="text" class="form-control form-kisisel" placeholder="Sebze,Meyve, ...">-->
                                         <select class="form-control urun-kisisel" id="sel1" name="kategori">
                                             <option value="0">Kategori Seçiniz</option>
@@ -115,17 +115,26 @@ include 'menubar/head.php';
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-lira-sign kisisel-icon"></i>Fİyatı</label>
+                                        <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-lira-sign kisisel-icon"></i>Fİyat</label>
                                             <input type="text" class="form-control urun-kisisel" placeholder="TL  . . ." name="urun_fiyat">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="soyad" class="text-uppercase urun-form"><i class="far fa-window-restore kisisel-icon"></i>Stok Mİktarı</label>
+                                        <label for="soyad" class="text-uppercase urun-form"><i class="far fa-window-restore kisisel-icon"></i>Stok Mİktar</label>
                                         <input type="text" class="form-control urun-kisisel kg" placeholder="KG / ADET . . ." name="urun_mik">
-                                    </div><br>
+                                    </div>
 
                                     <div class="form-group">
-                                        <i class="fas fa-plus-circle"></i>
+                                        <label for="soyad" class="text-uppercase urun-form"><i class="fas fa-align-left kisisel-icon"></i>BİRİM</label>
+                                                    <!--<input type="text" class="form-control form-kisisel" placeholder="Sebze,Meyve, ...">-->
+                                        <select class="form-control urun-kisisel"  name="birim">
+                                            <option value="0">Birim Seçiniz</option>
+                                            <option value="kg">Kilogram</option>
+                                            <option value="adet">Adet</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
                                             <input type="submit" class="btnSubmit btn-success ürün-giris-buton" value="KAYDET"> 
                                     </div>
                             	</form>

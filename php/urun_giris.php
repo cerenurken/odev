@@ -30,7 +30,12 @@ if ($_GET){
 	else{
 		echo "Ürün miktarı requesti olmadı";
 	}
-
+	if (isset($_GET["birim"])){
+		$birimi = $_GET["birim"];
+	}
+	else{
+		echo "Birim türü requesti olmadı";
+	}
 
 	$result = mysqli_query($baglan,"SELECT * FROM urun_kayit WHERE urun_ad='$urun' LIMIT 1");
 	$num_rows = mysqli_num_rows($result);
@@ -39,9 +44,9 @@ if ($_GET){
 	  echo "kayıt mevcut";
 	}
 	else{
-		$urun_giris ="insert into urun_kayit (urun_ad,kategori_id,fiyat,stok_miktari) values('$urun','$kategori','$urun_fiyat','$urun_mik')";
+		$urun_giris ="insert into urun_kayit (urun_ad,kategori_id,fiyat,birim,stok_miktari) values('$urun','$kategori','$urun_fiyat','$birimi','$urun_mik')";
 		if ($baglan->query($urun_giris)){
-			echo "kayıt yapıldı";
+			header("location:../urun_guncel.php");
 		}
 		else{
 			echo "kayıt yapılamadı";

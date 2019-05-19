@@ -1,11 +1,11 @@
 <?php
 	require 'baglan.php';
 	$id = $_GET["id"];
-	$sql = mysqli_query($baglan,"DELETE from kullanici_kayit where kullanici_id=$id");
+	$sql = mysqli_query($baglan,"DELETE from kullanici_kayit where musteri_id=$id");
 	if($sql){
-		echo "kayıt silindi";
+		header("location:../kayit_musteri.php");
 	}
 	else{
-		echo "haberler silinemedi";
+		echo "Kayıt silinemedi";
 	}
 ?>

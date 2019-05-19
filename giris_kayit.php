@@ -1,3 +1,7 @@
+<?php 
+require 'php/giris.php';
+?>
+
 <!doctype html>
 <html lang="en">
   <head>

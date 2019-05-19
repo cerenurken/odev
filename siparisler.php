@@ -61,7 +61,7 @@ include 'menubar/head.php';
                     <a href="urun_guncel.php">Ürün Güncelleme</a>
                 </li>
                 <li >
-                    <a href="gelir-gider.php">Gelir / Gider</a>
+                    <a href="giderler.php">Giderler</a>
                 </li>
                 <li>
                     <a href="analizler.php">Analizler</a>
