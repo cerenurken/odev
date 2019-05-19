@@ -84,15 +84,15 @@ include 'menubar/head.php';
 
           
         <!-- icerik -->
-         <div id="content">
+ <!--        <div id="content">
             <br/>
             
           <BR>
 
                 <hr >
 
-            <!--
-            <h1>siparişler</h1>-->
+            
+            <h1>siparişler</h1>
 
             <div class="row">
                 
@@ -180,7 +180,72 @@ include 'menubar/head.php';
                     </div>
                 </div>
         </div>
+</div>-->
+
+
+
+
+          <!-- icerik -->
+         <div id="content">
+            <br/>
+            <BR>
+          
+                <hr >
+
+            <!--
+            <h1>urun girişi</h1>--->
+<br>
+            <div class="row">
+
+                <div class="col col-sm-12 col-md-6 " >
+                    <div class="card text-left" style="width: 200%;">
+                        <?php
+                            require 'php/baglan.php';
+                            $sorgu=mysqli_query($baglan,"SELECT kullanici_kayit.ad_soyad,urun_kayit.urun_ad,concat(siparisler.miktar,' ',siparisler.birim) siparis,(siparisler.miktar*siparisler.birim_fiyat) as tutar,kullanici_kayit.adres,kullanici_kayit.telefon,siparisler.ekleme_tarih
+FROM kullanici_kayit,siparisler,urun_kayit WHERE kullanici_kayit.musteri_id=siparisler.musteri_id AND siparisler.urun_id=urun_kayit.urun_id ORDER BY  siparisler.siparis_id");
+                            echo "<table class='table' >";
+                            echo "<thead class='thead-dark'>";
+                            echo "<tr >";
+                            echo "<th scope='col'>Müşteri Ad</th>";
+                            echo "<th scope='col'>Telefon</th>";
+                            echo "<th scope='col'>Adres</th>";
+                            echo "<th scope='col' >Ürün Ad</th>";
+                            echo "<th scope='col' >Miktar</th>";
+                            echo "<th scope='col' >Tutar</th>";
+                            echo "<th scope='col' >Sipariş Tarihi</th>";
+                            echo "<th scope='col' >Tedarik Et</th>";
+                            echo "</tr>";
+                            echo "</thead>";
+                            echo "<tbody>";
+                            echo "<tr>";
+                            while ($row = mysqli_fetch_array($sorgu)){
+                                echo "<td style='text-transform: uppercase;'>".$row[0]."</td>";
+                                echo "<td  >".$row[5]." </td>";
+                                echo "<td style='font-size:13px;'> ".$row[4]."</td>";
+                                echo "<td style='text-transform: uppercase;'>".$row[1]."</td>";
+                                echo "<td  >".$row[2]." </td>";
+                                echo "<td >".$row[3]. " <i class='fas fa-lira-sign'></i></td>";
+                                echo "<td >".$row[6]. "</td>";
+                                echo "<td>
+                                  <h6 style='color:#34d10c;'><input type='radio' data-msg-required='Onayla / İptal Et' value='onay'>Göder</h6>
+                                  <h6 style='color:#a40005;'><input type='radio' data-msg-required='Onayla / İptal Et' value='onay'> İptal</h6>
+                                  </td>";
+                                echo "</tr>";
+                       
+                                     }
+                            echo "</table>";
+                                                ?>
+ 
+                    </div>
+                </div>
+
+
+
+
+
+        </div>
 </div>
+
 
         
 
