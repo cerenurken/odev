@@ -60,7 +60,7 @@
                     <a href="urun_guncel.php">Ürün Güncelleme</a>
                 </li>
                 <li >
-                    <a href="gelir-gider.php">Gelir / Gider</a>
+                    <a href="giderler.php">Giderler</a>
                 </li>
                 <li>
                     <a href="analizler.php">Analizler</a>
@@ -104,21 +104,21 @@
                             echo "<table class='table' >";
                             echo "<thead class='thead-dark'>";
                             echo "<tr >";
-                            echo "<th scope='col' style='padding-left:3%;'>AD SOYAD</th>";
-                            echo "<th scope='col' style='padding-left:3%;'>TELEFON</th>";
-                            echo "<th scope='col' style='padding-left:5%;'>E-POSTA</th>";
-                            echo "<th scope='col' style='padding-left:2%;'>DOĞUM TARİHİ</th>";
-                            echo "<th scope='col' style='padding-left:4%;'>SİL</th>";
+                            echo "<th scope='col' style='padding-left:2%;'>AD SOYAD</th>";
+                            echo "<th scope='col' style='padding-left:2%;'>TELEFON</th>";
+                            echo "<th scope='col' style='padding-left:3%;'>E-POSTA</th>";
+                            echo "<th scope='col' style='padding-left:2%;'>ADRES</th>";
+                            echo "<th scope='col' style='padding-left:2%;'>SİL</th>";
                             echo "</tr>";
                             echo "</thead>";
                             echo "<tbody>";
                             echo "<tr>";
                             while ($row = mysqli_fetch_array($sorgu)){
-                                echo "<td style='text-transform: uppercase;padding-left:3%;'>".$row[1]."</td>";
-                                echo "<td style='padding-left:3%;' >".$row[2]."</td>";
-                                echo "<td style='padding-left:4%;'>".$row[3]."</td>";
-                                echo "<td style='padding-left:3%;'>".$row[4]."</td>";
-                                echo '<td style="padding-left:3%;"><a href = "php/kullanici_sil.php?id='.$row["kullanici_id"].'"onclick="return uyari();"><button type="button" class="btn btn-danger btn-lg">Sil</button></a></td>';
+                                echo "<td style='text-transform: uppercase;padding-left:2%;'>".$row[1]."</td>";
+                                echo "<td style='padding-left:2%;' >".$row[2]."</td>";
+                                echo "<td style='padding-left:3%;'>".$row[3]."</td>";
+                                echo "<td style='padding-left:2%;font-size:13px;'>".$row[4]."</td>";
+                                echo '<td ><a href = "php/kullanici_sil.php?id='.$row["musteri_id"].'"onclick="return uyari();"><button type="button" class="btn btn-danger btn-lg">Sil</button></a></td>';
                                 echo "</tr>";
                                 echo "</tr>";
                        

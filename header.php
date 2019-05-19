@@ -72,7 +72,7 @@ if(isset($_SESSION["shoping"])){
       </li>
     </ul>
      <ul class="nav navbar-nav navbar-right">
-      <li><a href="giris.html">
+      <li><a href="giris_kayit.php">
         <span class="glyphicon glyphicon-user cart-icon"></span>
       </a></li>
               

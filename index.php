@@ -64,17 +64,17 @@ $urun_kayit=$db->query("SELECT * from urun_kayit",PDO::FETCH_OBJ)->fetchAll();
       
       <div class="col-xs-6 col-md-4 no-padding">
         <img  class="img-fluid resimler" src="resimler/sebze/dere.png">
-       <a href="giris.html"> <h1 class="resimIndirim">1 Alana 1 Bedava </h1></a>
+        <h1 class="resimIndirim">1 Alana 1 Bedava </h1>
       </div>
 
       <div class="col-xs-6 col-md-4 no-padding">
         <img class="img-fluid resimler" src="resimler/sebze/pataes.jpg">
-       <a href="giris.html"> <h1 class="resimIndirim">%5 İndirim</h1></a>
+        <h1 class="resimIndirim">%5 İndirim</h1>
       </div>
 
       <div class="col-xs-6 col-md-4 no-padding">
         <img class="img-fluid resimler" src="resimler/sebze/turp.png">
-        <a href="giris.html"><h1 class="resimIndirim">%10 İndirim</h1></a>
+        <h1 class="resimIndirim">%10 İndirim</h1>
       </div>
 
     </div>
@@ -82,17 +82,17 @@ $urun_kayit=$db->query("SELECT * from urun_kayit",PDO::FETCH_OBJ)->fetchAll();
       
       <div class="col-xs-6 col-md-4 no-padding ">
         <img  class="img-fluid resimler" src="resimler/sebze/ayva.png">
-        <a href="giris.html"><h1 class="resimIndirim">  Tükendi! </h1></a>
+        <h1 class="resimIndirim">  Tükendi! </h1>
       </div>
 
       <div class="col-xs-6 col-md-4 no-padding">
         <img class="img-fluid resimler" src="resimler/sebze/nar.png">
-        <a href="giris.html"><h1 class="resimIndirim">%30 İndirim</h1></a>
+        <h1 class="resimIndirim">%30 İndirim</h1>
       </div>
 
       <div class="col-xs-6 col-md-4 no-padding">
         <img class="img-fluid resimler" src="resimler/sebze/kabak.png">
-        <a href="giris.html"><h1 class="resimIndirim">%50 İndirim</h1></a>
+        <h1 class="resimIndirim">%50 İndirim</h1>
       </div>
     </div>
   </div> 
