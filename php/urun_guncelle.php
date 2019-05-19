@@ -82,7 +82,7 @@
                     <a href="../urun_guncel.php">Ürün Güncelleme</a>
                 </li>
                 <li >
-                    <a href="../gelir-gider.php">Gelir / Gider</a>
+                    <a href="../giderler.php">Giderler</a>
                 </li>
                 
                 <li>
@@ -128,7 +128,7 @@
 		$urun_fiyat = $row["fiyat"];
 		$urun_stok = $row["stok_miktari"];
 
-
+        
             echo'<form action="urun_duzenle.php?id='.$id.'" method="POST">
                     <div class="form-group urun-konum">
                         <label for="ad" class="text-uppercase urun-form"><i class="far fa-edit kisisel-icon"></i>Ürün Adı</label>

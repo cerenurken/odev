@@ -9,7 +9,7 @@
 
 	$sql = mysqli_query($baglan,"UPDATE urun_kayit SET urun_ad ='$ad' , fiyat = '$fiyat' , stok_miktari = '$miktar' WHERE urun_id = '$id'");
 	if ($sql){
-		echo "Ürünler Güncellendi";
+		header("location:../urun_guncel.php");
 	}
 	else{
 		echo "Ürün Güncellemesi Gerçekleşmedi";

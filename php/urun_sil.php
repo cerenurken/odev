@@ -1,9 +1,9 @@
 <?php
 	require 'baglan.php';
 	$id = $_GET["id"];
-	$sql = mysqli_query($baglan,"DELETE from urun_kayit where urun_id=$id");
+	$sql = mysqli_query($baglan,"DELETE from urun_kayit where urun_id='$id'");
 	if($sql){
-		echo "kayıt silindi";
+		header("location:../urun_guncel.php");
 	}
 	else{
 		echo "haberler silinemedi";
