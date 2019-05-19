@@ -47,7 +47,7 @@ include 'menubar/head.php';
                 <a href="urun_guncel.php">Ürün Güncelleme</a>
             </li>
             <li class="active">
-                <a href="gelir-gider.php">Gelir / Gider</a>
+                <a href="giderler.php">Giderler</a>
             </li>
             
             <li>
@@ -80,13 +80,7 @@ include 'menubar/head.php';
 		    	<ul class="nav nav-tabs" role="tablist" id="myTab">
 			        <li role="presentation" class="active">
 			        	<a href="#home" aria-controls="home" role="tab" data-toggle="tab">
-			        		<button type="button" class="btn btn-outline-info btn-lg" style="background-color: white;margin-left:25px;padding-left: 55px;padding-right: 60px;">Fatura Ödemeleri</button>
-			        	</a>
-			        </li>
-
-			        <li role="presentation">
-			        	<a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">
-			        		<button type="button" class="btn btn-outline-info btn-lg" style="background-color: white;padding-left: 55px;padding-right: 60px;margin-bottom: 3px;">Toplam Gelir</button>
+			        		<button type="button" class="btn btn-outline-info btn-lg" style="background-color: white;margin-left:25px;padding-left: 55px;padding-right: 60px;"> GİDER KALEMLERİ</button>
 			        	</a>
 			        </li>
 		    	</ul>
@@ -128,41 +122,7 @@ include 'menubar/head.php';
         		    	</div>
         			</div>
 
-        		    <div role="tabpanel" class="tab-pane" id="profile" style="margin-bottom: 5%;">
-        		    	<div class="col-sm-12 col-md-12">
-                            <div class="card text-left ">
-                                <table class="table">
-                                  <thead class="thead-dark">
-                                    <tr>
-                                      <th scope="col">Toplam Satılan Ürün Miktarı</th>
-                                      <th scope="col">Satışlardan Elde Edilen Gelir</th>
-                                      <th scope="col">Toplam Giderler</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr>
-                                        <?php
-                                        require 'php/baglan.php';
-                                        $ekle = mysqli_query($baglan,"SELECT sum(siparisler.siparis_kilo),sum(siparisler.toplam_fiyat) from siparisler");
-                                        while ($listele = mysqli_fetch_array($ekle)) {
-                                             echo "<td scope='row' >".$listele[0]." ".'Kilo / Adet'."</td>";
-                                             echo "<td>".$listele[1].'TL'."</td>";
-                                            }
-                                        ?>
-                                        <?php
-                                        require 'php/baglan.php';
-                                        $ekle = mysqli_query($baglan,"SELECT sum(odemeler.toplam) FROM odemeler");
-                                        while ($listele = mysqli_fetch_array($ekle)) {
-                                             echo "<td>".$listele[0].'TL'."</td>";
-                                            }
-                                        ?>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                            </div>
-                        </div>
-                   	</div>
-    		    </div>
+        		   
 
 		    </div>
 
