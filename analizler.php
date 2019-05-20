@@ -45,14 +45,13 @@ labels:odeme_tarihi,
 datasets:[
 {
 label:'Aylık Toplam Gider',
-backgroundColor:"#db3f3f",
 data:toplam
 
 }]
 };
 var cnv=$("#gider_chart");
 var barGraph=new Chart(cnv,{
-type:'bar',
+type:'line',
 data:chartdata
 });
 });
@@ -128,6 +127,87 @@ type:'pie',
 data:chartdata
 });
 });
+
+
+
+
+
+$.post("php/guncel_analiz.php",
+function(data){
+console.log(data);
+var ad=[];
+var yeni=[];
+for (var i in data){
+ad.push(data[i].ad);
+yeni.push(data[i].yeni);
+};
+var chartdata={
+labels:ad,
+datasets:[
+{
+
+    backgroundColor: '#a829a9',
+    borderColor: '#020f1a',
+    hoverBackgroundColor: '#b1b3b1',
+    hoverBorderColor: '#a829a9',
+    data: yeni
+
+
+}
+
+]
+
+
+};
+var cnv=$("#guncel_chart");
+var barGraph=new Chart(cnv,{
+type:'line',
+data:chartdata
+});
+});
+
+
+
+
+
+$.post("php/eski_analiz.php",
+function(data){
+console.log(data);
+var ad=[];
+var eski=[];
+for (var i in data){
+ad.push(data[i].ad);
+eski.push(data[i].eski);
+};
+var chartdata={
+labels:ad,
+datasets:[
+{
+
+    backgroundColor: '#e900ff',
+    borderColor: '#020f1a',
+    hoverBackgroundColor: '#b1b3b1',
+    hoverBorderColor: '#a829a9',
+    data: eski
+
+
+}
+
+]
+
+
+};
+var cnv=$("#eski_chart");
+var barGraph=new Chart(cnv,{
+type:'line',
+data:chartdata
+});
+});
+
+
+
+
+
 
 
 
@@ -247,6 +327,25 @@ data:chartdata
                         </div>
                     </div>
                 </div>
+
+                <div class="col-sm-12 col-md-6">
+                    <div class="card text-left">
+                        <div class="card-header">ESKİ FİYATLAR</div>
+                        <div class="card-body">
+                            <canvas id="eski_chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6">
+                    <div class="card text-left">
+                        <div class="card-header">GÜNCEL FİYATLAR</div>
+                        <div class="card-body">
+                            <canvas id="guncel_chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-sm-12 col-md-6">
                     <div class="card text-left">
                         <div class="card-header">ÜRÜN KATEGORİSİNE GÖRE DAĞILIM</div>
@@ -255,17 +354,7 @@ data:chartdata
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-6">
-                    <div class="card text-left">
-                        <div class="card-header"></div>
-                        <div class="card-body">
-                            <h5 class="card-title">Haftalık Rapor</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                        <div class="card-footer text-muted">2 days ago</div>
-                    </div>
-                </div>
+                
 
             </div>
         </div>
