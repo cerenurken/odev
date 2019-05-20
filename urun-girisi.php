@@ -109,8 +109,7 @@ include 'menubar/head.php';
                                             <option value="1">SEBZE</option>
                                             <option value="2">YEŞİLLİK</option>
                                             <option value="3">MEYVE</option>
-                                            <option value="4">SALÇA&SİRKE</option>
-                                            <option value="5">KURU BAKLİYAT</option>
+                                            <option value="4">KURU BAKLİYAT</option>
                                         </select>
                                     </div>
 
