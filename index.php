@@ -35,11 +35,11 @@ $urun_kayit=$db->query("SELECT * from urun_kayit",PDO::FETCH_OBJ)->fetchAll();
       <div class="thumbnail">
         <img src="nar.png" alt=" nar">
         <div class="caption">
-          <h3 ><?php echo $urun->urun_ad; ?></h3>
+          <h3 style=" text-transform: uppercase;font-size: 17px; font-weight: bold;"><?php echo $urun->urun_ad; ?></h3>
           <p class="text-right price-cantainer"><strong><?php echo $urun->fiyat.' '.'TL'; ?></strong></p>
           <p>
             <button product-id="<?php echo 
-            $urun->urun_id;?>" class="btn btn-primary btn-block addToCartBtn" role="button">
+            $urun->urun_id;?>" class="btn btn-success btn-block addToCartBtn" role="button">
               <span class="glyphicon glyphicon-shopping-cart"></span>Sepete Ekle
             </button> 
           </p>
