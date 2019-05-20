@@ -50,7 +50,7 @@ data:toplam
 
 }]
 };
-var cnv=$("#myChart");
+var cnv=$("#gider_chart");
 var barGraph=new Chart(cnv,{
 type:'bar',
 data:chartdata
@@ -85,7 +85,44 @@ datasets:[
 
 
 };
-var cnv=$("#Chart");
+var cnv=$("#cinsiyet_chart");
+var barGraph=new Chart(cnv,{
+type:'pie',
+data:chartdata
+});
+});
+
+
+
+
+$.post("php/kategori_analiz.php",
+function(data){
+console.log(data);
+var kategori=[];
+var sayi=[];
+for (var i in data){
+kategori.push(data[i].kategori);
+sayi.push(data[i].sayi);
+};
+var chartdata={
+labels:kategori,
+datasets:[
+{
+
+    backgroundColor: '#03ab1a',
+    borderColor: '#020f1a',
+    hoverBackgroundColor: '#b1b3b1',
+    hoverBorderColor: '#03ab1a',
+    data: sayi
+
+
+}
+
+]
+
+
+};
+var cnv=$("#kategori_chart");
 var barGraph=new Chart(cnv,{
 type:'pie',
 data:chartdata
@@ -198,7 +235,7 @@ data:chartdata
                 <div class="col-sm-12 col-md-6">
                     <div class="card text-left">
                         <div class="card-header">AYLIK TOPLAM GİDERLER</div>
-                        <canvas id="myChart"></canvas>
+                        <canvas id="gider_chart"></canvas>
                     </div>
                 </div>
 
@@ -206,19 +243,16 @@ data:chartdata
                     <div class="card text-left">
                         <div class="card-header">CİNSİYETE GÖRE DAĞILIM</div>
                         <div class="card-body">
-                            <canvas id="Chart"></canvas>
+                            <canvas id="cinsiyet_chart"></canvas>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6">
                     <div class="card text-left">
-                        <div class="card-header">Müşterilerin Sık Ziyaret Ettiği Kısımlar</div>
+                        <div class="card-header">ÜRÜN KATEGORİSİNE GÖRE DAĞILIM</div>
                         <div class="card-body">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <canvas id="kategori_chart"></canvas>
                         </div>
-                        <div class="card-footer text-muted">2 days ago</div>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6">
