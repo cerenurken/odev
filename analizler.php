@@ -101,21 +101,34 @@ data:chartdata
 $.post("php/kategori_analiz.php",
 function(data){
 console.log(data);
-var kategori=[];
-var sayi=[];
+var ad=[];
+var getiri=[];
+var toplam=[];
 for (var i in data){
-kategori.push(data[i].kategori);
-sayi.push(data[i].sayi);
+ad.push(data[i].ad);
+getiri.push(data[i].getiri);
+toplam.push(data[i].toplam);
 };
 var chartdata={
-labels:kategori,
+labels:ad,
 datasets:[
 {
-    backgroundColor: '#03ab1a',
-    borderColor: '#020f1a',
-    hoverBackgroundColor: '#b1b3b1',
-    hoverBorderColor: '#03ab1a',
-    data: sayi
+    label:"Gelir",
+    backgroundColor: '#0e9c7e',
+    borderColor: 'black',
+    hoverBackgroundColor: '#a0a0a0',
+    hoverBorderColor: 'black',
+    data: getiri
+
+
+},
+{
+    label:"Üretim Miktarı",
+    backgroundColor: '#f16381',
+    borderColor: 'black',
+    hoverBackgroundColor: '#5f5f5f',
+    hoverBorderColor: 'black',
+    data: toplam
 
 
 }
@@ -126,48 +139,11 @@ datasets:[
 };
 var cnv=$("#kategori_chart");
 var barGraph=new Chart(cnv,{
-type:'pie',
+type:'bar',
 data:chartdata
 });
 });
 
-
-
-
-
-$.post("php/guncel_analiz.php",
-function(data){
-console.log(data);
-var ad=[];
-var yeni=[];
-for (var i in data){
-ad.push(data[i].ad);
-yeni.push(data[i].yeni);
-};
-var chartdata={
-labels:ad,
-datasets:[
-{
-    label:"Güncel Fiyat",
-    backgroundColor: '#0291df',
-    borderColor: '#020f1a',
-    hoverBackgroundColor: '#b1b3b1',
-    hoverBorderColor: '#a829a9',
-    data: yeni
-
-
-}
-
-]
-
-
-};
-var cnv=$("#guncel_chart");
-var barGraph=new Chart(cnv,{
-type:'line',
-data:chartdata
-});
-});
 
 
 
@@ -178,20 +154,32 @@ function(data){
 console.log(data);
 var ad=[];
 var eski=[];
+var yeni=[];
 for (var i in data){
 ad.push(data[i].ad);
 eski.push(data[i].eski);
+yeni.push(data[i].yeni);
 };
 var chartdata={
 labels:ad,
 datasets:[
 {
     label:"Eski Fiyat",
-    backgroundColor: '#fd6e20',
-    borderColor: '#020f1a',
-    hoverBackgroundColor: '#b1b3b1',
-    hoverBorderColor: '#a829a9',
+    backgroundColor: 'transparent',
+    borderColor: '#08da40',
+    hoverBackgroundColor: '#75f921',
+    hoverBorderColor: '#0d0d0d',
     data: eski
+
+
+},
+    {
+    label:"Yeni Fiyat",
+    backgroundColor: 'transparent',
+    borderColor: '#6800bb',
+    hoverBackgroundColor: '#6800bb',
+    hoverBorderColor: '#0d0d0d',
+    data: yeni
 
 
 }
@@ -215,20 +203,32 @@ function(data){
 console.log(data);
 var ad=[];
 var miktar=[];
+var siparis=[];
 for (var i in data){
 ad.push(data[i].ad);
 miktar.push(data[i].miktar);
+siparis.push(data[i].siparis);
 };
 var chartdata={
 labels:ad,
 datasets:[
 {
-    label:"Ürün Miktar",
-    backgroundColor: '#e900ff',
-    borderColor: '#020f1a',
+    label:"Stok Miktar",
+    backgroundColor: 'transparent',
+    borderColor: '#0ac9bf',
+    hoverBackgroundColor: '#b1b3b1',
+    hoverBorderColor: 'black',
+    data: miktar
+
+
+},
+{
+    label:"Sipariş Miktar",
+    backgroundColor: 'transparent',
+    borderColor: '#8d0707',
     hoverBackgroundColor: '#b1b3b1',
     hoverBorderColor: '#a829a9',
-    data: miktar
+    data: siparis
 
 
 }
@@ -240,6 +240,43 @@ datasets:[
 var cnv=$("#miktar_chart");
 var barGraph=new Chart(cnv,{
 type:'line',
+data:chartdata
+});
+});
+
+
+
+
+$.post("php/gelir_analiz.php",
+function(data){
+console.log(data);
+var ad=[];
+var fiyat=[];
+for (var i in data){
+ad.push(data[i].ad);
+fiyat.push(data[i].fiyat);
+};
+var chartdata={
+labels:ad,
+datasets:[
+{
+    label:"Toplam Gelir",
+    backgroundColor: '#f1620a',
+    borderColor: 'black',
+    hoverBackgroundColor: '#ef4a39',
+    hoverBorderColor: 'black',
+    data: fiyat
+
+
+}
+
+]
+
+
+};
+var cnv=$("#gelir_chart");
+var barGraph=new Chart(cnv,{
+type:'bar',
 data:chartdata
 });
 });
@@ -349,24 +386,8 @@ data:chartdata
                 
                 <div class="col-sm-12 col-md-6">
                     <div class="card text-left">
-                        <div class="card-header">AYLIK TOPLAM GİDERLER</div>
-                        <canvas id="gider_chart"></canvas>
-                    </div>
-                </div>
-
-                <div class="col col-sm-12 col-md-6">
-                    <div class="card text-left">
-                        <div class="card-header">CİNSİYETE GÖRE DAĞILIM</div>
-                        <div class="card-body">
-                            <canvas id="cinsiyet_chart"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-md-6">
-                    <div class="card text-left">
-                        <div class="card-header">ESKİ FİYATLAR</div>
-                        <div class="card-body">
+                        <div class="card-header">ESKİ ve GÜNCEL FİYATLAR</div>
+                        <div class="card-body" style="background-color:#ded9d9">
                             <canvas id="eski_chart"></canvas>
                         </div>
                     </div>
@@ -374,30 +395,48 @@ data:chartdata
 
                 <div class="col-sm-12 col-md-6">
                     <div class="card text-left">
-                        <div class="card-header">GÜNCEL FİYATLAR</div>
-                        <div class="card-body">
-                            <canvas id="guncel_chart"></canvas>
+                        <div class="card-header">STOK MİKTARI ile SİPARİŞ MİKTARI</div>
+                        <div class="card-body" style="background-color:#ded9d9">
+                            <canvas id="miktar_chart"></canvas>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-sm-12 col-md-6">
                     <div class="card text-left">
-                        <div class="card-header">KATEGORİSİNE GÖRE ÜRETİLEN ÜRÜN DAĞILIMI</div>
-                        <div class="card-body">
+                        <div class="card-header">SATILAN ÜRÜN GELİRLERİ</div>
+                        <div class="card-body" style="background-color:#ded9d9">
+                            <canvas id="gelir_chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6">
+                    <div class="card text-left">
+                        <div class="card-header">AYLIK TOPLAM GİDERLER</div>
+                        <canvas id="gider_chart" style="background-color:#ded9d9"></canvas>
+                    </div>
+                </div>
+
+                <div class="col col-sm-12 col-md-6">
+                    <div class="card text-left">
+                        <div class="card-header">CİNSİYETE GÖRE DAĞILIM</div>
+                        <div class="card-body" style="background-color:#ded9d9">
+                            <canvas id="cinsiyet_chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6">
+                    <div class="card text-left">
+                        <div class="card-header">KATEGORİSİNE GÖRE ÜRÜN MİKTARI ve ELDE EDİLEN GELİR</div>
+                        <div class="card-body" style="background-color:#ded9d9">
                             <canvas id="kategori_chart"></canvas>
                         </div>
                     </div>
                 </div>
                 
-                 <div class="col-sm-12 col-md-6">
-                    <div class="card text-left">
-                        <div class="card-header">EN ÇOK ÜRETİLEN ÜRÜNLER</div>
-                        <div class="card-body">
-                            <canvas id="miktar_chart"></canvas>
-                        </div>
-                    </div>
-                </div>
+
 
             </div>
         </div>
