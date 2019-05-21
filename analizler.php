@@ -44,14 +44,18 @@ var chartdata={
 labels:odeme_tarihi,
 datasets:[
 {
-label:'Aylık Toplam Gider',
-data:toplam
+    label:'Aylık Toplam Gider',
+    backgroundColor: '#a41a11',
+    borderColor: '#0e0e0e',
+    hoverBackgroundColor: '#a5a5a5',
+    hoverBorderColor: '##a41a11',
+    data:toplam
 
 }]
 };
 var cnv=$("#gider_chart");
 var barGraph=new Chart(cnv,{
-type:'line',
+type:'bar',
 data:chartdata
 });
 });
@@ -107,7 +111,6 @@ var chartdata={
 labels:kategori,
 datasets:[
 {
-
     backgroundColor: '#03ab1a',
     borderColor: '#020f1a',
     hoverBackgroundColor: '#b1b3b1',
@@ -145,8 +148,8 @@ var chartdata={
 labels:ad,
 datasets:[
 {
-
-    backgroundColor: '#a829a9',
+    label:"Güncel Fiyat",
+    backgroundColor: '#0291df',
     borderColor: '#020f1a',
     hoverBackgroundColor: '#b1b3b1',
     hoverBorderColor: '#a829a9',
@@ -183,8 +186,8 @@ var chartdata={
 labels:ad,
 datasets:[
 {
-
-    backgroundColor: '#e900ff',
+    label:"Eski Fiyat",
+    backgroundColor: '#fd6e20',
     borderColor: '#020f1a',
     hoverBackgroundColor: '#b1b3b1',
     hoverBorderColor: '#a829a9',
@@ -207,7 +210,39 @@ data:chartdata
 
 
 
+$.post("php/miktar_analizi.php",
+function(data){
+console.log(data);
+var ad=[];
+var miktar=[];
+for (var i in data){
+ad.push(data[i].ad);
+miktar.push(data[i].miktar);
+};
+var chartdata={
+labels:ad,
+datasets:[
+{
+    label:"Ürün Miktar",
+    backgroundColor: '#e900ff',
+    borderColor: '#020f1a',
+    hoverBackgroundColor: '#b1b3b1',
+    hoverBorderColor: '#a829a9',
+    data: miktar
 
+
+}
+
+]
+
+
+};
+var cnv=$("#miktar_chart");
+var barGraph=new Chart(cnv,{
+type:'line',
+data:chartdata
+});
+});
 
 
 
@@ -348,13 +383,21 @@ data:chartdata
 
                 <div class="col-sm-12 col-md-6">
                     <div class="card text-left">
-                        <div class="card-header">ÜRÜN KATEGORİSİNE GÖRE DAĞILIM</div>
+                        <div class="card-header">KATEGORİSİNE GÖRE ÜRETİLEN ÜRÜN DAĞILIMI</div>
                         <div class="card-body">
                             <canvas id="kategori_chart"></canvas>
                         </div>
                     </div>
                 </div>
                 
+                 <div class="col-sm-12 col-md-6">
+                    <div class="card text-left">
+                        <div class="card-header">EN ÇOK ÜRETİLEN ÜRÜNLER</div>
+                        <div class="card-body">
+                            <canvas id="miktar_chart"></canvas>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>

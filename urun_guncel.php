@@ -119,7 +119,7 @@ include 'menubar/head.php';
                             while ($row = mysqli_fetch_array($sorgu)){
                                 echo "<td style='text-transform: uppercase;padding-left:4%;'>".$row[1]."</td>";
                                 echo "<td style='padding-left:8%;' >".$row[3]." <i class='fas fa-lira-sign'></i></td>";
-                                echo "<td style='padding-left:4%;'>".$row[5]. $row[4]."</td>";
+                                echo "<td style='padding-left:3%;'>".$row[5] ." ".  $row[4]."</td>";
                                 echo '<td style="padding-left:7%;"><a href = "php/urun_sil.php?id='.$row["urun_id"].'"onclick="return uyari();"><button type="button" class="btn btn-danger btn-lg">Sil</button></a></td>';
                                 echo '<td style="padding-left:7%;"><a href="php/urun_guncelle.php?id='.$row["urun_id"].'" onclick="return uyari2();"><button type="button" class="btn btn-success btn-lg">Güncelle</button></a></td>';
                                 echo "</tr>";
