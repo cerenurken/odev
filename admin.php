@@ -128,11 +128,18 @@
                         <div class="name"><h5 class="text-uppercase ust-baslik">TOPLAM GİDER</h5><center>
                             <?php
                             require 'php/baglan.php';
-                            $ekle = mysqli_query($baglan,"SELECT sum(odemeler.toplam) from odemeler");
+                            $ekle = mysqli_query($baglan,"SELECT odemeler.toplam from odemeler where odeme_tarihi >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH);");
                             while ($listele = mysqli_fetch_array($ekle)) {
                                 echo "<h6 class='orta-baslik'>".$listele[0].'TL'."</h6>";
                             }
                             ?>
+                            <div class="count-number"> <?php
+                            require 'php/baglan.php';
+                            $ekle = mysqli_query($baglan,"SELECT odemeler.odeme_tarihi from odemeler where odeme_tarihi >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH);");
+                            while ($listele = mysqli_fetch_array($ekle)) {
+                                echo "<h6 class='orta-baslik'>".$listele[0]."</h6>";
+                            }
+                            ?></div></center>
                         </div>
                       </div>
                     </div>
@@ -151,8 +158,15 @@
                       <div class="wrapper count-title d-flex">
                         <div class="icon"><i class="far fa-list-alt gosterge-icon"></i></div>
                         <div class="name"><h5 class="text-uppercase ust-baslik">SİPARİŞLER</h5>
-                             <center><h6 class="orta-baslik">Son 2 Saat</h6>
-                            <div class="count-number"> - </div></center>
+                            <center> <h6 class="orta-baslik"><?php
+                            require 'php/baglan.php';
+                            $ekle = mysqli_query($baglan,"SELECT count(siparisler.siparis_id) from siparisler");
+                            while ($listele = mysqli_fetch_array($ekle)) {
+                                echo "<h6 class='orta-baslik'>".$listele[0]."</h6>";
+                            }
+                            ?></h6>
+                          <div class="count-number">YENİ SİPARİŞ</div></center>
+                             
                         </div>
                       </div>
                     </div>
