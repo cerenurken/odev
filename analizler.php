@@ -61,39 +61,51 @@ data:chartdata
 });
 
 
+
+
+
+
 $.post("php/cinsiyet_analiz.php",
 function(data){
 console.log(data);
-var cinsiyet=[];
-var sayi=[];
+var kadin=[];
+var erkek=[];
 for (var i in data){
-cinsiyet.push(data[i].cinsiyet);
-sayi.push(data[i].sayi);
+kadin.push(data[i].kadin);
+erkek.push(data[i].erkek);
 };
 var chartdata={
-labels:cinsiyet,
+labels:["cinsiyet"],
+    
 datasets:[
+
 {
-
-    backgroundColor: '#49e2ff',
+    label:'Kadın',
+    backgroundColor: '#a41a11',
     borderColor: '#0e0e0e',
-    hoverBackgroundColor: '#98969b',
-    hoverBorderColor: '#49e2ff',
-    data: sayi
+    data:kadin
 
+},
+
+{
+    label:'Erkek',
+    backgroundColor: '#daec32',
+    borderColor: '#0e0e0e',
+    data:erkek
 
 }
 
+
 ]
-
-
 };
 var cnv=$("#cinsiyet_chart");
 var barGraph=new Chart(cnv,{
-type:'pie',
+type:'bar',
 data:chartdata
 });
 });
+
+
 
 
 
