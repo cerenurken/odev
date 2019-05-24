@@ -76,20 +76,20 @@ erkek.push(data[i].erkek);
 };
 var chartdata={
 labels:["cinsiyet"],
-    
+
 datasets:[
 
 {
-    label:'Kadın',
-    backgroundColor: '#a41a11',
+    label:'Kadın %',
+    backgroundColor: '#f727cd',
     borderColor: '#0e0e0e',
     data:kadin
 
 },
 
 {
-    label:'Erkek',
-    backgroundColor: '#daec32',
+    label:'Erkek %',
+    backgroundColor: '#27b0f7',
     borderColor: '#0e0e0e',
     data:erkek
 
