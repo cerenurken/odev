@@ -102,7 +102,7 @@ include 'menubar/head.php';
                         <?php
                             require 'php/baglan.php';
                             $sorgu=mysqli_query($baglan,"SELECT kullanici_kayit.ad_soyad,urun_kayit.urun_ad,concat(siparisler.miktar,' ',siparisler.birim) siparis,(siparisler.miktar*siparisler.birim_fiyat) as tutar,kullanici_kayit.adres,kullanici_kayit.telefon,siparisler.ekleme_tarih
-FROM kullanici_kayit,siparisler,urun_kayit WHERE kullanici_kayit.musteri_id=siparisler.musteri_id AND siparisler.urun_id=urun_kayit.urun_id ORDER BY  siparisler.siparis_id");
+FROM kullanici_kayit,siparisler,urun_kayit WHERE kullanici_kayit.musteri_id=siparisler.musteri_id AND siparisler.urun_id=urun_kayit.urun_id ORDER BY  siparisler.siparis_id desc ");
                             echo "<table class='table' >";
                             echo "<thead class='thead-dark'>";
                             echo "<tr >";

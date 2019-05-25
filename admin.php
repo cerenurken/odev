@@ -128,14 +128,14 @@
                         <div class="name"><h5 class="text-uppercase ust-baslik">TOPLAM GİDER</h5><center>
                             <?php
                             require 'php/baglan.php';
-                            $ekle = mysqli_query($baglan,"SELECT odemeler.toplam from odemeler where odeme_tarihi >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH);");
+                            $ekle = mysqli_query($baglan,"SELECT odemeler.toplam from odemeler where odeme_tarihi >= DATE_SUB(CURDATE(), INTERVAL 1 DAY);");
                             while ($listele = mysqli_fetch_array($ekle)) {
                                 echo "<h6 class='orta-baslik'>".$listele[0].'TL'."</h6>";
                             }
                             ?>
                             <div class="count-number"> <?php
                             require 'php/baglan.php';
-                            $ekle = mysqli_query($baglan,"SELECT odemeler.odeme_tarihi from odemeler where odeme_tarihi >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH);");
+                            $ekle = mysqli_query($baglan,"SELECT odemeler.odeme_tarihi from odemeler where odeme_tarihi >= DATE_SUB(CURDATE(), INTERVAL 1 DAY);");
                             while ($listele = mysqli_fetch_array($ekle)) {
                                 echo "<h6 class='orta-baslik'>".$listele[0]."</h6>";
                             }
