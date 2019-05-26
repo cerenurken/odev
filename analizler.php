@@ -1,4 +1,26 @@
-<!DOCTYPE html>
+    <?php 
+    require 'php/baglan.php';
+    $sql = "SELECT kullanici_kayit.cinsiyet as ad,count(kullanici_kayit.musteri_id) as miktar FROM kullanici_kayit GROUP BY kullanici_kayit.cinsiyet";
+    $res = $baglan->query($sql);
+
+    $miktar="SELECT urun_kayit.stok_miktari as miktar,urun_ad AS ad,sum(siparisler.miktar) as siparis FROM siparisler,urun_kayit WHERE siparisler.urun_id=urun_kayit.urun_id
+GROUP BY urun_kayit.urun_id  ";
+$mik = $baglan->query($miktar);
+
+    $kategori = "SELECT sum(siparisler.birim_fiyat*siparisler.miktar) as fiyat,kategori.kategori_adi as ad  FROM siparisler,urun_kayit,kategori WHERE siparisler.urun_id=urun_kayit.urun_id and urun_kayit.kategori_id=kategori.kategori_id GROUP BY kategori.kategori_id order by fiyat asc";
+    $kat = $baglan->query($kategori);
+
+    $gelir = "SELECT sum(siparisler.birim_fiyat*siparisler.miktar) as fiyat,urun_kayit.urun_ad as ad FROM siparisler,urun_kayit WHERE siparisler.urun_id=urun_kayit.urun_id  GROUP BY urun_kayit.urun_id ";
+    $gel = $baglan->query($gelir);
+
+    $urun = "SELECT sum(siparisler.birim_fiyat*siparisler.miktar) as fiyat,urun_kayit.urun_ad as ad FROM siparisler,urun_kayit,kategori WHERE siparisler.urun_id=urun_kayit.urun_id AND kategori.kategori_id=urun_kayit.kategori_id AND kategori.kategori_adi='meyve' GROUP BY urun_kayit.urun_id  order by fiyat asc";
+    $urun = $baglan->query($urun);
+
+     ?>
+
+
+
+    <!DOCTYPE html>
 <html>
 
 <head>
@@ -20,283 +42,186 @@
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
     
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
-<script>
-$(document).ready(function(){
-showGraph();
-});
-function showGraph(){
-
-
-$.post("php/gider_analiz.php",
-function(data){
-console.log(data);
-var odeme_tarihi=[];
-var toplam=[];
-for (var i in data){
-odeme_tarihi.push(data[i].odeme_tarihi);
-toplam.push(data[i].toplam);
-};
-var chartdata={
-labels:odeme_tarihi,
-datasets:[
-{
-    label:'Aylık Toplam Gider',
-    backgroundColor: '#a41a11',
-    borderColor: '#0e0e0e',
-    hoverBackgroundColor: '#a5a5a5',
-    hoverBorderColor: '##a41a11',
-    data:toplam
-
-}]
-};
-var cnv=$("#gider_chart");
-var barGraph=new Chart(cnv,{
-type:'bar',
-data:chartdata
-});
-});
-
 
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
 
+      function drawChart() {
 
+        var data = google.visualization.arrayToDataTable([
+          ['Kadın', 'Erkek'],
 
+          <?php
+            while($row = $res->fetch_assoc()){
+                echo "['".$row["ad"]."',".$row["miktar"]."],";
+            }
 
-$.post("php/cinsiyet_analiz.php",
-function(data){
-console.log(data);
-var kadin=[];
-var erkek=[];
-for (var i in data){
-kadin.push(data[i].kadin);
-erkek.push(data[i].erkek);
-};
-var chartdata={
-labels:["cinsiyet"],
-
-datasets:[
-
-{
-    label:'Kadın %',
-    backgroundColor: '#f727cd',
-    borderColor: '#0e0e0e',
-    data:kadin
-
-},
-
-{
-    label:'Erkek %',
-    backgroundColor: '#27b0f7',
-    borderColor: '#0e0e0e',
-    data:erkek
-
-}
-
-
-]
-};
-var cnv=$("#cinsiyet_chart");
-var barGraph=new Chart(cnv,{
-type:'bar',
-data:chartdata
-});
-});
-
-
-
-
-
-
-$.post("php/kategori_analiz.php",
-function(data){
-console.log(data);
-var ad=[];
-var getiri=[];
-var toplam=[];
-for (var i in data){
-ad.push(data[i].ad);
-getiri.push(data[i].getiri);
-toplam.push(data[i].toplam);
-};
-var chartdata={
-labels:ad,
-datasets:[
-{
-    label:"Gelir",
-    backgroundColor: '#0e9c7e',
-    borderColor: 'black',
-    hoverBackgroundColor: '#a0a0a0',
-    hoverBorderColor: 'black',
-    data: getiri
-
-
-},
-{
-    label:"Üretim Miktarı",
-    backgroundColor: '#f16381',
-    borderColor: 'black',
-    hoverBackgroundColor: '#5f5f5f',
-    hoverBorderColor: 'black',
-    data: toplam
-
-
-}
-
-]
-
-
-};
-var cnv=$("#kategori_chart");
-var barGraph=new Chart(cnv,{
-type:'bar',
-data:chartdata
-});
-});
-
-
-
-
 
 
-$.post("php/eski_analiz.php",
-function(data){
-console.log(data);
-var ad=[];
-var eski=[];
-var yeni=[];
-for (var i in data){
-ad.push(data[i].ad);
-eski.push(data[i].eski);
-yeni.push(data[i].yeni);
-};
-var chartdata={
-labels:ad,
-datasets:[
-{
-    label:"Eski Fiyat",
-    backgroundColor: 'transparent',
-    borderColor: '#08da40',
-    hoverBackgroundColor: '#75f921',
-    hoverBorderColor: '#0d0d0d',
-    data: eski
-
-
-},
-    {
-    label:"Yeni Fiyat",
-    backgroundColor: 'transparent',
-    borderColor: '#6800bb',
-    hoverBackgroundColor: '#6800bb',
-    hoverBorderColor: '#0d0d0d',
-    data: yeni
-
-
-}
-
-]
-
-
-};
-var cnv=$("#eski_chart");
-var barGraph=new Chart(cnv,{
-type:'line',
-data:chartdata
-});
-});
-
-
-
-
-$.post("php/miktar_analizi.php",
-function(data){
-console.log(data);
-var ad=[];
-var miktar=[];
-var siparis=[];
-for (var i in data){
-ad.push(data[i].ad);
-miktar.push(data[i].miktar);
-siparis.push(data[i].siparis);
-};
-var chartdata={
-labels:ad,
-datasets:[
-{
-    label:"Stok Miktar",
-    backgroundColor: 'transparent',
-    borderColor: '#0ac9bf',
-    hoverBackgroundColor: '#b1b3b1',
-    hoverBorderColor: 'black',
-    data: miktar
-
-
-},
-{
-    label:"Sipariş Miktar",
-    backgroundColor: 'transparent',
-    borderColor: '#8d0707',
-    hoverBackgroundColor: '#b1b3b1',
-    hoverBorderColor: '#a829a9',
-    data: siparis
-
-
-}
-
-]
-
-
-};
-var cnv=$("#miktar_chart");
-var barGraph=new Chart(cnv,{
-type:'line',
-data:chartdata
-});
-});
-
-
-
-
-$.post("php/gelir_analiz.php",
-function(data){
-console.log(data);
-var ad=[];
-var fiyat=[];
-for (var i in data){
-ad.push(data[i].ad);
-fiyat.push(data[i].fiyat);
-};
-var chartdata={
-labels:ad,
-datasets:[
-{
-    label:"Toplam Gelir",
-    backgroundColor: '#f1620a',
-    borderColor: 'black',
-    hoverBackgroundColor: '#ef4a39',
-    hoverBorderColor: 'black',
-    data: fiyat
-
-
-}
-
-]
-
-
-};
-var cnv=$("#gelir_chart");
-var barGraph=new Chart(cnv,{
-type:'bar',
-data:chartdata
-});
-});
-
-
-
-};
-</script>
+          ?>
+        ]);
+
+        var options = {
+          title: 'Cinsiyet Dağılımı',
+          height:350,
+          width:620,
+          backgroundColor:'#ececec'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+
+
+
+
+
+ <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Stok Miktarı', 'Sipariş Miktarı'],
+
+          <?php
+            while($row = $mik->fetch_assoc()){
+                echo "['".$row["ad"]."',".$row["miktar"].",".$row["siparis"]."],";
+            }
+
+
+
+          ?>
+
+          
+
+        ]);
+
+        var options = {
+          title: 'Stok-Sipariş Miktarı',
+          curveType: 'function',
+          legend: { position: 'bottom' },
+            height:350,
+            width:620,
+            backgroundColor:'#ececec'
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('linechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+
+          <?php
+            while($row = $kat->fetch_assoc()){
+                echo "['".$row["ad"]."',".$row["fiyat"]."],";
+            }
+
+
+
+          ?>
+        ]);
+
+        var options = {
+          pieHole: 0.4,
+          title: 'Kategorilere Göre Gelir Oranı',
+            height:350,
+            width:620,
+            backgroundColor:'#ececec'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+
+
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+
+          <?php
+            while($row = $urun->fetch_assoc()){
+                echo "['".$row["ad"]."',".$row["fiyat"]."],";
+            }
+
+
+
+          ?>
+        ]);
+
+        var options = {
+          title: 'Çok Satan Kategorinin Ürünlere Göre Gelir Oranı',
+            height:350,
+            width:620,
+            backgroundColor:'#ececec'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('urun_katchart'));
+        chart.draw(data, options);
+      }
+    </script>
+
+
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Kadın', 'Erkek'],
+
+          <?php
+            while($row = $gel->fetch_assoc()){
+                echo "['".$row["ad"]."',".$row["fiyat"]."],";
+            }
+
+
+
+          ?>
+        ]);
+
+        var options = {
+          title: 'Ürünlere Göre Gelir Oranı',
+          is3D: true,
+          height:350,
+          width:620,
+          backgroundColor:'#ececec'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('urunchart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
 
 
 
@@ -396,56 +321,29 @@ data:chartdata
 
               <div class="row">
                 
+                
+
                 <div class="col-sm-12 col-md-6">
-                    <div class="card text-left">
-                        <div class="card-header">ESKİ ve GÜNCEL FİYATLAR</div>
-                        <div class="card-body" style="background-color:#ded9d9">
-                            <canvas id="eski_chart"></canvas>
-                        </div>
-                    </div>
+                    <div id="linechart" style="margin-bottom: 55px;" ></div>
+                </div>
+                
+
+                <div class="col-sm-12 col-md-6">
+                    <div id="urunchart" style="margin-bottom: 55px;" ></div>
                 </div>
 
                 <div class="col-sm-12 col-md-6">
-                    <div class="card text-left">
-                        <div class="card-header">STOK MİKTARI ile SİPARİŞ MİKTARI</div>
-                        <div class="card-body" style="background-color:#ded9d9">
-                            <canvas id="miktar_chart"></canvas>
-                        </div>
-                    </div>
+                    <div id="donutchart" style="margin-bottom: 55px;" ></div>
                 </div>
 
                 <div class="col-sm-12 col-md-6">
-                    <div class="card text-left">
-                        <div class="card-header">SATILAN ÜRÜN GELİRLERİ</div>
-                        <div class="card-body" style="background-color:#ded9d9">
-                            <canvas id="gelir_chart"></canvas>
-                        </div>
-                    </div>
+                    <div id="urun_katchart" style="margin-bottom: 55px;" ></div>
                 </div>
+
+                
 
                 <div class="col-sm-12 col-md-6">
-                    <div class="card text-left">
-                        <div class="card-header">AYLIK TOPLAM GİDERLER</div>
-                        <canvas id="gider_chart" style="background-color:#ded9d9"></canvas>
-                    </div>
-                </div>
-
-                <div class="col col-sm-12 col-md-6">
-                    <div class="card text-left">
-                        <div class="card-header">CİNSİYETE GÖRE DAĞILIM</div>
-                        <div class="card-body" style="background-color:#ded9d9">
-                            <canvas id="cinsiyet_chart"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-md-6">
-                    <div class="card text-left">
-                        <div class="card-header">KATEGORİSİNE GÖRE ÜRÜN MİKTARI ve ELDE EDİLEN GELİR</div>
-                        <div class="card-body" style="background-color:#ded9d9">
-                            <canvas id="kategori_chart"></canvas>
-                        </div>
-                    </div>
+                    <div id="piechart" style="margin-bottom: 55px;"></div>
                 </div>
                 
 
@@ -454,9 +352,7 @@ data:chartdata
         </div>
     </div>
 
-        
-
-    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
@@ -485,4 +381,3 @@ data:chartdata
 </body>
 
 </html>
-

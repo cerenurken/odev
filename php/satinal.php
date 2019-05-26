@@ -4,7 +4,7 @@ require '../db.php';
 
 $sepet_urunler = array();
 
-$_SESSION["user_id"] = 34; //denme için değer verdik normalde login sayfasında loginden sonra bu değer atanır...
+$_SESSION["user_id"] = 37; 
 
 $counter = 0;
 foreach ($_POST as $k => $v) {
