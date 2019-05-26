@@ -16,6 +16,14 @@ $mik = $baglan->query($miktar);
     $urun = "SELECT sum(siparisler.birim_fiyat*siparisler.miktar) as fiyat,urun_kayit.urun_ad as ad FROM siparisler,urun_kayit,kategori WHERE siparisler.urun_id=urun_kayit.urun_id AND kategori.kategori_id=urun_kayit.kategori_id AND kategori.kategori_adi='meyve' GROUP BY urun_kayit.urun_id  order by fiyat asc";
     $urun = $baglan->query($urun);
 
+
+    $gider = "SELECT Concat(MonthName(odeme_tarihi),' ',Year(odeme_tarihi)) as donem, sum(odemeler.toplam) as 'adet' From odemeler Group By Year(odeme_tarihi), Month(odeme_tarihi)
+Order By odeme_tarihi";
+    $gdr = $baglan->query($gider);
+
+    $gelir="SELECT concat(MonthName(ekleme_tarih),' ',Year(ekleme_tarih)) as ay , sum(siparisler.miktar*siparisler.birim_fiyat) as'kar' FROM siparisler GROUP BY Year(ekleme_tarih), Month(ekleme_tarih)";
+    $trh= $baglan->query($gelir);
+
      ?>
 
 
@@ -91,13 +99,11 @@ $mik = $baglan->query($miktar);
 
 
 
- <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Year', 'Stok Miktarı', 'Sipariş Miktarı'],
+    <script language = "JavaScript">
+         function drawChart() {
+            // Define the chart to be drawn.
+            var data = google.visualization.arrayToDataTable([
+               ['Ürünler', 'Stok Miktarı', 'Sipariş Miktarı'],
 
           <?php
             while($row = $mik->fetch_assoc()){
@@ -107,25 +113,22 @@ $mik = $baglan->query($miktar);
 
 
           ?>
+            ]);
 
-          
-
-        ]);
-
-        var options = {
-          title: 'Stok-Sipariş Miktarı',
-          curveType: 'function',
-          legend: { position: 'bottom' },
+            var options = {title: 'Stok - Sipariş Miktarı',
             height:350,
-            width:620,
+          width:620,
             backgroundColor:'#ececec'
-        };
 
-        var chart = new google.visualization.LineChart(document.getElementById('linechart'));
+        }; 
 
-        chart.draw(data, options);
-      }
-    </script>
+            // Instantiate and draw the chart.
+            var chart = new google.visualization.BarChart(document.getElementById('linechart'));
+            chart.draw(data, options);
+         }
+         google.charts.setOnLoadCallback(drawChart);
+      </script>
+
 
 
     <script type="text/javascript">
@@ -217,6 +220,74 @@ $mik = $baglan->query($miktar);
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('urunchart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Ay', 'gelir'],
+          <?php
+            while($row = $trh->fetch_assoc()){
+                echo "['".$row["ay"]."',".$row["kar"]."],";
+            }
+
+
+
+          ?>
+
+        ]);
+
+        var options = {
+          title: 'Aylara Göre Gelirler',
+          height:350,
+          width:620,
+          backgroundColor:'#ececec',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('trh'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Ay', 'Gider'],
+          <?php
+            while($row = $gdr->fetch_assoc()){
+                echo "['".$row["donem"]."',".$row["adet"]."],";
+            }
+
+
+
+          ?>
+
+        ]);
+
+        var options = {
+          title: 'Aylara Göre Giderler',
+          height:350,
+          width:620,
+          backgroundColor:'#ececec',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('gdr'));
 
         chart.draw(data, options);
       }
@@ -340,11 +411,18 @@ $mik = $baglan->query($miktar);
                     <div id="urun_katchart" style="margin-bottom: 55px;" ></div>
                 </div>
 
-                
+                <div class="col-sm-12 col-md-6">
+                    <div id="trh" style="margin-bottom: 55px;"></div>
+                </div>
+
+                 <div class="col-sm-12 col-md-6">
+                    <div id="gdr" style="margin-bottom: 55px;"></div>
+                </div>
 
                 <div class="col-sm-12 col-md-6">
                     <div id="piechart" style="margin-bottom: 55px;"></div>
                 </div>
+
                 
 
 
