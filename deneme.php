@@ -7,26 +7,19 @@
 GROUP BY urun_kayit.urun_id  ";
 $mik = $baglan->query($miktar);
 
-    $kategori = "SELECT sum(siparisler.birim_fiyat*siparisler.miktar) as fiyat,kategori.kategori_adi as ad  FROM siparisler,urun_kayit,kategori WHERE siparisler.urun_id=urun_kayit.urun_id and urun_kayit.kategori_id=kategori.kategori_id GROUP BY kategori.kategori_id order by fiyat asc";
-    $kat = $baglan->query($kategori);
+	$kategori = "SELECT sum(siparisler.birim_fiyat*siparisler.miktar) as fiyat,kategori.kategori_adi as ad  FROM siparisler,urun_kayit,kategori WHERE siparisler.urun_id=urun_kayit.urun_id and urun_kayit.kategori_id=kategori.kategori_id GROUP BY kategori.kategori_id order by fiyat asc";
+	$kat = $baglan->query($kategori);
 
-    $gelir = "SELECT sum(siparisler.birim_fiyat*siparisler.miktar) as fiyat,urun_kayit.urun_ad as ad FROM siparisler,urun_kayit WHERE siparisler.urun_id=urun_kayit.urun_id  GROUP BY urun_kayit.urun_id ";
-    $gel = $baglan->query($gelir);
+	$gelir = "SELECT sum(siparisler.birim_fiyat*siparisler.miktar) as fiyat,urun_kayit.urun_ad as ad FROM siparisler,urun_kayit WHERE siparisler.urun_id=urun_kayit.urun_id  GROUP BY urun_kayit.urun_id ";
+	$gel = $baglan->query($gelir);
 
-    $urun = "SELECT sum(siparisler.birim_fiyat*siparisler.miktar) as fiyat,urun_kayit.urun_ad as ad FROM siparisler,urun_kayit,kategori WHERE siparisler.urun_id=urun_kayit.urun_id AND kategori.kategori_id=urun_kayit.kategori_id AND kategori.kategori_adi='meyve' GROUP BY urun_kayit.urun_id  order by fiyat asc";
-    $urun = $baglan->query($urun);
-
-
-    $gider = "SELECT Concat(MonthName(odeme_tarihi),' ',Year(odeme_tarihi)) as donem, sum(odemeler.toplam) as 'adet' From odemeler Group By Year(odeme_tarihi), Month(odeme_tarihi)
-Order By odeme_tarihi";
-    $gdr = $baglan->query($gider);
-
-    $gelir="SELECT concat(MonthName(ekleme_tarih),' ',Year(ekleme_tarih)) as ay , sum(siparisler.miktar*siparisler.birim_fiyat) as'kar' FROM siparisler GROUP BY Year(ekleme_tarih), Month(ekleme_tarih)";
-    $trh= $baglan->query($gelir);
+	$urun = "SELECT sum(siparisler.birim_fiyat*siparisler.miktar) as fiyat,urun_kayit.urun_ad as ad FROM siparisler,urun_kayit,kategori WHERE siparisler.urun_id=urun_kayit.urun_id AND kategori.kategori_id=urun_kayit.kategori_id AND kategori.kategori_adi='meyve' GROUP BY urun_kayit.urun_id  order by fiyat asc";
+	$urun = $baglan->query($urun);
 
 
-    $stok ="SELECT urun_guncelleme.fiyat as eski,urun_kayit.fiyat as yeni ,urun_kayit.urun_ad as ad FROM urun_kayit,urun_guncelleme WHERE urun_kayit.urun_ad=urun_guncelleme.urun_ad";
-    $stk = $baglan->query($stok);
+	$tarih = "SELECT concat(MonthName(ekleme_tarih),' ',Year(ekleme_tarih)) as donem , sum(siparisler.miktar*siparisler.birim_fiyat) as 'sayi' FROM siparisler GROUP BY Year(ekleme_tarih), Month(ekleme_tarih) UNION SELECT concat(MonthName(odeme_tarihi),' ',Year(odeme_tarihi)) as gun SUM(odemeler.odeme_tarihi) as 'adet' FROM odemeler GROUP BY Year(odeme_tarihi),Month(odeme_tarihi)"; 
+
+	$trh = $baglan->query($tarih);
 
      ?>
 
@@ -76,9 +69,9 @@ Order By odeme_tarihi";
           ['Kadın', 'Erkek'],
 
           <?php
-            while($row = $res->fetch_assoc()){
-                echo "['".$row["ad"]."',".$row["miktar"]."],";
-            }
+         	while($row = $res->fetch_assoc()){
+         		echo "['".$row["ad"]."',".$row["miktar"]."],";
+         	}
 
 
 
@@ -103,6 +96,11 @@ Order By odeme_tarihi";
 
 
 
+
+
+
+
+
     <script language = "JavaScript">
          function drawChart() {
             // Define the chart to be drawn.
@@ -110,21 +108,17 @@ Order By odeme_tarihi";
                ['Ürünler', 'Stok Miktarı', 'Sipariş Miktarı'],
 
           <?php
-            while($row = $mik->fetch_assoc()){
-                echo "['".$row["ad"]."',".$row["miktar"].",".$row["siparis"]."],";
-            }
+         	while($row = $mik->fetch_assoc()){
+         		echo "['".$row["ad"]."',".$row["miktar"].",".$row["siparis"]."],";
+         	}
 
 
 
           ?>
             ]);
 
-            var options = {title: 'Yıllık Stok - Sipariş Miktarı',
-            height:350,
-          width:620,
-            backgroundColor:'#ececec',
-            vAxis:{title:"Ürün"},
-            hAxis:{title:"Miktar"}
+            var options = {title: 'Stok - Sipariş Miktarı',
+            backgroundColor:'#ececec'
 
         }; 
 
@@ -137,6 +131,8 @@ Order By odeme_tarihi";
 
 
 
+
+
     <script type="text/javascript">
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
@@ -145,9 +141,9 @@ Order By odeme_tarihi";
           ['Task', 'Hours per Day'],
 
           <?php
-            while($row = $kat->fetch_assoc()){
-                echo "['".$row["ad"]."',".$row["fiyat"]."],";
-            }
+         	while($row = $kat->fetch_assoc()){
+         		echo "['".$row["ad"]."',".$row["fiyat"]."],";
+         	}
 
 
 
@@ -156,10 +152,10 @@ Order By odeme_tarihi";
 
         var options = {
           pieHole: 0.4,
-          title: 'Kategorilere Göre Yıllık Gelir Oranı',
-            height:350,
-            width:620,
-            backgroundColor:'#ececec'
+          title: 'Kategorilere Göre Gelir Oranı',
+          	height:350,
+        	width:620,
+        	backgroundColor:'#ececec'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
@@ -176,9 +172,9 @@ Order By odeme_tarihi";
           ['Task', 'Hours per Day'],
 
           <?php
-            while($row = $urun->fetch_assoc()){
-                echo "['".$row["ad"]."',".$row["fiyat"]."],";
-            }
+         	while($row = $urun->fetch_assoc()){
+         		echo "['".$row["ad"]."',".$row["fiyat"]."],";
+         	}
 
 
 
@@ -186,10 +182,10 @@ Order By odeme_tarihi";
         ]);
 
         var options = {
-          title: 'Çok Satan Kategorinin Ürünlere Göre Yıllık Gelir Oranı',
-            height:350,
-            width:620,
-            backgroundColor:'#ececec'
+          title: 'Çok Satan Kategorinin Ürünlere Göre Gelir Oranı',
+          	height:350,
+        	width:620,
+        	backgroundColor:'#ececec'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('urun_katchart'));
@@ -208,9 +204,9 @@ Order By odeme_tarihi";
           ['Kadın', 'Erkek'],
 
           <?php
-            while($row = $gel->fetch_assoc()){
-                echo "['".$row["ad"]."',".$row["fiyat"]."],";
-            }
+         	while($row = $gel->fetch_assoc()){
+         		echo "['".$row["ad"]."',".$row["fiyat"]."],";
+         	}
 
 
 
@@ -218,7 +214,7 @@ Order By odeme_tarihi";
         ]);
 
         var options = {
-          title: 'Ürünlere Göre Aylık Gelir Oranı',
+          title: 'Ürünlere Göre Gelir Oranı',
           is3D: true,
           height:350,
           width:620,
@@ -230,121 +226,6 @@ Order By odeme_tarihi";
         chart.draw(data, options);
       }
     </script>
-
-
-<script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Ay', 'Gelir'],
-          <?php
-            while($row = $trh->fetch_assoc()){
-                echo "['".$row["ay"]."',".$row["kar"]."],";
-            }
-
-
-
-          ?>
-
-        ]);
-
-        var options = {
-          title: 'Aylara Göre Gelirler',
-          height:350,
-          width:620,
-          backgroundColor:'#ececec',
-          curveType: 'function',
-          legend: { position: 'bottom' },
-          vAxis:{title:"TL"}
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('trh'));
-
-        chart.draw(data, options);
-      }
-    </script>
-
-
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Ay', 'Gider'],
-          <?php
-            while($row = $gdr->fetch_assoc()){
-                echo "['".$row["donem"]."',".$row["adet"]."],";
-            }
-
-
-
-          ?>
-
-        ]);
-
-        var options = {
-          title: 'Aylara Göre Giderler',
-          height:350,
-          width:620,
-          backgroundColor:'#ececec',
-          curveType: 'function',
-          legend: { position: 'bottom' },
-          vAxis:{title:"TL"}
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('gdr'));
-
-        chart.draw(data, options);
-      }
-    </script>
-
-
-
-
-
-<script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Ay', 'Eski Fiyat',"Yeni Fiyat"],
-          <?php
-            while($row = $stk->fetch_assoc()){
-                echo "['".$row["ad"]."',".$row["eski"].",".$row["yeni"]."],";
-            }
-
-
-
-          ?>
-
-        ]);
-
-        var options = {
-          title: 'Ürünlerin Aylık Fiyat Değişimi',
-          height:350,
-          width:620,
-          backgroundColor:'#ececec',
-          curveType: 'function',
-          legend: { position: 'bottom' },
-          vAxis:{title:"TL"}
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('stk'));
-
-        chart.draw(data, options);
-      }
-    </script>
-
-
-
-
-
-
-
 
 
 
@@ -451,18 +332,15 @@ Order By odeme_tarihi";
               <div class="row">
                 
                 
-                <div class="col-sm-12 col-md-6">
-                    <div id="urunchart" style="margin-bottom: 55px;" ></div>
-                </div>
 
-
-                <div class="col-sm-12 col-md-6">
-                    <div id="linechart" style="margin-bottom: 55px;" ></div>
+ 				<div class="col-sm-12 col-md-6">
+                    <div id="linechart" style="margin-bottom: 55px;height:350px;
+        	width:620px;" ></div>
                 </div>
                 
 
                 <div class="col-sm-12 col-md-6">
-                    <div id="stk" style="margin-bottom: 55px;"></div>
+                    <div id="urunchart" style="margin-bottom: 55px;" ></div>
                 </div>
 
                 <div class="col-sm-12 col-md-6">
@@ -470,15 +348,7 @@ Order By odeme_tarihi";
                 </div>
 
                 <div class="col-sm-12 col-md-6">
-                    <div id="trh" style="margin-bottom: 55px;"></div>
-                </div>
-
-                <div class="col-sm-12 col-md-6">
                     <div id="urun_katchart" style="margin-bottom: 55px;" ></div>
-                </div>
-
-                 <div class="col-sm-12 col-md-6">
-                    <div id="gdr" style="margin-bottom: 55px;"></div>
                 </div>
 
                 
@@ -486,7 +356,6 @@ Order By odeme_tarihi";
                 <div class="col-sm-12 col-md-6">
                     <div id="piechart" style="margin-bottom: 55px;"></div>
                 </div>
-
                 
 
 
