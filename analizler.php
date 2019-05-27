@@ -262,7 +262,7 @@ Order By odeme_tarihi";
         ]);
 
         var options = {
-          title: 'Yıllık Müşteri Ürün Alım Oranı',
+          title: 'Müşterilerin Yıllık Ürün Alım Oranı',
           is3D: true,
           height:350,
           width:620,
