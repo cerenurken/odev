@@ -389,7 +389,7 @@ Order By odeme_tarihi";
             <ul class="list-unstyled components">
                 <li>
                         <div class="row">
-                            <img class="fas fa-user rounded-circle mx-auto" style="border: 2px solid;width: 100px; margin-top: 45px; height: 100px;padding: 15px; margin-bottom: 30px;"/>
+                            <img src="resimler/images.jpg" class=" mx-auto" style="border: 2px solid;width: 100px; margin-top: 45px; height: 100px;padding: 15px; margin-bottom: 30px;"/>
                         </div>
                 </li>
                     <div class="row">
@@ -468,13 +468,16 @@ Order By odeme_tarihi";
                 <div class="col-sm-12 col-md-6">
                     <div id="donutchart" style="margin-bottom: 55px;" ></div>
                 </div>
-
                 <div class="col-sm-12 col-md-6">
-                    <div id="trh" style="margin-bottom: 55px;"></div>
+                    <div id="piechart" style="margin-bottom: 55px;"></div>
                 </div>
 
                 <div class="col-sm-12 col-md-6">
                     <div id="urun_katchart" style="margin-bottom: 55px;" ></div>
+                </div>
+
+                <div class="col-sm-12 col-md-6">
+                    <div id="trh" style="margin-bottom: 55px;"></div>
                 </div>
 
                  <div class="col-sm-12 col-md-6">
@@ -483,9 +486,7 @@ Order By odeme_tarihi";
 
                 
 
-                <div class="col-sm-12 col-md-6">
-                    <div id="piechart" style="margin-bottom: 55px;"></div>
-                </div>
+                
 
                 
 

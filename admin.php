@@ -35,7 +35,7 @@
             <ul class="list-unstyled components">
                 <li>
                         <div class="row">
-                            <img class="fas fa-user rounded-circle mx-auto" style="border: 2px solid;width: 100px; margin-top: 45px; height: 100px;padding: 15px; margin-bottom: 30px;"/>
+                            <img src="resimler/images.jpg" class=" mx-auto" style="border: 2px solid;width: 100px; margin-top: 45px; height: 100px;padding: 15px; margin-bottom: 30px;"/>
                         </div>
                 </li>
                     <div class="row">
