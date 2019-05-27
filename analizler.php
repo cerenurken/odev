@@ -24,6 +24,10 @@ Order By odeme_tarihi";
     $gelir="SELECT concat(MonthName(ekleme_tarih),' ',Year(ekleme_tarih)) as ay , sum(siparisler.miktar*siparisler.birim_fiyat) as'kar' FROM siparisler GROUP BY Year(ekleme_tarih), Month(ekleme_tarih)";
     $trh= $baglan->query($gelir);
 
+
+    $stok ="SELECT urun_guncelleme.fiyat as eski,urun_kayit.fiyat as yeni ,urun_kayit.urun_ad as ad FROM urun_kayit,urun_guncelleme WHERE urun_kayit.urun_ad=urun_guncelleme.urun_ad";
+    $stk = $baglan->query($stok);
+
      ?>
 
 
@@ -296,6 +300,55 @@ Order By odeme_tarihi";
 
 
 
+
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Ay', 'Eski Fiyat',"Yeni Fiyat"],
+          <?php
+            while($row = $stk->fetch_assoc()){
+                echo "['".$row["ad"]."',".$row["eski"].",".$row["yeni"]."],";
+            }
+
+
+
+          ?>
+
+        ]);
+
+        var options = {
+          title: 'Ürünlerin Aylık Fiyat Değişimi',
+          height:350,
+          width:620,
+          backgroundColor:'#ececec',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('stk'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </head>
 <body>
 
@@ -417,6 +470,10 @@ Order By odeme_tarihi";
 
                  <div class="col-sm-12 col-md-6">
                     <div id="gdr" style="margin-bottom: 55px;"></div>
+                </div>
+
+                <div class="col-sm-12 col-md-6">
+                    <div id="stk" style="margin-bottom: 55px;"></div>
                 </div>
 
                 <div class="col-sm-12 col-md-6">
