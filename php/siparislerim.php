@@ -48,17 +48,17 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="index.php">Ürünler<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="../index.php">Ürünler<span class="sr-only">(current)</span></a>
       </li>
     </ul>
      <ul class="nav navbar-nav navbar-right">
-      <li><a href="giris_kayit.php">
-        <span class="glyphicon glyphicon-user cart-icon"></span>
+      <li><a href="../index.php">
+        <span class=" glyphicon glyphicon-log-out"></span>
       </a></li>
               
     </ul>
     <ul class="nav navbar-nav navbar-right">
-    	<li><a href="shoping.php">
+    	<li><a href="../shoping.php">
     		<span class="glyphicon glyphicon-shopping-cart cart-icon"></span>
     		<span class="badge cart-count"></span>
     	</a></li>
