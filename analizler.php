@@ -28,6 +28,10 @@ Order By odeme_tarihi";
     $stok ="SELECT urun_guncelleme.fiyat as eski,urun_kayit.fiyat as yeni ,urun_kayit.urun_ad as ad FROM urun_kayit,urun_guncelleme WHERE urun_kayit.urun_ad=urun_guncelleme.urun_ad";
     $stk = $baglan->query($stok);
 
+
+    $musteri="SELECT sum(siparisler.miktar) as siparis,kullanici_kayit.ad_soyad as ad FROM siparisler,kullanici_kayit WHERE siparisler.musteri_id=kullanici_kayit.musteri_id GROUP BY kullanici_kayit.musteri_id";
+    $musteri=$baglan->query($musteri);
+
      ?>
 
 
@@ -232,6 +236,45 @@ Order By odeme_tarihi";
     </script>
 
 
+        <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Kadın', 'Erkek'],
+
+          <?php
+            while($row = $musteri->fetch_assoc()){
+                echo "['".$row["ad"]."',".$row["siparis"]."],";
+            }
+
+
+
+          ?>
+        ]);
+
+        var options = {
+          title: 'Yıllık Müşteri Ürün Alım Oranı',
+          is3D: true,
+          height:350,
+          width:620,
+          backgroundColor:'#ececec'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('musteri'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+
+
+
+
+
+
 <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
@@ -389,7 +432,7 @@ Order By odeme_tarihi";
             <ul class="list-unstyled components">
                 <li>
                         <div class="row">
-                            <img src="resimler/images.jpg" class=" mx-auto" style="border: 2px solid;width: 100px; margin-top: 45px; height: 100px;padding: 15px; margin-bottom: 30px;"/>
+                            <img class="fas fa-user rounded-circle mx-auto" style="border: 2px solid;width: 100px; margin-top: 45px; height: 100px;padding: 15px; margin-bottom: 30px;"/>
                         </div>
                 </li>
                     <div class="row">
@@ -475,6 +518,11 @@ Order By odeme_tarihi";
                 <div class="col-sm-12 col-md-6">
                     <div id="urun_katchart" style="margin-bottom: 55px;" ></div>
                 </div>
+
+                <div class="col-sm-12 col-md-6">
+                    <div id="musteri" style="margin-bottom: 55px;" ></div>
+                </div>
+
 
                 <div class="col-sm-12 col-md-6">
                     <div id="trh" style="margin-bottom: 55px;"></div>
