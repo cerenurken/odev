@@ -180,6 +180,39 @@
             <!--<h2>Anasayfa</h2>-->
 
             <div class="row">
+
+
+                <div class="col-sm-12 col-md-12"  style="margin-bottom: 5%; margin-top: 1.7%;">
+                    <div class="card ">
+                        <h4 style=" padding-top:1%;  padding-left: 3%; color: #ff7838;">GÜNCEL HABERLER</h4>
+                            <p class="card-text" >
+                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                    </ol>
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img class="d-block w-100" src="resimler/haberler/haber2.png" alt="First slide "style="width: 200px;height: 400px;">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img class="d-block w-100" src="resimler/haberler/haber3.png" alt="Second slide" style="width: 200px;height: 400px;">
+                                        </div>
+                                    </div>
+                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                            </p>
+                       </div>     
+                </div>
+
+
                 <div class="col-sm-12 col-md-6" style="margin-bottom: 5%; margin-top: 1.7%;">
                     <div class="card" style="margin-bottom: 0.3%;">
                         <h4 style="padding-top: 3%; padding-bottom: 0.8%; padding-left: 3%; color: #ff7838;">YILLIK VE AYLIK ENFLASYON ORANI</h4>
@@ -282,44 +315,11 @@ $tufe=getir('<td style="text-align: center;">',"</td>",$cekilen_veri);
                             </div>
                 </div>
 
-                <div class="col-sm-12 col-md-6" style="margin-bottom: 5%; margin-top: 1.7%;">
-                    <div class="card" style="margin-bottom: 0.3%;">
-                        <h4 style="padding-top: 3%; padding-bottom: 0.8%; padding-left: 3%; color: #ff7838;">GÜNLÜK SATIŞ GELİRİ</h4>
-                    </div>
-                    <div class="card" style="width: 600px; height: 310px;">
-                        <video style="width: 570px; height: 280px; padding-top: 4%;" controls>
-                            <source src="resimler/organik.mp4"type="video/mp4">
-                        </video>
-                    </div>
-                </div>
-
-
-                
+               
                 
 
-                
-                <div class="col-sm-12 col-md-6">
-                    <div class="card text-left">
-                        <div class="card-header">Müşterilerin Sık Ziyaret Ettiği Kısımlar</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                        <div class="card-footer text-muted">2 days ago</div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6">
-                    <div class="card text-left">
-                        <div class="card-header"></div>
-                        <div class="card-body">
-                            <h5 class="card-title">Haftalık Rapor</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                        <div class="card-footer text-muted">2 days ago</div>
-                    </div>
-                </div>
+
+
                 
 
             </div>
