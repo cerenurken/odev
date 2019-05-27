@@ -1,4 +1,8 @@
+   
+
+
     <?php 
+    
     require 'php/baglan.php';
     $sql = "SELECT kullanici_kayit.cinsiyet as ad,count(kullanici_kayit.musteri_id) as miktar FROM kullanici_kayit GROUP BY kullanici_kayit.cinsiyet";
     $res = $baglan->query($sql);
@@ -21,7 +25,7 @@ $mik = $baglan->query($miktar);
 Order By odeme_tarihi";
     $gdr = $baglan->query($gider);
 
-    $gelir="SELECT concat(MonthName(ekleme_tarih),' ',Year(ekleme_tarih)) as ay , sum(siparisler.miktar*siparisler.birim_fiyat) as'kar' FROM siparisler GROUP BY Year(ekleme_tarih), Month(ekleme_tarih)";
+    $gelir=" SELECT concat(MonthName(ekleme_tarih),' ',Year(ekleme_tarih)) as ay , sum(siparisler.miktar*siparisler.birim_fiyat) as'kar' FROM siparisler GROUP BY Year(ekleme_tarih), Month(ekleme_tarih)  ";
     $trh= $baglan->query($gelir);
 
 
@@ -58,6 +62,8 @@ Order By odeme_tarihi";
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+
 
 
 
@@ -494,9 +500,7 @@ Order By odeme_tarihi";
               <div class="row">
                 
                 
-                <div class="col-sm-12 col-md-6">
-                    <div id="urunchart" style="margin-bottom: 55px;" ></div>
-                </div>
+                
 
 
                 <div class="col-sm-12 col-md-6">
@@ -509,15 +513,20 @@ Order By odeme_tarihi";
                 </div>
 
                 <div class="col-sm-12 col-md-6">
+                    <div id="urunchart" style="margin-bottom: 55px;" ></div>
+                </div>
+
+                <div class="col-sm-12 col-md-6">
                     <div id="donutchart" style="margin-bottom: 55px;" ></div>
                 </div>
                 <div class="col-sm-12 col-md-6">
                     <div id="piechart" style="margin-bottom: 55px;"></div>
                 </div>
+                
 
-                <div class="col-sm-12 col-md-6">
+               <!-- <div class="col-sm-12 col-md-6">
                     <div id="urun_katchart" style="margin-bottom: 55px;" ></div>
-                </div>
+                </div>-->
 
                 <div class="col-sm-12 col-md-6">
                     <div id="musteri" style="margin-bottom: 55px;" ></div>
