@@ -1,4 +1,4 @@
-# phpodev
+# organicK php ödevi
 Projenin Konusu: 
 Organik ürünlerin uygun fiyatlarla tüketicilere ulaştırılması
 
